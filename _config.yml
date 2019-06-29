@@ -112,6 +112,9 @@ author:
                       I am eager to apply concepts and develop acquired skills."
   location         : "Ratnagiri, MH"
   # email            : "pranavnat24@gmail.com"
+  linkedin         : "https://www.linkedin.com/in/pranav-natekar-14b9ba140/"
+  
+
 
   links:
     - label: "Email"
@@ -132,9 +135,7 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/thepranavn/"
-    -label: "LinkedIn"
-      icon: "/assets/images/linkedin.ico"
-      url: "https://www.linkedin.com/in/pranav-natekar-14b9ba140/"
+
 
 
 # Site Footer
