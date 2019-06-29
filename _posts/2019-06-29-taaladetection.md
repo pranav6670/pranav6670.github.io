@@ -28,7 +28,7 @@ Bulleted List
 + Second
 
 Python Code:
-```Python
+```python
   import numpy as np
 
   def add(x, y):
