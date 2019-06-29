@@ -4,6 +4,7 @@ date: 2019-06-29
 tags: [Deep Learning, Audio Classification, Data Science]
 header:
   image: "/images/tablaa.jpg"
+excerpt: "Deep Learning, Data Science"
 mathjax: true
 ---
 # H1 Heading
