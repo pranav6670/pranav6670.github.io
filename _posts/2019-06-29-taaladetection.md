@@ -1,7 +1,7 @@
 ---
 title: "Detection of Tabla taalas from Indian Classical Music"
 date: 2019-06-29
-tags: [Deep Learning, Audio Classification, Data Science]
+#tags: [Deep Learning, Audio Classification, Data Science]
 header:
   image: "/images/tablaa.jpg"
 excerpt: "Deep Learning, Data Science"
