@@ -8,9 +8,11 @@ excerpt: "Deep Learning, Data Science"
 mathjax: true
 ---
 
-# Introduction
+# introduction
 
+<div style="text-align: justify">
 This project work aims on developing a system that would be able to first *detect* a [tabla](https://en.wikipedia.org/wiki/Tabla) [tala](https://en.wikipedia.org/wiki/Tala_(music)) from a mix(a song) of an Indian or Carnatic Classical Music and then *classify* the tala. Tala is specific pattern which occurs in all of the Indian Classical Music and Tabla is percussive accompanying instrument.
+</div>
 
 ---
 
