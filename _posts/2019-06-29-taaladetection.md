@@ -11,6 +11,7 @@ mathjax: true
 
 ---
 
+{.notice--danger}
 # Introduction
 
 {: .notice--primary}
@@ -89,14 +90,14 @@ The GUI was made using PyQt5.
 # Model graphs and summaries :-
 
   1. CNN Graph and summary
-  ![image-left](/images/Tabla project/convmodel.png){: .align-left}
-  ![image-right](/images/Tabla project/conv_summ.png){: .align-right}
+![image-left](/images/Tabla project/convmodel.png){: .align-left}
+![image-right](/images/Tabla project/conv_summ.png){: .align-right}
 
 ---
 
   2. LSTM Graph and summary
-  ![image-left](/images/Tabla project/recmodel.png){: .align-left}
-  ![image-left](/images/Tabla project/rec_summ.png){: .align-left}
+![image-left](/images/Tabla project/recmodel.png){: .align-left}
+![image-left](/images/Tabla project/rec_summ.png){: .align-left}
 
 ---
 
