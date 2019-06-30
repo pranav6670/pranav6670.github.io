@@ -78,7 +78,7 @@ The GUI was made using PyQt5.
 
 + Model Summaries :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/recmodel.png" alt="lstmGraph">
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/recmodel.png" alt="lstmGraph">
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/rec_summ.png" alt="lstmGraph">
 
 ---
 
@@ -90,9 +90,9 @@ The GUI was made using PyQt5.
 
 ---
 
-* The actual implementation of mine can be found [here](https://github.com/pranav6670/Detection-Classification-of-Tabla-taals)
+> The actual implementation of mine can be found [here](https://github.com/pranav6670/Detection-Classification-of-Tabla-taals)
 
-* [Inspiration for the project](https://www.youtube.com/watch?v=Z7YM-HAz-IY&list=PLhA3b2k8R3t2Ng1WW_7MiXeh1pfQJQi_P)
-*Please check him out*
+> [Inspiration for the project](https://www.youtube.com/watch?v=Z7YM-HAz-IY&list=PLhA3b2k8R3t2Ng1WW_7MiXeh1pfQJQi_P)
+>>*Please check him out*
 
 ---
