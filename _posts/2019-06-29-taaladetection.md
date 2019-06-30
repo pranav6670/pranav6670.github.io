@@ -5,10 +5,11 @@ tags: [Deep Learning, Audio Classification, Data Science]
 header:
   image: "/images/tabla.jpg"
 excerpt: "Deep Learning, Data Science"
+author_profile: false
 mathjax: true
 ---
 
-# introduction
+# Introduction
 
 <div style="text-align: justify">
 This project work aims on developing a system that would be able to first detect a <a href="https://en.wikipedia.org/wiki/Tabla">tabla</a> <a href="https://en.wikipedia.org/wiki/Tala_(music)">tala</a>
