@@ -11,10 +11,9 @@ mathjax: true
 
 ---
 
-{: .notice--danger}
 # Introduction
 
-{: .notice--primary}
+{: .notice--info}
 <div style="text-align: justify">
 This project work aims on developing a system that would be able to first detect a <a href="https://en.wikipedia.org/wiki/Tabla">tabla</a> <a href="https://en.wikipedia.org/wiki/Tala_(music)">tala</a>
 from a mix(a song) of an Indian or Carnatic Classical Music and then classify the tala. Tala is specific pattern which occurs in all of the Indian Classical Music and Tabla is percussive accompanying instrument.
@@ -22,10 +21,9 @@ from a mix(a song) of an Indian or Carnatic Classical Music and then classify th
 
 ---
 
-{: .notice--danger}
 # Motivation
 
-{: .notice--primary}
+{: .notice--info}
 <div style="text-align: justify">
 The work done by people around the world from the Music Information Retrieval<a href="https://en.wikipedia.org/wiki/Music_information_retrieval">(MIR)</a> community revolves around the western music, their genres and their instruments, but not significant work has been carried around Indian Classical Music and specifically tabla. The main objective of the project was to make the system real-time. The attempt on making the system real-time has not been done so far. Also, this could be the starting point to study the several prospects of the Indian Classical Music. To the best of our knowledge, there have been only few attempts on tala classification using Deep Learning and making it real-time. Also, the attempts made in bol transcription use the classical machine learning techniques which may not be able to make classification robust.
 </div>
@@ -81,8 +79,9 @@ The work done by people around the world from the Music Information Retrieval<a 
 
 ---
 
-# My GUI :-
+## My GUI :-
 
+{: .notice--success}
 The GUI was made using PyQt5.
 
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/GUI.png" alt="GUI">
