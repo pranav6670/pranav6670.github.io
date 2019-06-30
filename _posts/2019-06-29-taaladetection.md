@@ -41,60 +41,62 @@ The work done by people around the world from the [Music Information Retrieval(M
 
 # Methodology
 
-+ Data was collected by recording the talas played from an iOS [app](https://apps.apple.com/us/app/itablapro-  lite/id919001492) from a mic.
+## Data was collected by recording the talas played from an iOS [app](https://apps.apple.com/us/app/itablapro-  lite/id919001492) from a mic.
 
-* Raw Audio :-
+### Raw Audio :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/timedata.png" alt="Raw audio">
 
-* Fourier Transform of the raw audio :-
+### Fourier Transform of the raw audio :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_ft.png" alt="FT of the data">
 
-* Filter bank energies :-
+### Filter bank energies :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/filterbankenergies.png" alt="Filter bank energies">
 
-* MFCCs of the data :-
+### MFCCs of the data :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_mfccs.png" alt="MFCCs">
 
-+ Data was pre-processed(Down-Sampling & Noise Threshold Detection)
+## Data was pre-processed(Down-Sampling & Noise Threshold Detection)
 
-+ Data was visualized.
+## Data was visualized.
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/distribution.png" alt="Data distribution">
 
 
-+ A Convolutional Neural Network(CNN) and a Long Short Term Memory(LSTM) network was trained on the
+## A Convolutional Neural Network(CNN) and a Long Short Term Memory(LSTM) network was trained on the
   Mel Frequency Cepstral Coefficients(MFCCs) of 1/10<sup>th</sup> second of the data resulting in a large number of samples generated.
 
-+ An unknown sample was given as an input containing instruments other than tabla. The harmonic component     was filtered by HPSS algorithm and the percussive component was used for classification.
+## An unknown sample was given as an input containing instruments other than tabla. The harmonic component     was filtered by HPSS algorithm and the percussive component was used for classification.
 
 ---
 
+### My GUI :-
 
+The GUI was made using PyQt5.
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/GUI.png" alt="GUI">
 
-Italics
-*italics*
+---
 
-Bold
-**bold**
+### Model graphs and summaries :-
 
-Here's my [resume](https://github.com/pranav6670)
-Bulleted List
-1. One
-2. Two
++ Model Graphs :-
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/graphs.png" alt="Graphs">
 
-* first
-+ Second
++ Model Summaries :-
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/summs.png" alt="Summaries">
 
-Python Code:
-```python
-  import numpy as np
+---
 
-  def add(x, y):
-    return np.sum(x, y)
-```
+## Helpful Links regarding the project :-
 
-Here's some inline `x + y = z`
+1. https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html
+2. http://yann.lecun.com/exdb/publis/pdf/lecun-bengio-95a.pdf
+3. https://www.analyticsvidhya.com/blog/2017/12/fundamentals-of-deep-learning-introduction-to-lstm/
 
-Here's an image:
+---
 
-Here's some equations:
-$$x+y=z$$
+The actual implementation of mine can be found [here](https://github.com/pranav6670/Detection-Classification-of-Tabla-taals)
+
+[Inspiration for the project](https://www.youtube.com/watch?v=Z7YM-HAz-IY&list=PLhA3b2k8R3t2Ng1WW_7MiXeh1pfQJQi_P)
+
+Please check him out
+
+---
