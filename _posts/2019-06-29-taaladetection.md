@@ -7,6 +7,8 @@ header:
 excerpt: "Deep Learning, Data Science"
 author_profile: false
 mathjax: true
+classes: wide
+
 ---
 
 ---
