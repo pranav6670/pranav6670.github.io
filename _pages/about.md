@@ -8,32 +8,12 @@ header:
 I am a energetic and hard-working engineer seeking real-world experience with outstanding technologies like Machine Learning and eager to apply concepts and develop acquired skills.
 
 ---
+# testing buttons
 
+{: .notice--success}
+Robocon certificate
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<a href="https://www.slideshare.net/PranavNatekar/roboconcert" class="btn btn--primary">Check that out</a>
 
 
 
