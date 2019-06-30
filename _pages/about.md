@@ -33,7 +33,7 @@ Mindspark'18-*2<sup>nd</sup> Runner Ups*-Micro-Apps <a href="https://www.slidesh
 {: .notice--success}
 Mindspark'18-*1<sup>st</sup> Position*-Witrified <a href="https://www.slideshare.net/PranavNatekar/mindspark-certificate-witrified" class="btn btn--info">Certificate</a>
 
----s
+---
 
 ## My GitHub contributions
 
