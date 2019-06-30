@@ -23,7 +23,7 @@ The work done by people around the world from the [Music Information Retrieval(M
 # Objectives
 
 1. Separate the input audio signals into its respective harmonic and percussive components :-
-   Separation of a given mix is performed using the algorithm known as Harmonic-Percussive Source Separation[1].
+   Separation of a given mix is performed using the algorithm known as Harmonic-Percussive Source Separation.
    Check out [HPSS](https://librosa.github.io/librosa/auto_examples/plot_hprss.html)
 
 2. Collect/generate suitable audio files/loops for the problem which consists of Tabla.
@@ -43,18 +43,32 @@ The work done by people around the world from the [Music Information Retrieval(M
 
 + Data was collected by recording the talas played from an iOS [app](https://apps.apple.com/us/app/itablapro-  lite/id919001492) from a mic.
 
+* Raw Audio :-
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/timedata.png" alt="Raw audio">
+
+* Fourier Transform of the raw audio :-
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_ft.png" alt="FT of the data">
+
+* Filter bank energies :-
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/filterbankenergies.png" alt="Filter bank energies">
+
+* MFCCs of the data :-
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_mfccs.png" alt="MFCCs">
+
 + Data was pre-processed(Down-Sampling & Noise Threshold Detection)
 
 + Data was visualized.
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/distribution.png" alt="Data distribution">
 
-+ A Convolutional Neural Network(CNN)[2] and a Long Short Term Memory(LSTM)[3] network was trained on the
-  Mel Frequency Cepstral Coefficients(MFCCs)[4] of 1/10<sup>th</sup> second of the data resulting in a large number of samples generated.
 
-+ An unknown sample was given as an input containing instruments other than tabla. The harmonic component      was filtered by HPSS algorithm and the percussive component was used for classification.
++ A Convolutional Neural Network(CNN) and a Long Short Term Memory(LSTM) network was trained on the
+  Mel Frequency Cepstral Coefficients(MFCCs) of 1/10<sup>th</sup> second of the data resulting in a large number of samples generated.
+
++ An unknown sample was given as an input containing instruments other than tabla. The harmonic component     was filtered by HPSS algorithm and the percussive component was used for classification.
 
 ---
 
-[1]: https://arrow.dit.ie/cgi/viewcontent.cgi?referer=&httpsredir=1&article=1078&context=argcon
+
 
 Italics
 *italics*
@@ -81,7 +95,6 @@ Python Code:
 Here's some inline `x + y = z`
 
 Here's an image:
-<img src="{{ site.url }}{{ site.baseurl }}/images/distribution.png" alt="Data distribution">
 
 Here's some equations:
 $$x+y=z$$
