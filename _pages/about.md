@@ -3,6 +3,16 @@ title: "About Me"
 permalink: /about/
 header:
   image: "/images/about_me.jpg"
+author_profile: true
+
+sidebar:
+  - title: "Some more side stuff"
+    image: http://placehold.it/350x250
+    image_alt: "image"
+    text: "Some text here."
+  - title: "Some moreeeeeee stuff"
+    text: "More text here."
+
 ---
 
 I am a energetic and hard-working engineer seeking real-world experience with outstanding technologies like Machine Learning and eager to apply concepts and develop acquired skills.

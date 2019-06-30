@@ -93,14 +93,14 @@ The GUI was made using PyQt5.
 # Model graphs and summaries :-
 
   1. CNN Graph and summary
-![image-left](/images/Tabla project/convmodel.png){: .align-left}
-![image-right](/images/Tabla project/conv_summ.png){: .align-right}
+  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/convmodel.png" alt="cnnGraph">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/conv_summ.png" alt="cnnSummary">
 
 ---
 
   2. LSTM Graph and summary
-![image-left](/images/Tabla project/recmodel.png){: .align-left}
-![image-left](/images/Tabla project/rec_summ.png){: .align-left}
+  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/recmodel.png" alt="lstmGraph">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/rec_summ.png" alt="lstmSummary">
 
 ---
 
