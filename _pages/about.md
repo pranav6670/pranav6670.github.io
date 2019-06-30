@@ -5,13 +5,13 @@ header:
   image: "/images/about_me.jpg"
 author_profile: true
 
-sidebar:
-  - title: "Some more side stuff"
-    image: http://placehold.it/350x250
-    image_alt: "image"
-    text: "Some text here."
-  - title: "Some moreeeeeee stuff"
-    text: "More text here."
+#sidebar:
+  #- title: "Some more side stuff"
+  #  image: http://placehold.it/350x250
+  #  image_alt: "image"
+    #text: "Some text here."
+#  - title: "Some moreeeeeee stuff"
+    #text: "More text here."
 
 toc: true
 toc_label: "Table of contents"
@@ -19,6 +19,10 @@ toc_icon: "cog"
 ---
 
 I am a energetic and hard-working engineer seeking real-world experience with outstanding technologies like Machine Learning and eager to apply concepts and develop acquired skills.
+
+---
+
+Resume and other things coming soon......
 
 ---
 
@@ -50,9 +54,13 @@ See <a href="https://www.slideshare.net/PranavNatekar/melange18-certificate" cla
 See <a href="https://www.slideshare.net/PranavNatekar/ait-certificate-152725247
 " class="btn btn--warning">Certificate</a>
 
+---
+
 ## Activities
 
 ### Cultural
+
+Played Tabla at Aavishkar
 
 {: .notice--success}
 <div style="text-align: justify">
@@ -60,8 +68,10 @@ Aavishkar is the cultural commune of VIIT, Pune. Here, people from various art b
 I was a part of music team where I played <a href="https://en.wikipedia.org/wiki/Tabla">tabla</a> and <a href="https://en.wikipedia.org/wiki/Daf">daf</a>.
 See <a href="https://www.slideshare.net/PranavNatekar/aavishkar-certificate" class="btn btn--warning">College Certificate</a>
 
-See <a href="https://www.slideshare.net/PranavNatekar/firodiya-certificate" class="btn btn--warning">Firodiya Certificate</a>
+See <a href="https://www.slideshare.net/PranavNatekar/firodiya-certificate" class="btn btn--danger">Firodiya Certificate</a>
 </div>
+
+Check out Aavishkar at <i class="fab fa-fw fa-instagram"></i> <a href="https://www.instagram.com/aavishkar_viit/">aavishkar_viit</a>
 
 
 ### Technical
@@ -70,8 +80,10 @@ See <a href="https://www.slideshare.net/PranavNatekar/firodiya-certificate" clas
 <div style="text-align: justify">
 <a href="https://en.wikipedia.org/wiki/ABU_Robocon">Robocon</a> is Asian Oceanian College robot competition held first at national level and then a team represents its own country at the host country. In the competition a robot or robots must complete a certain task in a fixed amount of time.
 I led a team which focused on wireless communication. <a href="https://www.sparkfun.com/datasheets/Components/nRF24L01_prelim_prod_spec_1_2.pdf">nRF24L01+</a>, <a href="https://www.espressif.com/en/products/hardware/esp8266ex/overview">ESP8266</a>, etc wireless systems were tested.
-See <a href="https://www.slideshare.net/PranavNatekar/roboconcert" class="btn btn--warning">College Certificate</a>
+See <a href="https://www.slideshare.net/PranavNatekar/roboconcert" class="btn btn--danger">Certificate</a>
 </div>
+
+Check out Robocon, VIIT at <i class="fab fa-fw fa-instagram"></i> <a href="https://www.instagram.com/robocon_viit/">robocon_viit</a>
 
 ---
 
