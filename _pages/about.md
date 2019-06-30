@@ -12,22 +12,28 @@ sidebar:
     text: "Some text here."
   - title: "Some moreeeeeee stuff"
     text: "More text here."
-    <a href="https://www.slideshare.net/PranavNatekar/roboconcert" class="btn btn--primary">Check that out</a>
 
+toc: true
+toc_label: "Table of contents"
+toc_icon: "cog"
 ---
 
 I am a energetic and hard-working engineer seeking real-world experience with outstanding technologies like Machine Learning and eager to apply concepts and develop acquired skills.
 
 ---
+
 # Achievements
 
 {: .notice--success}
-Robocon certificate
+Mindspark'17-*2<sup>nd</sup> Runner Ups*-Circuit Fixer 2 <a href="https://www.slideshare.net/PranavNatekar/mindspark17-certificate" class="btn btn--success">Certificate</a> <a href="https://www.slideshare.net/PranavNatekar/mindspark17-letter" class="btn btn--danger">Letter</a>  
 
-<a href="https://www.slideshare.net/PranavNatekar/roboconcert" class="btn btn--primary">Check that out</a>
+{: .notice--success}
+Mindspark'18-*2<sup>nd</sup> Runner Ups*-Micro-Apps <a href="https://www.slideshare.net/PranavNatekar/mindspark18-certificate-microapps" class="btn btn--info">Certificate</a>
 
+{: .notice--success}
+Mindspark'18-*1<sup>st</sup> Position*-Witrified <a href="https://www.slideshare.net/PranavNatekar/mindspark-certificate-witrified" class="btn btn--info">Certificate</a>
 
-
+---
 
 ## My GitHub contributions
 
