@@ -29,27 +29,27 @@ Resume and other things coming soon......
 # Achievements and Extra/Co-Curricular activities
 
 {: .notice--danger}
-1. Mindspark'17 - *2<sup>nd</sup> Runner Ups* - Circuit Fixer 2
+Mindspark'17 - *2<sup>nd</sup> Runner Ups* - Circuit Fixer 2
 
 See <a href="https://www.slideshare.net/PranavNatekar/mindspark17-certificate" class="btn btn--success">Certificate</a> <a href="https://www.slideshare.net/PranavNatekar/mindspark17-letter" class="btn btn--danger">Letter</a>  
 
 {: .notice--danger}
-2. Mindspark'18 - *2<sup>nd</sup> Runner Ups* - Micro-Apps
+Mindspark'18 - *2<sup>nd</sup> Runner Ups* - Micro-Apps
 
 See <a href="https://www.slideshare.net/PranavNatekar/mindspark18-certificate-microapps" class="btn btn--info">Certificate</a>
 
 {: .notice--danger}
-3. Mindspark'18 - *1<sup>st</sup> Position* - Witrified
+Mindspark'18 - *1<sup>st</sup> Position* - Witrified
 
 See <a href="https://www.slideshare.net/PranavNatekar/mindspark-certificate-witrified" class="btn btn--info">Certificate</a>
 
 {: .notice--danger}
-4. Melange'18 - *2<sup>nd</sup> Position* - Circuit Eye
+Melange'18 - *2<sup>nd</sup> Position* - Circuit Eye
 
 See <a href="https://www.slideshare.net/PranavNatekar/melange18-certificate" class="btn btn--warning">Certificate</a>
 
 {: .notice--danger}
-5. Solutions'18 - *2<sup>nd</sup> Position* - IMPEDENCE
+Solutions'18 - *2<sup>nd</sup> Position* - IMPEDENCE
 
 See <a href="https://www.slideshare.net/PranavNatekar/ait-certificate-152725247
 " class="btn btn--warning">Certificate</a>
@@ -60,12 +60,11 @@ See <a href="https://www.slideshare.net/PranavNatekar/ait-certificate-152725247
 
 ### Cultural
 
-Played Tabla at Aavishkar
-
 {: .notice--success}
 <div style="text-align: justify">
 Aavishkar is the cultural commune of VIIT, Pune. Here, people from various art backgrounds meet, interact, practice and prepare for different intercollegiate competitions. Our group include people from music, dance, art and many other backgrounds.
 I was a part of music team where I played <a href="https://en.wikipedia.org/wiki/Tabla">tabla</a> and <a href="https://en.wikipedia.org/wiki/Daf">daf</a>.
+
 See <a href="https://www.slideshare.net/PranavNatekar/aavishkar-certificate" class="btn btn--warning">College Certificate</a>
 
 See <a href="https://www.slideshare.net/PranavNatekar/firodiya-certificate" class="btn btn--danger">Firodiya Certificate</a>
