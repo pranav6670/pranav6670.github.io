@@ -34,7 +34,7 @@ The work done by people around the world from the Music Information Retrieval<a 
 1. <div style="text-align: justify">
    Separate the input audio signals into its respective harmonic and percussive components :-
    Separation of a given mix is performed using the algorithm known as Harmonic-Percussive Source Separation.
-   Check out [HPSS](https://librosa.github.io/librosa/auto_examples/plot_hprss.html)</div>
+   Check out <a href="https://librosa.github.io/librosa/auto_examples/plot_hprss.html">HPSS</a></div>
 
 2. Collect/generate suitable audio files/loops for the problem which consists of Tabla.
 
@@ -85,18 +85,16 @@ The GUI was made using PyQt5.
 # Model graphs and summaries :-
 
 + Model Graphs :-
-1. CNN Graph and summary
-{: .align-left}
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/convmodel.png" alt="cnnGraph">
 
-{: .align-left}
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/conv_summ.png" alt="cnnSummary">
+  1. CNN Graph and summary
+  ![image-left](/images/Tabla project/convmodel.jpg){: .align-left}
+  ![image-right](/images/Tabla project/conv_summ.jpg){: .align-right}
 
 ---
 
-+ Model Summaries :-
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/recmodel.png" alt="lstmGraph">
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/rec_summ.png" alt="lstmGraph">
+  2. LSTM Graph and summary
+  ![image-left](/images/Tabla project/recmodel.jpg){: .align-left}
+  ![image-left](/images/Tabla project/rec_summ.jpg){: .align-left}
 
 ---
 
