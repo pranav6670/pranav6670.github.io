@@ -12,8 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-
+minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 # Site Settings
 locale                   : "en-US"
 title                    : "Pranav Natekar"
@@ -108,7 +107,7 @@ analytics:
 author:
   name             : "Pranav Natekar"
   avatar           : "/assets/images/bio-image.jpg"
-  bio              : ""
+  bio              : "Driven by the tehnology!"
   location         : "Ratnagiri, MH"
   # email            : "pranavnat24@gmail.com"
   linkedin         : "pranav-natekar-14b9ba140/"

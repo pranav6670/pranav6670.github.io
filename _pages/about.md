@@ -4,6 +4,7 @@ permalink: /about/
 header:
   image: "/images/about_me.jpg"
 author_profile: true
+
 sidebar:
   - title: "Some more side stuff"
     image: http://placehold.it/350x250
@@ -11,6 +12,7 @@ sidebar:
     text: "Some text here."
   - title: "Some moreeeeeee stuff"
     text: "More text here."
+    <a href="https://www.slideshare.net/PranavNatekar/roboconcert" class="btn btn--primary">Check that out</a>
 
 ---
 

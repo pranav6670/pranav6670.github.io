@@ -56,6 +56,7 @@ The work done by people around the world from the Music Information Retrieval<a 
 ---
 
 # Methodology
+
 1. Data was collected by recording the talas played from an iOS [app](https://apps.apple.com/us/app/itablapro-  lite/id919001492) from a mic.
 
 * Raw Audio :-
