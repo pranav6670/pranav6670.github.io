@@ -5,7 +5,7 @@ tags: [Deep Learning, Audio Classification, Data Science]
 header:
   image: "/images/tabla.jpg"
 excerpt: "Deep Learning, Data Science"
-author_profile: false
+author_profile: true
 mathjax: true
 classes: wide
 

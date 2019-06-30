@@ -4,7 +4,9 @@ permalink: /about/
 header:
   image: "/images/about_me.jpg"
 author_profile: true
-
+toc: true
+toc_label: "Table of contents"
+toc_icon: "cog"
 sidebar:
   - title: "Some more side stuff"
     image: http://placehold.it/350x250
