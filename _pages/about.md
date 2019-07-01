@@ -12,9 +12,9 @@ sidebar:
     text: "Some text here."
   - title: "Some moreeeeeee stuff"
     text: "More text here."
-    actions:
-        - label: "More Info"
-          url: "https://unsplash.com"
+actions:
+  - label: "More Info"
+    url: "https://unsplash.com"
 toc: true
 toc_label: "Table of contents"
 toc_icon: "cog"
