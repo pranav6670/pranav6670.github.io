@@ -62,7 +62,7 @@ See <a href="https://www.slideshare.net/PranavNatekar/ait-certificate-152725247
 
 {: .notice--success}
 <div style="text-align: justify">
-Aavishkar is the cultural commune of VIIT, Pune. Here, people from various art backgrounds meet, interact, practice and prepare for different intercollegiate competitions. Our group include people from music, dance, art and many other backgrounds.
+Aavishkar is the cultural commune of VIIT, Pune. Here, people from various backgrounds meet, interact, practice and prepare for different intercollegiate competitions. The group includes people from music, dance, art and many other backgrounds.
 I was a part of music team where I played <a href="https://en.wikipedia.org/wiki/Tabla">tabla</a> and <a href="https://en.wikipedia.org/wiki/Daf">daf</a>.
 
 See <a href="https://www.slideshare.net/PranavNatekar/aavishkar-certificate" class="btn btn--warning">College Certificate</a>
