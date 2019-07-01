@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 layout: splash
 # Site Settings
 locale                   : "en-US"
-title                    : "Pranav Natekar"
+title                    : "Pranav Natekar | Welcome"
 title_separator          : "-"
 name                     : "Pranav Natekar"
 description              : "My first try on WD"
@@ -43,14 +43,14 @@ comments:
     theme                : # "github-light" (default), "github-dark"
     issue_term           : # "pathname" (default)
 staticman:
-  allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "master"
-  commitMessage          : "New comment by {fields.name}"
-  filename               : comment-{@timestamp}
-  format                 : "yml"
-  moderation             : true
-  path                   : "/_data/comments/{options.slug}" (default)
-  requiredFields         : ['name', 'email', 'message']
+  allowedFields          : #['name', 'email', 'url', 'message']
+  branch                 : #"master"
+  commitMessage          : #"New comment by {fields.name}"
+  filename               : #comment-{@timestamp}
+  format                 : #"yml"
+  moderation             : #true
+  path                   : #"/_data/comments/{options.slug}" (default)
+  requiredFields         : #['name', 'email', 'message']
   transforms:
     email                : # "md5"
   generatedFields:

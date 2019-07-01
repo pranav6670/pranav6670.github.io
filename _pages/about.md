@@ -5,16 +5,14 @@ header:
   image: "/images/about_me.jpg"
 author_profile: true
 
-sidebar:
-  - title: "Some more side stuff"
-    image: http://placehold.it/350x250
-    image_alt: "image"
-    text: "Some text here."
-  - title: "Some moreeeeeee stuff"
-    text: "More text here."
-actions:
-  - label: "More Info"
-    url: "https://unsplash.com"
+#sidebar:
+#  - title: "Some more side stuff"
+#    image: http://placehold.it/350x250
+#    image_alt: "image"
+#    text: "Some text here."
+#  - title: "Some moreeeeeee stuff"
+#    text: "More text here."
+
 toc: true
 toc_label: "Table of contents"
 toc_icon: "cog"
