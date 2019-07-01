@@ -15,6 +15,14 @@ toc_icon: "cog"
 
 ---
 
+<div class="header">
+  <h2>Scroll Indicator</h2>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>
+</div>
+
+<div>
 # Introduction
 
 {: .notice--info}
@@ -121,3 +129,5 @@ The GUI was made using PyQt5.
 >>*Please check him out*
 
 ---
+
+</div>
