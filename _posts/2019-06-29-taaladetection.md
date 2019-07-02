@@ -7,7 +7,7 @@ header:
 excerpt: "Deep Learning, Data Science"
 author_profile: true
 mathjax: true
-#classes: wide
+classes: wide
 toc: true
 toc_label: "Table of contents"
 toc_icon: "cog"
@@ -96,14 +96,19 @@ The GUI was made using PyQt5.
 # Model graphs and summaries :-
 
   1. CNN Graph and summary
-  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/convmodel.png" alt="cnnGraph">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/conv_summ.png" alt="cnnSummary">
+![image-right](/images/Tabla project/convmodel.png){: .align-right}
+The rest of this paragraph is filler for the sake of seeing the text wrap around the 150×150 image, which is left aligned. There should be plenty of room above, below, and to the right of the image. Just look at him there — Hey guy! Way to rock that left side. I don’t care what the right aligned image says, you look great. Don’t let anyone else tell
+
+![image-left](/images/Tabla project/conv_summ.png){: .align-left}
+
+<!-- <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/convmodel.png" alt="cnnGraph">
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/conv_summ.png" alt="cnnSummary"> -->
 
 ---
 
   2. LSTM Graph and summary
-  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/recmodel.png" alt="lstmGraph">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/rec_summ.png" alt="lstmSummary">
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/recmodel.png" alt="lstmGraph">
+<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/rec_summ.png" alt="lstmSummary">
 
 ---
 
