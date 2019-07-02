@@ -7,7 +7,7 @@ header:
 excerpt: "Deep Learning, Data Science"
 author_profile: true
 mathjax: true
-classes: wide
+#classes: wide
 toc: true
 toc_label: "Table of contents"
 toc_icon: "cog"
@@ -35,66 +35,67 @@ The work done by people around the world from the Music Information Retrieval<a 
 ---
 
 # Objectives
+
 {: .notice--primary}
-1. <div style="text-align: justify">
+* <div style="text-align: justify">
    Separate the input audio signals into its respective harmonic and percussive components :-
    Separation of a given mix is performed using the algorithm known as Harmonic-Percussive Source Separation.
    Check out <a href="https://librosa.github.io/librosa/auto_examples/plot_hprss.html">HPSS</a>
    </div>
 
 {: .notice--primary}
-2. Collect/generate suitable audio files/loops for the problem which consists of Tabla.
+* Collect/generate suitable audio files/loops for the problem which consists of Tabla.
 
 {: .notice--primary}
-3. Preprocess the percussive component and extract the features :-
+* Preprocess the percussive component and extract the features :-
    Preprocessing includes down-sampling audio and cleaning the samples using noise-threshold detection.
 
 {: .notice--primary}
-4. Collect/generate the data required for training/testing the model or algorithm for classification.
+* Collect/generate the data required for training/testing the model or algorithm for classification.
 
 {: .notice--primary}
-5. To get training accuracy > 80% and validation accuracy > 70%.
+* To get training accuracy > 80% and validation accuracy > 70%.
 
 {: .notice--primary}
-6. To make the system Real-Time.
+* To make the system Real-Time.
 
 ---
 
 # Methodology
 
-{: .notice--warning}
-1. Data was collected by recording the talas played from an iOS [app](https://apps.apple.com/us/app/itablapro-  lite/id919001492) from a mic.
+{: .notice--success}
++ Data was collected by recording the talas played from an iOS [app](https://apps.apple.com/us/app/itablapro-  lite/id919001492) from a mic.
 
-{: .notice--warning}
+{: .notice--success}
 * Raw Audio :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/timedata.png" alt="Raw audio">
 
-{: .notice--warning}
+{: .notice--success}
 * Fourier Transform of the raw audio :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_ft.png" alt="FT of the data">
 
-{: .notice--warning}
+{: .notice--success}
 * Filter bank energies :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/filterbankenergies.png" alt="Filter bank energies">
 
-{: .notice--warning}
+{: .notice--success}
 * MFCCs of the data :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_mfccs.png" alt="MFCCs">
 
-{: .notice--warning}
-2. Data was pre-processed(Down-Sampling & Noise Threshold Detection)
+{: .notice--success}
++ Data was pre-processed(Down-Sampling & Noise Threshold Detection)
 
-{: .notice--warning}
-3. Data was visualized.
+{: .notice--success}
++ Data was visualized.
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/distribution.png" alt="Data distribution">
 
-{: .notice--warning}
-4. <div style="text-align: justify">
+{: .notice--success}
++ <div style="text-align: justify">
   A Convolutional Neural Network(CNN) and a Long Short Term Memory(LSTM) network was trained on the
   Mel Frequency Cepstral Coefficients(MFCCs) of 1/10<sup>th</sup> second of the data resulting in a large number of samples generated.</div>
 
-{: .notice--warning}
-5. An unknown sample was given as an input containing instruments other than tabla. The harmonic component    was filtered by HPSS algorithm and the percussive component was used for classification.
+{: .notice--success}
++ An unknown sample was given as an input containing instruments other than tabla. The harmonic component    was filtered by HPSS algorithm and the percussive component was used for classification.
 
 ---
 
