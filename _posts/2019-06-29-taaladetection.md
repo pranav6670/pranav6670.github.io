@@ -116,11 +116,14 @@ The GUI was made using PyQt5.
 ![image-right](/images/Tabla project/convmodel.png){: .align-right}
 
 {: .notice--success}
+{: .text-left}
 The model graph is shown on the right side. This graph is the result of `plot_model` function available under `keras.utils.vis_utils`. The accuracy of >80% was achieved by pruning and adding layers to these networks.
 
+{: .text-left}
 {: .notice--success}
 The code for model is:-
 
+{: .text-left}
 ```python
 def get_conv_model():
     model = Sequential()
@@ -150,6 +153,7 @@ def get_conv_model():
 ![image-left](/images/Tabla project/conv_summ.png){: .align-left}
 
 {: .notice--success}
+{: .text-right}
 The summary for the above model is shown on the right side. The model summary can be printed to a console by first loading a saved model by using `load_model` method under `keras.models` and then using a `model.summary("your-model-name")`
 
 ---
@@ -159,8 +163,10 @@ The summary for the above model is shown on the right side. The model summary ca
 ![image-right](/images/Tabla project/recmodel.png){: .align-right}
 
 {: .notice--success}
+{: .text-left}
 Code for LSTM model:-
 
+{: .text-left}
 ```python
 def get_recurrent_model():
     model = Sequential()
@@ -184,8 +190,11 @@ def get_recurrent_model():
 ![image-left](/images/Tabla project/rec_summ.png){: .align-left}
 
 {: .notice--success}
+{: .text-right}
+
 Example of plotting a model is as follows:-
 
+{: .text-right}
 ```python
 from keras.models import load_model
 from keras.utils.vis_utils import plot_model
