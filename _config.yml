@@ -13,10 +13,10 @@
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-layout: splash
+
 # Site Settings
 locale                   : "en-US"
-title                    : "Pranav Natekar | Welcome"
+title                    : "Pranav Natekar"
 title_separator          : "-"
 name                     : "Pranav Natekar"
 description              : "My first try on WD"
