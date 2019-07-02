@@ -166,7 +166,11 @@ The summary for the above model is shown on the right side. The model summary ca
 {: .text-left}
 Code for LSTM model:-
 
-{: .text-left}
+
+
+
+---
+
 ```python
 def get_recurrent_model():
     model = Sequential()
@@ -194,7 +198,17 @@ def get_recurrent_model():
 
 Example of plotting a model is as follows:-
 
-{: .text-right}
+
+
+
+
+
+
+
+
+
+---
+
 ```python
 from keras.models import load_model
 from keras.utils.vis_utils import plot_model
