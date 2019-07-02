@@ -112,18 +112,18 @@ The GUI was made using PyQt5.
 
   1. CNN Graph and summary
 
-{: .notice--success}
+<!-- {: .notice--success} -->
 ![image-right](/images/Tabla project/convmodel.png){: .align-right}
 
-{: .notice--success}
+<!-- {: .notice--success} -->
 {: .text-left}
 The model graph is shown on the right side. This graph is the result of `plot_model` function available under `keras.utils.vis_utils`. The accuracy of >80% was achieved by pruning and adding layers to these networks.
 
-{: .text-left}
+<!-- {: .text-left} -->
 {: .notice--success}
 The code for model is:-
 
-{: .text-left}
+
 ```python
 def get_conv_model():
     model = Sequential()
@@ -152,7 +152,7 @@ def get_conv_model():
 
 ![image-left](/images/Tabla project/conv_summ.png){: .align-left}
 
-{: .notice--success}
+<!-- {: .notice--success} -->
 {: .text-right}
 The summary for the above model is shown on the right side. The model summary can be printed to a console by first loading a saved model by using `load_model` method under `keras.models` and then using a `model.summary("your-model-name")`
 
@@ -162,7 +162,7 @@ The summary for the above model is shown on the right side. The model summary ca
 
 ![image-right](/images/Tabla project/recmodel.png){: .align-right}
 
-{: .notice--success}
+<!-- {: .notice--success} -->
 {: .text-left}
 Code for LSTM model:-
 
@@ -172,55 +172,44 @@ Code for LSTM model:-
 ---
 
 ```python
-def get_recurrent_model():
-    model = Sequential()
-    model.add(LSTM(128, return_sequences=True, input_shape=input_shape))
-    model.add(LSTM(128, return_sequences=True))
-    model.add(Dropout(0.5))
-    model.add(TimeDistributed(Dense(64, activation='relu')))
-    model.add(TimeDistributed(Dense(32, activation='relu')))
-    model.add(TimeDistributed(Dense(16, activation='relu')))
-    model.add(TimeDistributed(Dense(8, activation='relu')))
-    model.add(Flatten())
-    model.add(Dense(8, activation='softmax')) # Change
-    model.summary()
-    model.compile(loss='categorical_crossentropy',
-                  optimizer='adam',
-                  metrics=['acc'])
-    return model
+  def get_recurrent_model():
+      model = Sequential()
+      model.add(LSTM(128, return_sequences=True, input_shape=input_shape))
+      model.add(LSTM(128, return_sequences=True))
+      model.add(Dropout(0.5))
+      model.add(TimeDistributed(Dense(64, activation='relu')))
+      model.add(TimeDistributed(Dense(32, activation='relu')))
+      model.add(TimeDistributed(Dense(16, activation='relu')))
+      model.add(TimeDistributed(Dense(8, activation='relu')))
+      model.add(Flatten())
+      model.add(Dense(8, activation='softmax')) # Change
+      model.summary()
+      model.compile(loss='categorical_crossentropy',
+                    optimizer='adam',
+                    metrics=['acc'])
+      return model
 ```
 ---
 
 ![image-left](/images/Tabla project/rec_summ.png){: .align-left}
 
-{: .notice--success}
+<!-- {: .notice--success} -->
 {: .text-right}
 
 Example of plotting a model is as follows:-
 
-
-
-
-
-
-
-
-
-
----
-
 ```python
-from keras.models import load_model
-from keras.utils.vis_utils import plot_model
+  from keras.models import load_model
+  from keras.utils.vis_utils import plot_model
 
-conv_model = load_model('/home/pranav/Desktop/models_training#1/conv.model')
-rec_model = load_model('/home/pranav/Desktop/models_training#1/rec.model')
+  conv_model = load_model('/home/pranav/Desktop/models_training#1/conv.model')
+  rec_model = load_model('/home/pranav/Desktop/models_training#1/rec.model')
 
-graph = plot_model(conv_model, to_file='convmodel.png', show_shapes=True,
-                   show_layer_names=True)
+  graph = plot_model(conv_model, to_file='convmodel.png', show_shapes=True,
+                     show_layer_names=True)
 
-graph1 = plot_model(rec_model, to_file='recmodel.png', show_shapes=True,
-                    show_layer_names=True)
+  graph1 = plot_model(rec_model, to_file='recmodel.png', show_shapes=True,
+                      show_layer_names=True)
 
   ```
 ---
