@@ -35,51 +35,65 @@ The work done by people around the world from the Music Information Retrieval<a 
 ---
 
 # Objectives
-
+{: .notice--primary}
 1. <div style="text-align: justify">
    Separate the input audio signals into its respective harmonic and percussive components :-
    Separation of a given mix is performed using the algorithm known as Harmonic-Percussive Source Separation.
    Check out <a href="https://librosa.github.io/librosa/auto_examples/plot_hprss.html">HPSS</a>
    </div>
 
+{: .notice--primary}
 2. Collect/generate suitable audio files/loops for the problem which consists of Tabla.
 
+{: .notice--primary}
 3. Preprocess the percussive component and extract the features :-
    Preprocessing includes down-sampling audio and cleaning the samples using noise-threshold detection.
 
+{: .notice--primary}
 4. Collect/generate the data required for training/testing the model or algorithm for classification.
 
+{: .notice--primary}
 5. To get training accuracy > 80% and validation accuracy > 70%.
 
+{: .notice--primary}
 6. To make the system Real-Time.
 
 ---
 
 # Methodology
 
+{: .notice--warning}
 1. Data was collected by recording the talas played from an iOS [app](https://apps.apple.com/us/app/itablapro-  lite/id919001492) from a mic.
 
+{: .notice--warning}
 * Raw Audio :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/timedata.png" alt="Raw audio">
 
+{: .notice--warning}
 * Fourier Transform of the raw audio :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_ft.png" alt="FT of the data">
 
+{: .notice--warning}
 * Filter bank energies :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/filterbankenergies.png" alt="Filter bank energies">
 
+{: .notice--warning}
 * MFCCs of the data :-
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/data_mfccs.png" alt="MFCCs">
 
+{: .notice--warning}
 2. Data was pre-processed(Down-Sampling & Noise Threshold Detection)
 
+{: .notice--warning}
 3. Data was visualized.
 <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/distribution.png" alt="Data distribution">
 
+{: .notice--warning}
 4. <div style="text-align: justify">
   A Convolutional Neural Network(CNN) and a Long Short Term Memory(LSTM) network was trained on the
   Mel Frequency Cepstral Coefficients(MFCCs) of 1/10<sup>th</sup> second of the data resulting in a large number of samples generated.</div>
 
+{: .notice--warning}
 5. An unknown sample was given as an input containing instruments other than tabla. The harmonic component    was filtered by HPSS algorithm and the percussive component was used for classification.
 
 ---
@@ -96,20 +110,95 @@ The GUI was made using PyQt5.
 # Model graphs and summaries :-
 
   1. CNN Graph and summary
+
+{: .notice--success}
 ![image-right](/images/Tabla project/convmodel.png){: .align-right}
-The rest of this paragraph is filler for the sake of seeing the text wrap around the 150×150 image, which is left aligned. There should be plenty of room above, below, and to the right of the image. Just look at him there — Hey guy! Way to rock that left side. I don’t care what the right aligned image says, you look great. Don’t let anyone else tell
+
+{: .notice--success}
+The model graph is shown on the right side. This graph is the result of `plot_model` function available under `keras.utils.vis_utils`. The accuracy of >80% was achieved by pruning and adding layers to these networks.
+
+{: .notice--success}
+The code for model is:-
+
+```python
+def get_conv_model():
+    model = Sequential()
+    model.add(Conv2D(16, (3, 3), activation='relu', strides=(1, 1),
+                     padding='same', input_shape=input_shape))
+    model.add(Conv2D(32, (3, 3), activation='relu', strides=(1,1),
+                     padding='same'))
+    model.add(Conv2D(64, (3, 3), activation='relu', strides=(1,1),
+                     padding='same'))
+    model.add(Conv2D(128, (3, 3), activation='relu', strides=(1,1),
+                     padding='same'))
+    model.add(MaxPool2D(2, 2))
+    model.add(Dropout(0.5))
+    model.add(Flatten())
+    model.add(Dense(128, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(8, activation='softmax')) # Change
+    model.summary()
+    model.compile(loss='categorical_crossentropy',
+                  optimizer='adam',
+                  metrics=['acc'])
+    return model
+```
+
+---
 
 ![image-left](/images/Tabla project/conv_summ.png){: .align-left}
 
-<!-- <img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/convmodel.png" alt="cnnGraph">
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/conv_summ.png" alt="cnnSummary"> -->
+{: .notice--success}
+The summary for the above model is shown on the right side. The model summary can be printed to a console by first loading a saved model by using `load_model` method under `keras.models` and then using a `model.summary("your-model-name")`
 
 ---
 
   2. LSTM Graph and summary
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/recmodel.png" alt="lstmGraph">
-<img src="{{ site.url }}{{ site.baseurl }}/images/Tabla project/rec_summ.png" alt="lstmSummary">
 
+![image-right](/images/Tabla project/recmodel.png){: .align-right}
+
+{: .notice--success}
+Code for LSTM model:-
+
+```python
+def get_recurrent_model():
+    model = Sequential()
+    model.add(LSTM(128, return_sequences=True, input_shape=input_shape))
+    model.add(LSTM(128, return_sequences=True))
+    model.add(Dropout(0.5))
+    model.add(TimeDistributed(Dense(64, activation='relu')))
+    model.add(TimeDistributed(Dense(32, activation='relu')))
+    model.add(TimeDistributed(Dense(16, activation='relu')))
+    model.add(TimeDistributed(Dense(8, activation='relu')))
+    model.add(Flatten())
+    model.add(Dense(8, activation='softmax')) # Change
+    model.summary()
+    model.compile(loss='categorical_crossentropy',
+                  optimizer='adam',
+                  metrics=['acc'])
+    return model
+```
+---
+
+![image-left](/images/Tabla project/rec_summ.png){: .align-left}
+
+{: .notice--success}
+Example of plotting a model is as follows:-
+
+```python
+from keras.models import load_model
+from keras.utils.vis_utils import plot_model
+
+conv_model = load_model('/home/pranav/Desktop/models_training#1/conv.model')
+rec_model = load_model('/home/pranav/Desktop/models_training#1/rec.model')
+
+graph = plot_model(conv_model, to_file='convmodel.png', show_shapes=True,
+                   show_layer_names=True)
+
+graph1 = plot_model(rec_model, to_file='recmodel.png', show_shapes=True,
+                    show_layer_names=True)
+
+  ```
 ---
 
 ## Helpful Links regarding the project topics :-
