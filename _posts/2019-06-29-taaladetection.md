@@ -7,7 +7,7 @@ header:
 excerpt: "Deep Learning, Data Science"
 author_profile: true
 mathjax: true
-#classes: wide
+classes: wide
 toc: true
 toc_label: "Table of contents"
 toc_icon: "cog"
