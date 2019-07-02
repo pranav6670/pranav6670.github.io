@@ -1,95 +1,23 @@
----
+<!-- ---
 layout: home
 author_profile: true
 
 excerpt: "Welcome"
 header:
-  <!-- overlay_image: "/assets/images/header.jpg" -->
+  overlay_image: "/assets/images/header.jpg"
 
 toc: true
 toc_label: "Table of contents"
 toc_icon: "cog"
 
 classes: wide
----
+--- -->
 
-<!-- <div class="wrapper">
+<div class="wrapper">
   <link rel="stylesheet" href="/assets/css/styling.css">
 
    <video autoplay="true" loop="true" muted class="wrapper__video">
       <source src="//vimeo-hp-videos.global.ssl.fastly.net/3/3.mp4">
    </video>
 
-</div> -->
-
-</<div>
-
-  <canvas id="canvas"></canvas>
-<script id="vs" type="f">
-  attribute vec2 position;
-  attribute vec2 texcoord;
-
-  uniform mat3 u_matrix;
-
-  varying vec2 v_texcoord;
-
-  void main() {
-     gl_Position = vec4(u_matrix * vec3(position, 1), 1);
-     v_texcoord = texcoord;
-  }
-</script>
-<script id="fs" type="f">
-  precision mediump float;
-
-  uniform vec2 u_mouse;
-  uniform vec2 u_res;
-  uniform float u_time;
-  uniform float u_dpi;
-  uniform sampler2D u_text;
-  uniform sampler2D u_map;
-  uniform sampler2D u_blur;
-
-  varying vec2 v_texcoord;
-
-  void main(){
-    float distAmount = .003;
-
-    vec2 uv = v_texcoord;
-    vec2 parallax = u_mouse * 0.05;
-
-    float freq = 70.0;
-    float amp = 0.004;
-
-    vec4 map = texture2D(u_map, uv);
-
-    float dethMap = map.r - .5;
-    float distMap = map.g;
-
-    float x = uv.y * freq + u_time * 3.;
-    float y = uv.x * freq + u_time * .3;
-
-    float distX = cos(x+y) * amp * cos(y);
-    float distY = sin(x-y) * amp * cos(y);
-
-    vec2 distPosition = vec2(uv.x + distX * distMap, uv.y + distY * distMap);
-
-    vec2 turbulance = distPosition + (parallax * dethMap);
-
-    vec4 ori_img = texture2D(u_text, turbulance);
-    vec4 blur_img = texture2D(u_blur, turbulance);
-
-    vec4 color = mix(ori_img, blur_img, length(distPosition) * distAmount);
-
-    gl_FragColor = color;
-  }
-</script>
-  <script src='https://cdn.rawgit.com/greggman/twgl.js/master/dist/4.x/twgl-full.min.js'></script>
-<script src='https://webglfundamentals.org/webgl/resources/m3.js'></script>
-
-
-
-    <script  src="parallax_script.js"></script>
-
-
-
-</div>>
+</div>
