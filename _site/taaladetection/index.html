@@ -1,0 +1,765 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.4 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Detection &amp; Classification of Tabla taalas from Indian Classical Music - Pranav Natekar</title>
+<meta name="description" content="Deep Learning, Data Science">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Pranav Natekar">
+<meta property="og:title" content="Detection &amp; Classification of Tabla taalas from Indian Classical Music">
+<meta property="og:url" content="http://localhost:4000/taaladetection/">
+
+
+  <meta property="og:description" content="Deep Learning, Data Science">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/images/tabla.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2019-06-29T00:00:00+05:30">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/taaladetection/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pranav Natekar",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Pranav Natekar Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">Welcome</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/" >About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/projects/" >Projects</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="page__hero"
+  style=" "
+>
+  
+    <img src="/images/tabla.jpg" alt="Detection &amp; Classification of Tabla taalas from Indian Classical Music" class="page__hero-image">
+  
+  
+</div>
+
+
+
+
+  
+    
+
+
+
+<nav class="breadcrumbs">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    
+    
+    
+      
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="http://localhost:4000/" itemprop="item"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </li>
+        <span class="sep">/</span>
+      
+      
+        <li class="current">Detection & Classification of Tabla taalas from Indian Classical Music</li>
+      
+    
+  </ol>
+</nav>
+
+  
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/bio-image.jpg" alt="Pranav Natekar" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Pranav Natekar</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        Driven by Technology.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Ratnagiri, MH</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:pranavnat24@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://www.facebook.com/pranav.natekar.9" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+          
+        
+          
+            <li><a href="https://github.com/pranav6670" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/thepranavn/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/pranav-natekar-14b9ba140/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Detection &amp; Classification of Tabla taalas from Indian Classical Music">
+    <meta itemprop="description" content="Deep Learning, Data Science">
+    <meta itemprop="datePublished" content="June 29, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Detection &amp; Classification of Tabla taalas from Indian Classical Music
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-cog"></i> Table of contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#motivation">Motivation</a></li>
+  <li><a href="#objectives">Objectives</a></li>
+  <li><a href="#methodology">Methodology</a>
+    <ul>
+      <li><a href="#my-gui--">My GUI :-</a></li>
+    </ul>
+  </li>
+  <li><a href="#model-graphs-and-summaries--">Model graphs and summaries :-</a>
+    <ul>
+      <li><a href="#helpful-links-regarding-the-project-topics--">Helpful Links regarding the project topics :-</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <hr />
+
+<h1 id="introduction">Introduction</h1>
+
+<div style="text-align: justify" class="notice--info">
+This project work aims on developing a system that would be able to first detect a <a href="https://en.wikipedia.org/wiki/Tabla">tabla</a> <a href="https://en.wikipedia.org/wiki/Tala_(music)">tala</a>
+from a mix(a song) of an Indian or Carnatic Classical Music and then classify the tala. Tala is specific pattern which occurs in all of the Indian Classical Music and Tabla is percussive accompanying instrument.
+</div>
+
+<hr />
+
+<h1 id="motivation">Motivation</h1>
+
+<div style="text-align: justify" class="notice--info">
+The work done by people around the world from the Music Information Retrieval<a href="https://en.wikipedia.org/wiki/Music_information_retrieval">(MIR)</a> community revolves around the western music, their genres and their instruments, but not significant work has been carried around Indian Classical Music and specifically tabla. The main objective of the project was to make the system real-time. The attempt on making the system real-time has not been done so far. Also, this could be the starting point to study the several prospects of the Indian Classical Music. To the best of our knowledge, there have been only few attempts on tala classification using Deep Learning and making it real-time. Also, the attempts made in bol transcription use the classical machine learning techniques which may not be able to make classification robust.
+</div>
+
+<hr />
+
+<h1 id="objectives">Objectives</h1>
+
+<ul class="notice--primary">
+  <li>
+    <div style="text-align: justify">
+ Separate the input audio signals into its respective harmonic and percussive components :-
+ Separation of a given mix is performed using the algorithm known as Harmonic-Percussive Source Separation.
+ Check out <a href="https://librosa.github.io/librosa/auto_examples/plot_hprss.html">HPSS</a>
+ </div>
+  </li>
+</ul>
+
+<ul class="notice--primary">
+  <li>Collect/generate suitable audio files/loops for the problem which consists of Tabla.</li>
+</ul>
+
+<ul class="notice--primary">
+  <li>Preprocess the percussive component and extract the features :-
+ Preprocessing includes down-sampling audio and cleaning the samples using noise-threshold detection.</li>
+</ul>
+
+<ul class="notice--primary">
+  <li>Collect/generate the data required for training/testing the model or algorithm for classification.</li>
+</ul>
+
+<ul class="notice--primary">
+  <li>To get training accuracy &gt; 80% and validation accuracy &gt; 70%.</li>
+</ul>
+
+<ul class="notice--primary">
+  <li>To make the system Real-Time.</li>
+</ul>
+
+<hr />
+
+<h1 id="methodology">Methodology</h1>
+
+<ul class="notice--success">
+  <li>Data was collected by recording the talas played from an iOS <a href="https://apps.apple.com/us/app/itablapro-  lite/id919001492">app</a> from a mic.</li>
+</ul>
+
+<ul class="notice--success">
+  <li>Raw Audio :-
+<img src="http://localhost:4000/images/Tabla project/timedata.png" alt="Raw audio" /></li>
+</ul>
+
+<ul class="notice--success">
+  <li>Fourier Transform of the raw audio :-
+<img src="http://localhost:4000/images/Tabla project/data_ft.png" alt="FT of the data" /></li>
+</ul>
+
+<ul class="notice--success">
+  <li>Filter bank energies :-
+<img src="http://localhost:4000/images/Tabla project/filterbankenergies.png" alt="Filter bank energies" /></li>
+</ul>
+
+<ul class="notice--success">
+  <li>MFCCs of the data :-
+<img src="http://localhost:4000/images/Tabla project/data_mfccs.png" alt="MFCCs" /></li>
+</ul>
+
+<ul class="notice--success">
+  <li>Data was pre-processed(Down-Sampling &amp; Noise Threshold Detection)</li>
+</ul>
+
+<ul class="notice--success">
+  <li>Data was visualized.
+<img src="http://localhost:4000/images/Tabla project/distribution.png" alt="Data distribution" /></li>
+</ul>
+
+<ul class="notice--success">
+  <li>
+    <div style="text-align: justify">
+A Convolutional Neural Network(CNN) and a Long Short Term Memory(LSTM) network was trained on the
+Mel Frequency Cepstral Coefficients(MFCCs) of 1/10<sup>th</sup> second of the data resulting in a large number of samples generated.</div>
+  </li>
+</ul>
+
+<ul class="notice--success">
+  <li>An unknown sample was given as an input containing instruments other than tabla. The harmonic component    was filtered by HPSS algorithm and the percussive component was used for classification.</li>
+</ul>
+
+<hr />
+
+<h2 id="my-gui--">My GUI :-</h2>
+
+<p class="notice--success">The GUI was made using PyQt5.</p>
+
+<p><img src="http://localhost:4000/images/Tabla project/GUI.png" alt="GUI" /></p>
+
+<hr />
+
+<h1 id="model-graphs-and-summaries--">Model graphs and summaries :-</h1>
+
+<ol>
+  <li>CNN Graph and summary</li>
+</ol>
+
+<p class="notice--success"><img src="/images/Tabla project/convmodel.png" alt="image-center" class="align-center" /></p>
+
+<p class="notice--success">The model graph is shown on the right side. This graph is the result of <code class="highlighter-rouge">plot_model</code> function available under <code class="highlighter-rouge">keras.utils.vis_utils</code>. The accuracy of &gt;80% was achieved by pruning and adding layers to these networks.</p>
+
+<p class="notice--success">The code for model is:-</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">get_conv_model</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                     <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                     <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                     <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                     <span class="n">padding</span><span class="o">=</span><span class="s">'same'</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPool2D</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">))</span> <span class="c"># Change</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+                  <span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+                  <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">model</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><img src="/images/Tabla project/conv_summ.png" alt="image-center" class="align-center" /></p>
+
+<p class="notice--success">The summary for the above model is shown on the right side. The model summary can be printed to a console by first loading a saved model by using <code class="highlighter-rouge">load_model</code> method under <code class="highlighter-rouge">keras.models</code> and then using a <code class="highlighter-rouge">model.summary("your-model-name")</code></p>
+
+<hr />
+
+<ol>
+  <li>LSTM Graph and summary</li>
+</ol>
+
+<p><img src="/images/Tabla project/recmodel.png" alt="image-center" class="align-center" /></p>
+
+<p class="notice--success">Code for LSTM model:-</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="k">def</span> <span class="nf">get_recurrent_model</span><span class="p">():</span>
+      <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">))</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="bp">True</span><span class="p">))</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)))</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)))</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)))</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'relu'</span><span class="p">)))</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">'softmax'</span><span class="p">))</span> <span class="c"># Change</span>
+      <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+      <span class="n">model</span><span class="o">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">'categorical_crossentropy'</span><span class="p">,</span>
+                    <span class="n">optimizer</span><span class="o">=</span><span class="s">'adam'</span><span class="p">,</span>
+                    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s">'acc'</span><span class="p">])</span>
+      <span class="k">return</span> <span class="n">model</span>
+
+</code></pre></div></div>
+<hr />
+
+<p><img src="/images/Tabla project/rec_summ.png" alt="image-center" class="align-center" /></p>
+
+<!-- {: .notice--success} -->
+<p>Example of plotting a model is as follows:-</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+  <span class="kn">from</span> <span class="nn">keras.utils.vis_utils</span> <span class="kn">import</span> <span class="n">plot_model</span>
+
+  <span class="n">conv_model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s">'/home/pranav/Desktop/models_training#1/conv.model'</span><span class="p">)</span>
+  <span class="n">rec_model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s">'/home/pranav/Desktop/models_training#1/rec.model'</span><span class="p">)</span>
+
+  <span class="n">graph</span> <span class="o">=</span> <span class="n">plot_model</span><span class="p">(</span><span class="n">conv_model</span><span class="p">,</span> <span class="n">to_file</span><span class="o">=</span><span class="s">'convmodel.png'</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                     <span class="n">show_layer_names</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+  <span class="n">graph1</span> <span class="o">=</span> <span class="n">plot_model</span><span class="p">(</span><span class="n">rec_model</span><span class="p">,</span> <span class="n">to_file</span><span class="o">=</span><span class="s">'recmodel.png'</span><span class="p">,</span> <span class="n">show_shapes</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                      <span class="n">show_layer_names</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="helpful-links-regarding-the-project-topics--">Helpful Links regarding the project topics :-</h2>
+
+<ol>
+  <li><a href="https://haythamfayek.com/2016/04/21/speech-processing-for-machine-learning.html">MFCC</a></li>
+  <li><a href="http://yann.lecun.com/exdb/publis/pdf/lecun-bengio-95a.pdf">CNN</a></li>
+  <li><a href="https://www.analyticsvidhya.com/blog/2017/12/fundamentals-of-deep-learning-introduction-to-lstm/">LSTM</a></li>
+</ol>
+
+<hr />
+
+<blockquote>
+  <p>The actual implementation of mine can be found <a href="https://github.com/pranav6670/Detection-Classification-of-Tabla-taals">here</a></p>
+</blockquote>
+
+<blockquote>
+  <p>Inspiration for the project -&gt; <a href="https://www.youtube.com/watch?v=Z7YM-HAz-IY&amp;list=PLhA3b2k8R3t2Ng1WW_7MiXeh1pfQJQi_P">Seth Adams</a></p>
+  <blockquote>
+    <p><em>Please check him out</em></p>
+  </blockquote>
+</blockquote>
+
+<hr />
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#audio-classification" class="page__taxonomy-item" rel="tag">Audio Classification</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#data-science" class="page__taxonomy-item" rel="tag">Data Science</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#deep-learning" class="page__taxonomy-item" rel="tag">Deep Learning</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-06-29T00:00:00+05:30">June 29, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Detection+%26+Classification+of+Tabla+taalas+from+Indian+Classical+Music%20http%3A%2F%2Flocalhost%3A4000%2Ftaaladetection%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftaaladetection%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftaaladetection%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+            
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+          <li><a href="https://www.facebook.com/pranav.natekar.9" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+        
+      
+        
+          <li><a href="https://github.com/pranav6670" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+          <li><a href="https://www.instagram.com/thepranavn/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Pranav Natekar. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/taaladetection/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/taaladetection"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hyperparameter-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+  </body>
+</html>

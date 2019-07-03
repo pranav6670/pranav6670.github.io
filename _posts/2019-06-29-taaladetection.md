@@ -1,5 +1,5 @@
 ---
-title: "Detection of Tabla taalas from Indian Classical Music"
+title: "Detection & Classification of Tabla taalas from Indian Classical Music"
 date: 2019-06-29
 tags: [Deep Learning, Audio Classification, Data Science]
 header:
@@ -183,7 +183,7 @@ Code for LSTM model:-
                     optimizer='adam',
                     metrics=['acc'])
       return model
-      
+
 ```
 ---
 
