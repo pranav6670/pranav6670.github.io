@@ -8,7 +8,7 @@ new Chart(document.getElementById("myChart"), {
 		labels: ["Python", "C", "C++", "Matlab"],
 		datasets: [
 			{
-				label: "Skill",
+				label: "Skill % ",
 				backgroundColor: ["rgba(200,0,0,0.5)", "rgba(200,0,0,0.5)", "rgba(200,0,0,0.5)", "rgba(200,0,0,0.5)"],
 				data: [90, 70, 60, 80]
 			}
@@ -50,7 +50,7 @@ new Chart(document.getElementById("myChart2"), {
 		labels: ["HTML", "CSS", "JavaScript"],
 		datasets: [
 			{
-				label: "Skill",
+				label: "Skill % ",
 				backgroundColor: ["rgba(0,200,0,0.5)", "rgba(0,200,0,0.5)", "rgba(0,200,0,0.5)",
 				],
 				data: [50, 55, 70]
@@ -93,7 +93,7 @@ new Chart(document.getElementById("myChart3"), {
 		labels: ["Git", "CLI", "Latex",],
 		datasets: [
 			{
-				label: "Skill",
+				label: "Skill % ",
 				backgroundColor: ["rgba(0,0,200,0.5)", "rgba(0,0,200,0.5)", "rgba(0,0,200,0.5)",
 				],
 				data: [80, 85, 50,]
@@ -136,7 +136,7 @@ new Chart(document.getElementById("myChart4"), {
 		labels: ["Jupyter", "Tensorflow/Keras/PyTorch", "Scikit-learn", "OpenCV/NLTK", "Numpy/Scipy/Pandas"],
 		datasets: [
 			{
-				label: "Skill",
+				label: "Skill % ",
 				backgroundColor: ["rgba(0,200,200,0.5)", "rgba(0,200,200,0.5)", "rgba(0,200,200,0.5)", "rgba(0,200,200,0.5)", "rgba(0,200,200,0.5)"],
 				data: [85, 70, 65, 75, 85]
 			}
