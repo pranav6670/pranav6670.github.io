@@ -9,7 +9,7 @@ new Chart(document.getElementById("myChart"), {
 		datasets: [
 			{
 				label: "Skill % ",
-				backgroundColor: ["rgba(255,0,0,0.8)", "rgba(255,0,0,0.8)", "rgba(255,0,0,0.8)", "rgba(255,0,0,0.8)"],
+				backgroundColor: ["rgba(255,0,0,0.6)", "rgba(255,0,0,0.6)", "rgba(255,0,0,0.6)", "rgba(255,0,0,0.6)"],
 				data: [90, 70, 60, 80]
 			}
 		]
@@ -51,7 +51,7 @@ new Chart(document.getElementById("myChart2"), {
 		datasets: [
 			{
 				label: "Skill % ",
-				backgroundColor: ["rgba(0,255,0,0.8)", "rgba(0,255,0,0.8)", "rgba(0,255,0,0.8)",
+				backgroundColor: ["rgba(0,255,0,0.6)", "rgba(0,255,0,0.6)", "rgba(0,255,0,0.6)",
 				],
 				data: [50, 55, 70]
 			}
@@ -94,7 +94,7 @@ new Chart(document.getElementById("myChart3"), {
 		datasets: [
 			{
 				label: "Skill % ",
-				backgroundColor: ["rgba(0,0,255,0.8)", "rgba(0,0,255,0.8)", "rgba(0,0,255,0.8)",
+				backgroundColor: ["rgba(0,0,255,0.6)", "rgba(0,0,255,0.6)", "rgba(0,0,255,0.6)",
 				],
 				data: [80, 85, 50,]
 			}
@@ -137,7 +137,7 @@ new Chart(document.getElementById("myChart4"), {
 		datasets: [
 			{
 				label: "Skill % ",
-				backgroundColor: ["rgba(0,255,255,0.8)", "rgba(0,255,255,0.8)", "rgba(0,255,255,0.8)", "rgba(0,255,255,0.8)", "rgba(0,255,255,0.8)"],
+				backgroundColor: ["rgba(0,200,255,0.6)", "rgba(0,255,255,0.6)", "rgba(0,255,255,0.6)", "rgba(0,255,255,0.6)", "rgba(0,255,255,0.6)"],
 				data: [85, 70, 65, 75, 85]
 			}
 		]
