@@ -17,32 +17,41 @@
     </script>
 
     <!--- basic page needs
-    ================================================== -->
+   ================================================== -->
     <meta charset="utf-8">
-    <title>Welcome | नमस्ते </title>
+    <title>About Me</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- mobile specific metas
-    ================================================== -->
+   ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS
-    ================================================== -->
+   ================================================== -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
 
+    <style type="text/css" media="screen">
+        .s-styles {
+            background: white;
+            padding-top: 15rem;
+            padding-bottom: 12rem;
+        }
+    </style>
+
     <!-- script
-    ================================================== -->
+   ================================================== -->
     <script src="js/modernizr.js"></script>
     <script src="js/pace.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 
+
     <!-- favicons
-    ================================================== -->
+	================================================== -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico   " type="image/x-icon">
 
 </head>
 
@@ -58,11 +67,11 @@
 
         <nav class="header-nav-wrap">
             <ul class="header-nav">
-                <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
-                <li><a href="about.html" title="about">About</a></li>
-                <!-- <li><a class="smoothscroll" href="#works" title="works">Works</a></li>
-                <li><a class="smoothscroll" href="#blog" title="blog">Blog</a></li>
-                <li><a class="smoothscroll" href="#contact" title="contact">Contact</a></li> -->
+                <li><a href="index.html#home" title="home">Home</a></li>
+                <li class="current"><a class="smoothscroll" href="#about" title="about">About</a></li>
+                <li class="current"><a class="smoothscroll" href="#works" title="works">Works</a></li>
+                <li class="current"><a href="blog.html" title="blog">Blog</a></li>
+                <li class="current"><a class="smoothscroll" href="#contact" title="contact">Contact</a></li>
             </ul>
         </nav>
 
@@ -73,7 +82,7 @@
 
     <!-- home
    ================================================== -->
-    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="images/test4.jpg"
+    <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="images/test2.jpg"
         data-natural-width=3000 data-natural-height=2000 data-position-y=center>
 
         <div class="overlay"></div>
@@ -83,40 +92,32 @@
 
             <div class="row home-content__main">
 
-                <h3>Hello There</h3>
+                <!-- <h1>About Me!</h1> -->
 
+                <!-- <div class="home-content__buttons">
+                    <a href="index.html#works" class="btn btn--stroke">
+                        Latest Projects
+                    </a>
+                    <a href="index.html#about" class="btn btn--stroke">
+                        More About Me
+                    </a>
+                </div> -->
                 <style>
                     #typed {
-                        font-size: 25px;
+                        font-size: 50px;
                         /* font-weight: bold; */
                         font-family: courier,arial,helvetica;
                         color: white
                     }
                 </style>
 
-                <!-- <h1> I am Pranav Natekar. </h1> -->
-
-                <div id="hhead">
-                    <p>I am Pranav Natekar.</p>
-                </div>
-
-                <style>
-                    #hhead{
-                        font-size: 50px;
-                        font-family: courier,arial,helvetica;
-                        /* font-weight: bold; */
-                        color:white;
-                    }
-                </style>
-
                 <div id="typed-strings">
-                    <p>Machine Learning ardent.</p>
-                    <p>Technical writer✍️.</p>
-                    <p>Developer.</p>
-                    <p>Open-Source contributer.</p>
+                    <p>About me!</p>
+                    <p>माझ्याबद्दल!</p>
+                    <p>मेरे बारे में!</p>
+                    <p>私について</p>
+                    <p>Über mich</p>
                 </div>
-
-                <h3>I am a</h3>
 
                 <span id="typed"></span>
                 <script>
@@ -128,15 +129,8 @@
                     });
                 </script>
 
-                <div class="home-content__buttons">
-                    <a href="about.html" class="smoothscroll btn btn--stroke">
-                        More About Me
-                    </a>
-                    <!-- <a href="#0" class="btn btn--primary full-width">Resume</a> -->
-                </div>
-
                 <div class="home-content__scroll">
-                    <a href="#about" class="scroll-link smoothscroll">
+                    <a href="#styles" class="smoothscroll scroll-link">
                         <span>Scroll Down</span>
                     </a>
                 </div>
@@ -171,9 +165,6 @@
 
     </section> <!-- end s-home -->
 
-
-    <!-- about
-    ================================================== -->
     <section id="about" class="s-about target-section">
 
         <div class="row narrow section-intro has-bottom-sep">
@@ -186,11 +177,141 @@
         </div>
 
         <div class="row about-content">
-            <div class="col-full text-center">
-                <h3>That's me!</h3>
-                <img src="images/bio.JPG" width="500" height="500" alt="">
+
+            <div class="col-six tab-full left">
+                <h1>More About Me</h1>
+
+                <p class="drop-cap">I am an energetic, highly motivated and a hard-working student. I am highly
+                    interested in
+                    technologies such as Machine Learning and Deep Learning, web development and deployment. I am
+                    passionate to transform any newly learnt skills / technologies into real-time prototypes.</p>
+
+                <p>
+                    Having studied basic courses like Signals & Systems, Digital Signal Processing, Digital Image
+                    Processing as an undergrad, laid the groundwork for advanced fields of Computer Science such as
+                    Natural Language Processing(NLP), Computer Vision(CV), Speech Processing, etc. These fields have
+                    piqued my interest since then, especially Computer Vision.
+                </p>
+                <p>
+                    When I am not engrossed in coding or hardware challenges, I play videogames such as CS:GO and
+                    outdoor games like football and cricket, also I enjoy playing Tabla with some Indian Classical
+                    Music.
+                </p>
             </div>
 
+            <div class="col-six tab-full right">
+                <img src="images/bio.JPG" alt="">
+            </div>
+
+            <div class="row about-content">
+                <div class="col-six tab-full left">
+                    <h2>Extra/Co - Curricular Activities</h2>
+                    <h3>Technical</h3>
+                    <p class="drop-cap">Led the communications team for <a
+                            href="https://en.wikipedia.org/wiki/ABU_Robocon" target="_blank"
+                            rel="noopener noreferrer">Robocon</a> 2018. The team's focus
+                        was on establishing wireless communication instead of conventional wired controls.
+                        The modern hardware such as nRF24L01+, ESP8266, etc was thoroughly researched.</p>
+                    <p>Robocon is a part of technical activities in VIIT, Pune. Being a part of such team
+                        improved a lot of technical, leadership and management skills.</p>
+                    <p>
+                        <a class="btn btn--primary full-width"
+                            href="https://www.slideshare.net/PranavNatekar/roboconcert" target="_blank"
+                            rel="noopener noreferrer" class="button primary small">The Certificate</a>
+
+                    </p>
+                    <p>
+                        Check out Robocon, VIIT at <a href="https://www.instagram.com/robocon_viit/" target="_blank"
+                            rel="noopener noreferrer" class="im im-instagram"><span class="label"></span>
+                            robocon_viit</a>
+                    </p>
+
+                    <h3>Cultural</h3>
+                    <p class="drop-cap">Played <a href="https://en.wikipedia.org/wiki/Tabla" target="_blank"
+                            rel="noopener noreferrer">Tabla</a> at the musical team for
+                        Firodiya karandak 2016. Firodiya karandak is a intercollegiate variety show, where teams
+                        from different colleges with different themed dramas compete for the trophy. The team's
+                        name is AAVISHKAR, meaning invention.</p>
+                    <p>AAVISHKAR is the cultural commune of VIIT, Pune. Here people from interests in art,
+                        literature, dance, music come together and work hard for the intercollegiate drama
+                        competitions.</p>
+                    <p>
+                        <a class="btn btn--primary full-width"
+                            href="https://www.slideshare.net/PranavNatekar/firodiya-certificate" target="_blank"
+                            rel="noopener noreferrer">Official Certificate</a>
+
+                        <a class="btn btn--primary full-width"
+                            href="https://www.slideshare.net/PranavNatekar/aavishkar-certificate" target="_blank"
+                            rel="noopener noreferrer">Appreciation Certificate</a>
+
+                    </p>
+                    <p>
+                        Check out AAVISHKAR, VIIT at <a href="https://www.instagram.com/aavishkar_viit/" target="_blank"
+                            rel="noopener noreferrer" class="im im-instagram"><span class="label"></span>
+                            aavishkar_viit</a>
+                    </p>
+
+                </div>
+                <div class="col-six tab-full right">
+                    <h2>I've Got Some skills.</h2>
+
+                    <ul class="skill-bars">
+                        <li>
+                            <div class="progress percent90"></div>
+                            <strong>Software Development(Python, C/C++)</strong>
+                        </li>
+                        <li>
+                            <div class="progress percent85"></div>
+                            <strong>Image Processing / Computer Vision</strong>
+                        </li>
+                        <li>
+                            <div class="progress percent90"></div>
+                            <strong>Data Science</strong>
+                        </li>
+                        <li>
+                            <div class="progress percent95"></div>
+                            <strong>Hardware(Arduino, RF devices)</strong>
+                        </li>
+                        <li>
+                            <div class="progress percent70"></div>
+                            <strong>Tools(Git, Latex, CLI)</strong>
+                        </li>
+
+                        <li>
+                            <div class="progress percent70"></div>
+                            <strong>Web Development</strong>
+                        </li>
+                    </ul>
+                    <h2>Certifications</h2>
+                    <p><a href="https://courses.nvidia.com/courses/" target="_blank" rel="noopener noreferrer"><img
+                                width="120" height="120" class="pull-right" alt="sample-image"
+                                src="https://upload.wikimedia.org/wikipedia/sco/2/21/Nvidia_logo.svg"></a>
+                        A hands-on course provided by Nvidia's Deep Learning Institute, introducing concepts like
+                        Models,
+                        Hyperparameters, Epochs, Loss, etc. Using the <a href="https://developer.nvidia.com/digits"
+                            target="_blank" rel="noopener noreferrer">DIGITS</a> platform and a GPU instance, the
+                        training and testing took less than a hour for a pre-trained network like AlexNet for < 30
+                            epochs.</p> <p>Course Id - DLI C-FX-01</p>
+                    <a class="btn btn--primary full-width"
+                        href="https://courses.nvidia.com/certificates/f4b02157f2d34f748f4d3eea8029c046" target="_blank"
+                        rel="noopener noreferrer">View Certificate</a>
+                    </p>
+
+                    <p><a href="https://www.qwiklabs.com/" target="_blank" rel="noopener noreferrer"><img width="120"
+                                height="120" class="pull-right" alt="sample-image" src="https://media.licdn.com/dms/image/C510BAQFR04KgVWnd3w/company-logo_400_400/0?e=1580947200&v=beta&t=Zloajit3TvzXxY020514ZgNhXqM_deBayhZRZdjVppA
+                                "></a>
+                        Completed various quests(A series of hands-on labs) like Intermediate ML: TensorFlow on GCP,
+                        BigQuery for Machine Learning, Intro to ML: Language Processing, etc. These labs are hands-on
+                        labs with actual services like AutoML, Dialogflow, Stackdriver, etc and resources like GPUs, VMs
+                        being actually deployed for you.
+                        <p></p>
+                        <a class="btn btn--primary full-width"
+                            href="https://www.qwiklabs.com/public_profiles/8c9d638d-c17b-4333-8e40-9375327d3258"
+                            target="_blank" rel="noopener noreferrer">Public Profile</a>
+                    </p>
+
+                </div>
+            </div>
         </div><!-- end about-content -->
 
         <!-- <div class="row about-content about-content--buttons">
@@ -200,6 +321,87 @@
             </div> -->
 
         </div> <!-- end about-content buttons -->
+
+        <div class="row about-content about-content--timeline">
+
+            <div class="col-full text-center">
+                <h3>My Work Experience.</h3>
+            </div>
+
+            <div class="col-six tab-full left">
+                <div class="timeline">
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2015 - Present</p>
+                            <h3>Awesome Studio</h3>
+                            <h5>Lead Designer</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi
+                                cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident
+                                cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est
+                                occaecat nisi.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2014 - June 2015</p>
+                            <h3>Super Cool Agency</h3>
+                            <h5>Front-end Developer</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi
+                                cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident
+                                cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est
+                                occaecat nisi incididunt.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                </div> <!-- end timeline -->
+            </div> <!-- end left -->
+
+            <div class="col-six tab-full right">
+                <div class="timeline">
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2012 - June 2014</p>
+                            <h3>Great Design Studio</h3>
+                            <h5>Web Designer</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi
+                                cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident
+                                cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est
+                                occaecat nisi.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2011 - June 2012</p>
+                            <h3>Epic Design Agency</h3>
+                            <h5>Web Designer</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi
+                                cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident
+                                cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est
+                                occaecat nisi incididunt.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                </div> <!-- end timeline -->
+            </div> <!-- end right -->
+
+        </div> <!-- end about-content timeline -->
+
     </section> <!-- end about -->
 
 
@@ -209,7 +411,8 @@
 
         <div class="row narrow section-intro has-bottom-sep">
             <div class="col-full">
-                <h1>My Latest Projects.</h1>
+                <h3>Portfolio</h3>
+                <h1>See My Latest Projects.</h1>
 
                 <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure
                     esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut
@@ -224,34 +427,30 @@
                     <div class="item-folio">
 
                         <div class="item-folio__thumb">
-                            <a href="images/portfolio/projects/tabla.jpg" class="thumb-link" title="Tabla"
-                                data-size="1050x700">
-                                <img src="images/portfolio/projects/tabla.jpg"
-                                    srcset="images/portfolio/projects/tabla.jpg 1x, images/portfolio/projects/tabla.jpg 2x"
-                                    alt="">
+                            <a href="images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car"
+                                >
+                                <img src="images/portfolio/beetle.jpg"
+                                    srcset="images/portfolio/beetle.jpg 1x, images/portfolio/beetle@2x.jpg 2x" alt="">
                                 <span class="shadow-overlay"></span>
                             </a>
                         </div>
 
                         <div class="item-folio__text">
                             <h3 class="item-folio__title">
-                                Detection & Classification-of-Tabla-taals
+                                The Beetle
                             </h3>
                             <p class="item-folio__cat">
-                                Deep Learning
+                                Web Development
                             </p>
                         </div>
 
-                        <a href="https://github.com/pranav6670/Detection-Classification-of-Tabla-taals" class="item-folio__project-link" title="Project link">
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
                             <i class="im im-link"></i>
                         </a>
 
                         <div class="item-folio__caption">
-                            <p>This project work aims at developing a system that would be able to first detect a tabla
-                                tala from a mix(a song) of an Indian or Carnatic Classical Music and then classify the
-                                tala. Tala is a specific pattern which occurs in all of the Indian Classical Music and
-                                Tabla is the percussive accompanying instrument.
-                            </p>
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
+                                dolorem corrupti neque nisi.</p>
                         </div>
 
                     </div> <!-- end item-folio -->
@@ -261,10 +460,10 @@
                     <div class="item-folio">
 
                         <div class="item-folio__thumb">
-                            <a href="images/portfolio/projects/imgaug.png" class="thumb-link" title="Lighthouse"
+                            <a href="images/portfolio/gallery/g-lighthouse.jpg" class="thumb-link" title="Lighthouse"
                                 data-size="1050x700">
-                                <img src="images/portfolio/projects/imgaug.png"
-                                    srcset="images/portfolio/projects/imgaug.png 1x, imagesprojects/imgaug.png 2x"
+                                <img src="images/portfolio/lighthouse.jpg"
+                                    srcset="images/portfolio/lighthouse.jpg 1x, images/portfolio/lighthouse@2x.jpg 2x"
                                     alt="">
                                 <span class="shadow-overlay"></span>
                             </a>
@@ -295,10 +494,9 @@
                     <div class="item-folio">
 
                         <div class="item-folio__thumb">
-                            <a href="images/portfolio/projects/autorccar.jpg" class="thumb-link" data-size="1050x700">
-                                <img src="images/portfolio/projects/autorccar.jpg"
-                                    srcset="images/portfolio/projects/autorccar.jpg 1x, images/portfolio/projects/autorccar.jpg 2x"
-                                    alt="">
+                            <a href="images/portfolio/gallery/g-salad.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/salad.jpg"
+                                    srcset="images/portfolio/salad.jpg 1x, images/portfolio/salad@2x.jpg 2x" alt="">
                                 <span class="shadow-overlay"></span>
                             </a>
                         </div>
@@ -328,9 +526,9 @@
                     <div class="item-folio">
 
                         <div class="item-folio__thumb">
-                            <a href="images/portfolio/projects/bagwatch.JPG" class="thumb-link" data-size="1050x700">
-                                <img src="images/portfolio/projects/bagwatch.JPG"
-                                    srcset="images/portfolio/projects/bagwatch.JPG 1x, images/portfolio/projects/bagwatch.JPG 2x"
+                            <a href="images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/woodcraft.jpg"
+                                    srcset="images/portfolio/woodcraft.jpg 1x, images/portfolio/woodcraft@2x.jpg 2x"
                                     alt="">
                                 <span class="shadow-overlay"></span>
                             </a>
@@ -361,9 +559,9 @@
                     <div class="item-folio">
 
                         <div class="item-folio__thumb">
-                            <a href="images/portfolio/projects/subcount.jpg" class="thumb-link" data-size="1050x700">
-                                <img src="images/portfolio/projects/subcount.jpg"
-                                    srcset="images/portfolio/projects/subcount.jpg 1x, images/portfolio/projects/subcount.jpg 2x"
+                            <a href="images/portfolio/gallery/g-skaterboy.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/skaterboy.jpg"
+                                    srcset="images/portfolio/skaterboy.jpg 1x, images/portfolio/skaterboy@2x.jpg 2x"
                                     alt="">
                                 <span class="shadow-overlay"></span>
                             </a>
@@ -389,6 +587,106 @@
 
                     </div> <!-- end item-folio -->
                 </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-liberty.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/liberty.jpg"
+                                    srcset="images/portfolio/liberty.jpg 1x, images/portfolio/liberty@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Liberty
+                            </h3>
+                            <p class="item-folio__cat">
+                                Branding
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
+                                dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-minimalismo.jpg" class="thumb-link"
+                                data-size="1050x700">
+                                <img src="images/portfolio/minimalismo.jpg"
+                                    srcset="images/portfolio/minimalismo.jpg 1x, images/portfolio/minimalismo@2x.jpg 2x"
+                                    alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Minimalismo
+                            </h3>
+                            <p class="item-folio__cat">
+                                Web Design
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
+                                dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/shutterbug.jpg"
+                                    srcset="images/portfolio/shutterbug.jpg 1x, images/portfolio/shutterbug@2x.jpg 2x"
+                                    alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Lady Shutterbug
+                            </h3>
+                            <p class="item-folio__cat">
+                                Branding
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde
+                                dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
             </div>
         </div> <!-- end masonry -->
 
@@ -557,7 +855,7 @@
 
     <!-- s-cta
     ================================================== -->
-    <!-- <section class="s-cta">
+    <section class="s-cta">
 
         <div class="row narrow cta">
 
@@ -581,7 +879,7 @@
 
         </div> <!-- end cta -->
 
-    </section> -->
+    </section>
 
 
     <!-- s-stats
