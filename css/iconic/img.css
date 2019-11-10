@@ -8,6 +8,7 @@
     overflow: hidden;
     max-width: 100%;
     height: auto;
+    margin-left: 50px;
 }
 
 .hvrbox img {
@@ -43,6 +44,8 @@
 .hvrbox .hvrbox-text {
     text-align: center;
     font-size: 18px;
+    font-family: courier, arial, helvetica;
+    font-weight: bold;
     display: inline-block;
     position: absolute;
     top: 50%;
@@ -72,6 +75,7 @@
 .img-hover-zoom--colorize img {
     transition: transform .3s, filter 1.5s ease-in-out;
     filter: grayscale(100%);
+
 }
 
 /* The Transformation */
@@ -79,4 +83,5 @@
 .img-hover-zoom--colorize:hover img {
     filter: grayscale(0);
     transform: scale(1.1);
+
 }
