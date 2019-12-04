@@ -157,7 +157,6 @@
 
     </section> <!-- end s-home -->
 
-
     <!-- about
     ================================================== -->
     <section id="about" class="s-about target-section">
@@ -180,8 +179,6 @@
                 </p>
             </div>
         </div>
-
-        <hr>
 
         <div class="row">
             <div class="row about-content about-content--timeline">
@@ -257,15 +254,167 @@
                 </div> <!-- end right -->
 
             </div> <!-- end about-content timeline -->
+            <div class="col-full text-center">
+                <a class="btn btn--primary half-width" href="myResume2 (2).pdf" download="">My Resume</a>
+            </div>
         </div>
-
-        <hr>
 
         <div class="row">
 
+            <div class="col-full text-center">
+                <h2>My skills</h2>
+            </div>
 
+            <hr>
+
+            <div class="col-six tab-full left">
+                <canvas id="radar-chart1" width="800" height="600"></canvas>
+                <script>
+                    new Chart(document.getElementById("radar-chart1"), {
+                        type: 'radar',
+                        data: {
+                            labels: ["Computer Vision", "Natural Language Processing", "Music Information Retrieval", "Digital Signal Processing", "Image Processing"],
+                            datasets: [
+                                {
+                                    label: "Skill %",
+                                    fill: true,
+                                    backgroundColor: "rgba(57,255,20,0.2)",
+                                    borderColor: "rgba(57,255,20,0.7)",
+                                    pointBorderColor: "#fff",
+                                    pointBackgroundColor: "rgba(179,181,198,1)",
+                                    data: [90, 70, 80, 75, 85]
+                                }
+                            ]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Domains',
+                                min: 10,
+                                max: 100
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+
+            <div class="col-six tab-full right">
+                <canvas id="radar-chart2" width="800" height="600"></canvas>
+                <script>
+                    new Chart(document.getElementById("radar-chart2"), {
+                        type: 'radar',
+                        data: {
+                            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                            datasets: [
+                                {
+                                    label: "Skill %",
+                                    fill: true,
+                                    backgroundColor: "rgba(255,7,58,0.2)",
+                                    borderColor: "rgba(255,7,58,1)",
+                                    pointBorderColor: "#fff",
+                                    pointBackgroundColor: "rgba(179,181,198,1)",
+                                    data: [8.77, 55.61, 21.69, 6.62, 6.82]
+                                }
+                            ]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Software Development'
+                            }
+                        }
+                    });</script>
+            </div>
         </div>
 
+        <div class="row">
+            <div class="col-full text-center">
+                <h2>Extra/Co - Curricular Activities</h2>
+            </div>
+            <div class="col-six tab-full left">
+                <h3>Technical</h3>
+                <p class="drop-cap">Led the communications team for <a href="https://en.wikipedia.org/wiki/ABU_Robocon"
+                        target="_blank" rel="noopener noreferrer">Robocon</a> 2018. The team's focus
+                    was on establishing wireless communication instead of conventional wired controls.
+                    The modern hardware such as nRF24L01+, ESP8266, etc was thoroughly researched.</p>
+                <p>Robocon is a part of technical activities in VIIT, Pune. Being a part of such team
+                    improved a lot of technical, leadership and management skills.</p>
+                <p>
+                    <a class="btn btn--primary full-width" href="https://www.slideshare.net/PranavNatekar/roboconcert"
+                        target="_blank" rel="noopener noreferrer" class="button primary small">The Certificate</a>
+
+                </p>
+                <p>
+                    Check out Robocon, VIIT at <a href="https://www.instagram.com/robocon_viit/" target="_blank"
+                        rel="noopener noreferrer" class="im im-instagram"><span class="label"></span>
+                        robocon_viit</a>
+                </p>
+            </div>
+            <div class="col-six tab-full right">
+
+                <h3>Cultural</h3>
+                <p class="drop-cap">Played <a href="https://en.wikipedia.org/wiki/Tabla" target="_blank"
+                        rel="noopener noreferrer">Tabla</a> at the musical team for
+                    Firodiya karandak 2016. Firodiya karandak is a intercollegiate variety show, where teams
+                    from different colleges with different themed dramas compete for the trophy. The team's
+                    name is AAVISHKAR, meaning invention.</p>
+                <p>AAVISHKAR is the cultural commune of VIIT, Pune. Here people from interests in art,
+                    literature, dance, music come together and work hard for the intercollegiate drama
+                    competitions.</p>
+                <p>
+                    <a class="btn btn--primary full-width"
+                        href="https://www.slideshare.net/PranavNatekar/firodiya-certificate" target="_blank"
+                        rel="noopener noreferrer">Official Certificate</a>
+
+                    <a class="btn btn--primary full-width"
+                        href="https://www.slideshare.net/PranavNatekar/aavishkar-certificate" target="_blank"
+                        rel="noopener noreferrer">Appreciation Certificate</a>
+
+                </p>
+                <p>
+                    Check out AAVISHKAR, VIIT at <a href="https://www.instagram.com/aavishkar_viit/" target="_blank"
+                        rel="noopener noreferrer" class="im im-instagram"><span class="label"></span>
+                        aavishkar_viit</a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-full text-center">
+                <h2>Certifications</h2>
+            </div>
+            <div class="col-six tab-full right">
+                <p><a href="https://courses.nvidia.com/courses/" target="_blank" rel="noopener noreferrer"><img
+                            width="120" height="120" class="pull-right" alt="sample-image"
+                            src="https://upload.wikimedia.org/wikipedia/sco/2/21/Nvidia_logo.svg"></a>
+                    A hands-on course provided by Nvidia's Deep Learning Institute, introducing concepts like
+                    Models,
+                    Hyperparameters, Epochs, Loss, etc. Using the <a href="https://developer.nvidia.com/digits"
+                        target="_blank" rel="noopener noreferrer">DIGITS</a> platform and a GPU instance, the
+                    training and testing took less than a hour for a pre-trained network like AlexNet for < 30
+                        epochs.</p> <p>Course Id - DLI C-FX-01</p>
+                <a class="btn btn--primary full-width"
+                    href="https://courses.nvidia.com/certificates/f4b02157f2d34f748f4d3eea8029c046" target="_blank"
+                    rel="noopener noreferrer">View Certificate</a>
+                </p>
+            </div>
+            <div class="col-six tab-full left">
+                <p><a href="https://www.qwiklabs.com/" target="_blank" rel="noopener noreferrer"><img width="120"
+                            height="120" class="pull-right" alt="sample-image" src="https://media.licdn.com/dms/image/C510BAQFR04KgVWnd3w/company-logo_400_400/0?e=1580947200&v=beta&t=Zloajit3TvzXxY020514ZgNhXqM_deBayhZRZdjVppA
+                        "></a>
+                    Completed various quests(A series of hands-on labs) like Intermediate ML: TensorFlow on GCP,
+                    BigQuery for Machine Learning, Intro to ML: Language Processing, etc. These labs are
+                    hands-on
+                    labs with actual services like AutoML, Dialogflow, Stackdriver, etc and resources like GPUs,
+                    VMs
+                    being actually deployed for you.
+                    <p></p>
+                    <a class="btn btn--primary full-width"
+                        href="https://www.qwiklabs.com/public_profiles/8c9d638d-c17b-4333-8e40-9375327d3258"
+                        target="_blank" rel="noopener noreferrer">Public Profile</a>
+                </p>
+            </div>
+        </div>
     </section> <!-- end about -->
 
 
@@ -281,7 +430,6 @@
 
 
 
-    ================================================== -->
     <section id="contact" class="s-contact target-section">
 
         <div class="overlay"></div>
