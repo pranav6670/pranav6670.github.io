@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144639605-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-144639605-1');
+    </script>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Image Classifier</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
+    <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+
+
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="index.html"><img src="images/favicon.ico" alt="Homepage"></a>
+        </div>
+
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="index.html#home" title="home">Home</a></li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+    <article class="blog-single">
+
+        <!-- page header/blog hero
+        ================================================== -->
+        <div class="page-header page-header--single page-hero"
+            style="background-image:url(images/obj.gif); background-size: cover;">
+            <div class="row page-header__content narrow">
+                <article class="col-full">
+                    <h1 class="page-header__title">
+                        <p>Image Classification using Tensorflow.js</p>
+                    </h1>
+                </article>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <h1>Technical Stuff:</h1>
+            <ul class="disc">
+                <li>Libraries used:
+                    <ul>
+                        <li>OpenCV.js</li>
+                        <li>Tensorflow.js</li>
+                    </ul>
+                </li>
+                <li>Model used: Mobilenet
+                    <p>MobileNets are small, low-latency, low-power models parameterized to meet the resource
+                        constraints of a variety of use cases. They can be built upon for classification, detection,
+                        embeddings and segmentation similar to how other popular large scale models, such as Inception,
+                        are used.(Source: https://github.com/tensorflow/tfjs-models/tree/master/mobilenet)
+                        <a class="btn btn--primary" class="button primary small"
+                            href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md">More
+                            info</a>
+                    </p>
+                </li>
+                <li>Data used for Mobilenet is <a class="btn--primary" href="http://www.image-net.org/">ImageNet</a> data.</li>
+        </div>
+
+
+        <div class="row">
+            <div class="col-six tab-full left">
+                <h1>Load Image</h1>
+
+                <p id="status">OpenCV.js is loading...</p>
+                <div>
+                    <table cellpadding="0" cellspacing="0" width="0" border="0">
+                        <tr>
+                            <td>
+                                <img id="imageSrc" class="small" />
+                                <div class="caption">imageSrc <input type="file" id="fileInput" name="file"
+                                        accept="image/*" /></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="col-six tab-full right">
+                <h1>Inference</h1>
+
+                <div id="console"></div>
+                <p>Model status: </p>
+                <p id="output"></p>
+                <a class="btn btn--primary full-width" class="button primary small" onclick="app()">Classify!</a>
+                <div class="table-responsive">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Classes</th>
+                                <th>Probabilities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="c1"></td>
+                                <td id="p1"></td>
+                            </tr>
+                            <tr>
+                                <td id="c2"></td>
+                                <td id="p2"></td>
+                            </tr>
+                            <tr>
+                                <td id="c3"></td>
+                                <td id="p3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <!-- Java Script
+        ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script async src="https://docs.opencv.org/3.4/opencv.js" onload="onOpenCvReady();"
+        onerror="onOpenCvError();"></script>
+
+    <script type="text/javascript">
+        let imgElement = document.getElementById('imageSrc');
+        let inputElement = document.getElementById('fileInput');
+        inputElement.addEventListener('change', (e) => {
+            imgElement.src = URL.createObjectURL(e.target.files[0]);
+        }, false);
+
+        function onOpenCvReady() { // eslint-disable-line no-unused-vars
+            document.getElementById('status').innerHTML = '<b>OpenCV.js is ready</b>.';
+        }
+
+        function onOpenCvError() { // eslint-disable-line no-unused-vars
+            let element = document.getElementById('status');
+            element.setAttribute('class', 'err');
+            element.innerHTML = 'Failed to load opencv.js';
+        }
+        let net;
+
+        async function app() {
+            console.log('Loading mobilenet..');
+            document.getElementById("output").innerHTML = 'Loading mobilenet..';
+
+
+            // Load the model.
+            net = await mobilenet.load();
+            console.log('Successfully loaded model');
+            document.getElementById("output").innerHTML = 'Successfully loaded model';
+
+            // Make a prediction through the model on our image.
+            const imgEl = document.getElementById('imageSrc');
+            const result = await net.classify(imgEl);
+            document.getElementById("c1").innerHTML = result[0]["className"];
+            document.getElementById("p1").innerHTML = result[0]["probability"];
+            document.getElementById("c2").innerHTML = result[1]["className"];
+            document.getElementById("p2").innerHTML = result[1]["probability"];
+            document.getElementById("c3").innerHTML = result[2]["className"];
+            document.getElementById("p3").innerHTML = result[2]["probability"];
+
+
+            // for (key in result) {
+            //     if (result.hasOwnProperty(key)) {
+            //         var value = result[key];
+            //         console.log(value["className"]);
+            //         console.log(value["probability"]);
+
+            //     }
+            // }
+
+        }
+// app();
+    </script>
+
+    <style>
+        canvas,
+        img,
+        video {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 10px 0px 0px 10px;
+            text-align: center;
+        }
+
+        .control {
+            margin-bottom: 3px;
+        }
+
+        .err {
+            color: red;
+            font-weight: bold;
+        }
+
+        .caption {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .code {
+            padding: 4px 6px;
+            margin: 4px 8px 4px 2px;
+            background-color: #FBFCFD;
+            border: 1px solid #C4CFE5;
+            font-family: monospace, fixed;
+            font-size: 13px;
+            min-height: 13px;
+            line-height: 1.0;
+            text-wrap: unrestricted;
+            padding-bottom: 0px;
+            margin: 0px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .small {
+            max-width: 300px;
+        }
+    </style>
+</body>
+
+</html>
