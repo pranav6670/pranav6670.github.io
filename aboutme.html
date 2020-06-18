@@ -511,6 +511,26 @@
         </div>
     </section> <!-- end about -->
 
+    <section id="works" class="s-about target-section">
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full text-center">
+                <h3>My GitHub Contributions</h3>
+
+            </div>
+        </div>
+        <!-- Include the library. -->
+        <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+        <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+        <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+        <!-- Prepare a container for your calendar. -->
+        <div class="calendar">
+            <!-- Loading stuff -->
+            Loading the data just for you.
+        </div>
+        <script>
+            GitHubCalendar(".calendar", "pranav6670", { responsive: true });
+        </script>
+    </section>  
 
 
     <section id="works" class="s-works target-section">
@@ -601,9 +621,6 @@
                 </div>
             </div>
     </section>
-
-
-
 
     <section id="contact" class="s-contact target-section">
 
