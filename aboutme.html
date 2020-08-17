@@ -67,8 +67,6 @@
                 <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
                 <li class="current"><a class="smoothscroll" href="#about" title="home">More</a></li>
                 <li class="current"><a class="smoothscroll" href="#works" title="home">Awards</a></li>
-                <li class="current"><a class="smoothscroll" href="#blog" title="home">Blog</a></li>
-
             </ul>
         </nav>
 
@@ -494,8 +492,7 @@
             </div>
             <div class="col-six tab-full left">
                 <p><a href="https://www.qwiklabs.com/" target="_blank" rel="noopener noreferrer"><img width="120"
-                            height="120" class="pull-right" alt="sample-image" src="https://media.licdn.com/dms/image/C510BAQFR04KgVWnd3w/company-logo_400_400/0?e=1580947200&v=beta&t=Zloajit3TvzXxY020514ZgNhXqM_deBayhZRZdjVppA
-                        "></a>
+                            height="120" class="pull-right" alt="sample-image" src="https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1476807400/hel0av33klakal6twwyj.png""></a>
                     Completed various quests(A series of hands-on labs) like Intermediate ML: TensorFlow on GCP,
                     BigQuery for Machine Learning, Intro to ML: Language Processing, etc. These labs are
                     hands-on
@@ -511,26 +508,7 @@
         </div>
     </section> <!-- end about -->
 
-    <section id="works" class="s-about target-section">
-        <div class="row narrow section-intro has-bottom-sep">
-            <div class="col-full text-center">
-                <h3>My GitHub Contributions</h3>
-
-            </div>
-        </div>
-        <!-- Include the library. -->
-        <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-        <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
-        <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
-        <!-- Prepare a container for your calendar. -->
-        <div class="calendar">
-            <!-- Loading stuff -->
-            Loading the data just for you.
-        </div>
-        <script>
-            GitHubCalendar(".calendar", "pranav6670", { responsive: true });
-        </script>
-    </section>  
+    
 
 
     <section id="works" class="s-works target-section">
@@ -621,77 +599,28 @@
                 </div>
             </div>
     </section>
+    <section id="works" class="s-about target-section">
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full text-center">
+                <h3>My GitHub Contributions</h3>
 
-    <section id="contact" class="s-contact target-section">
-
-        <div class="overlay"></div>
-
-        <div class="row narrow section-intro">
-            <div class="col-full">
-                <h3>Contact</h3>
-                <h1>Say Hello.</h1>
             </div>
         </div>
-        <div class="row contact__main">
-            <div class="col-eight tab-full contact__form">
-                <form name="contactForm" id="contactForm" method="post" action="">
-                    <fieldset>
-
-                        <div class="form-field">
-                            <input name="contactName" type="text" id="contactName" placeholder="Name" value=""
-                                minlength="2" required="" aria-required="true" class="full-width">
-                        </div>
-                        <div class="form-field">
-                            <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value=""
-                                required="" aria-required="true" class="full-width">
-                        </div>
-                        <div class="form-field">
-                            <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value=""
-                                class="full-width">
-                        </div>
-                        <div class="form-field">
-                            <textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10"
-                                cols="50" required="" aria-required="true" class="full-width"></textarea>
-                        </div>
-                        <div class="form-field">
-                            <button class="full-width btn--primary">Submit</button>
-                            <div class="submit-loader">
-                                <div class="text-loader">Sending...</div>
-                                <div class="s-loader">
-                                    <div class="bounce1"></div>
-                                    <div class="bounce2"></div>
-                                    <div class="bounce3"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
-
-                <!-- contact-warning -->
-                <div class="message-warning">
-                    Something went wrong. Please try again.
-                </div>
-
-                <!-- contact-success -->
-                <div class="message-success">
-                    Your message was sent, thank you!<br>
-                </div>
-
-            </div>
-            <div class="col-four tab-full contact__infos">
-                <h4 class="h06">Phone</h4>
-                <p><br>
-                    Mobile: (+91) 9405220933<br>
-                </p>
-
-                <h4 class="h06">Email</h4>
-                <p>pranavnat24@gmail.com<br>
-                    pranav.natekar@viit.ac.in
-                </p>
-            </div>
+        <!-- Include the library. -->
+        <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+        <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+        <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css" />
+        <!-- Prepare a container for your calendar. -->
+        <div class="calendar">
+            <!-- Loading stuff -->
+            Loading the data just for you.
         </div>
-    </section> <!-- end s-contact -->
+        <script>
+            GitHubCalendar(".calendar", "pranav6670", { responsive: true });
+        </script>
+    </section>  
+
+    
 
     <!-- footer================================================== -->
     <footer>
