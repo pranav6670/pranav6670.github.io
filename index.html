@@ -66,9 +66,11 @@
                 <li class="current"><a class="smoothscroll" href="#about" title="home">ME</a></li>
                 <li class="current"><a class="smoothscroll" href="#works" title="home">Projects</a></li>
                 <li class="current"><a class="smoothscroll" href="#blog" title="home">Blog</a></li>
+                <li class="current"><a class="smoothscroll" href="#extra" title="home">Extra/Awards</a></li>
                 <li class="current"><a class="smoothscroll" href="#live" title="home">Live Demos</a></li>
+            
 
-                <li><a href="aboutme.html" title="about">About</a></li>
+                <!-- <li><a href="aboutme.html" title="about">About</a></li> -->
             </ul>
         </nav>
 
@@ -130,11 +132,11 @@
                     });
                 </script>
 
-                <div class="home-content__buttons">
+                <!-- <div class="home-content__buttons">
                     <a href="aboutme.html" class="btn btn--stroke">
                         More About Me
                     </a>
-                </div>
+                </div> -->
 
                 <div class="home-content__scroll">
                     <a href="#about" class="scroll-link smoothscroll">
@@ -374,6 +376,245 @@
         </div>
 
     </section> <!-- end s-blog -->
+    <section id="extra" class="s-works target-section">
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full">
+                <h1>Extra/Co - Curricular</h1>
+                <!-- <p class="lead"></p> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-six tab-full left">
+                <h3>Technical</h3>
+                <p class="drop-cap">Led the communications team for <a href="https://en.wikipedia.org/wiki/ABU_Robocon"
+                        target="_blank" rel="noopener noreferrer">Robocon</a> 2018. The team's focus
+                    was on establishing wireless communication instead of conventional wired controls.
+                    The modern hardware such as nRF24L01+, ESP8266, etc was thoroughly researched.</p>
+                <p>Robocon is a part of technical activities in VIIT, Pune. Being a part of such team
+                    improved a lot of technical, leadership and management skills.</p>
+                <p>
+                    <a class="btn btn--primary full-width" href="https://www.slideshare.net/PranavNatekar/roboconcert"
+                        target="_blank" rel="noopener noreferrer" class="button primary small">The Certificate</a>
+
+                </p>
+            
+            </div>
+            <div class="col-six tab-full right">
+
+                <h3>Cultural</h3>
+                <p class="drop-cap">Played <a href="https://en.wikipedia.org/wiki/Tabla" target="_blank"
+                        rel="noopener noreferrer">Tabla</a> at the musical team for
+                    Firodiya karandak 2016. Firodiya karandak is a intercollegiate variety show, where teams
+                    from different colleges with different themed dramas compete for the trophy. The team's
+                    name is AAVISHKAR, meaning invention.</p>
+                <p>AAVISHKAR is the cultural commune of VIIT, Pune. Here people from interests in art,
+                    literature, dance, music come together and work hard for the intercollegiate drama
+                    competitions.</p>
+                <p>
+                    <a class="btn btn--primary full-width"
+                        href="https://www.slideshare.net/PranavNatekar/firodiya-certificate" target="_blank"
+                        rel="noopener noreferrer">Official Certificate</a>
+
+                    <a class="btn btn--primary full-width"
+                        href="https://www.slideshare.net/PranavNatekar/aavishkar-certificate" target="_blank"
+                        rel="noopener noreferrer">Appreciation Certificate</a>
+
+                </p>
+            
+            </div>
+        </div>
+        <br>
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full text-center">
+                <h3>Awards</h3>
+                <p class="lead">
+                    Different awards won at intercollegiate level technical fests.
+                </p>
+            </div>
+        </div>
+        <style>
+            * {box-sizing:border-box}
+
+            /* Slideshow container */
+            .slideshow-container {
+            max-height: 800px;
+            max-width: 600px;
+            position: relative;
+            margin: auto;
+            }
+
+            /* Hide the images by default */
+            .mySlides {
+            display: none;
+            }
+
+            /* Next & previous buttons */
+            .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            }
+
+            /* Position the "next button" to the right */
+            .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+            }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            }
+
+            /* Caption text */
+            .text {
+            font-family: courier, arial, helvetica;
+            color: black;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            }
+
+            /* Number text (1/3 etc) */
+            .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+            }
+
+            /* The dots/bullets/indicators */
+            .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            }
+
+            .active, .dot:hover {
+            background-color: #717171;
+            }
+
+            /* Fading animation */
+            .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+            }
+
+            @-webkit-keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+            }
+
+            @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+            }
+        </style>
+        
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 5</div>
+            <img src="images/COEP_CF2.jpg" style="width:100%">
+            <!-- <div class="text">COEP | Circuit Fixer 2 | 3rd position</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 5</div>
+            <img src="images/COEP_MA.jpg" style="width:100%">
+            <!-- <div class="text">COEP | Microapps | 3rd position</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 5</div>
+            <img src="images/COEP_witrified.jpg" style="width:100%">
+            <!-- <div class="text">COEP | Witrified | 1st position</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 5</div>
+            <img src="images/VIT_CE.jpg" style="width:100%">
+            <!-- <div class="text">VIT | Circuit Eye | 2nd position</div> -->
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 5</div>
+            <img src="images/AIT_I.jpg" style="width:100%">
+            <!-- <div class="text">AIT | Impedance | 2nd position</div> -->
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Thumbnail image controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+            }
+        </script>
+
+    </section>
+
+
 
     <section id="live" class="s-about target-section">
         <div class="row narrow section-intro has-bottom-sep">
