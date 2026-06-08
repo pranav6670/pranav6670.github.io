@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Playwright MCP / browser-automation session artifacts
+.playwright-mcp/
+
+# Verification screenshots (root-level only; real site images live under images/)
+/*.png
