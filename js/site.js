@@ -21,7 +21,7 @@
   }
   if (menu) {
     menu.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
+      if (e.target.closest("a")) {
         document.body.classList.remove("nav-open");
         if (toggle) toggle.setAttribute("aria-expanded", "false");
       }
