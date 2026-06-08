@@ -40,7 +40,47 @@
     <section id="about" class="section" data-reveal>
       <div class="container">
         <h2 class="section__title">About</h2>
-        <!-- About split-view inserted in Task 2 -->
+        <div class="about">
+          <ul class="about-nav">
+            <li><button type="button" data-target="background" class="is-active">Background</button></li>
+            <li><button type="button" data-target="experience">Experience</button></li>
+            <li><button type="button" data-target="research">Research</button></li>
+            <li><button type="button" data-target="education">Education</button></li>
+            <li><button type="button" data-target="interests">Interests</button></li>
+          </ul>
+          <div class="about-panels">
+            <article class="about-panel is-active is-open" id="background">
+              <button type="button" class="about-panel__header">Background <span>+</span></button>
+              <div class="about-panel__body">
+                <p>[PLACEHOLDER &mdash; short background. e.g. "My focus is embedded machine learning &mdash; enabling perception and reasoning on low-power devices."]</p>
+              </div>
+            </article>
+            <article class="about-panel" id="experience">
+              <button type="button" class="about-panel__header">Experience <span>+</span></button>
+              <div class="about-panel__body">
+                <p>[PLACEHOLDER &mdash; current role/company, then prior roles. Your existing copy mentions Software Engineer at SiFive (SoC bring-up, custom VLIW+SIMD DSP IP and an AI accelerator).]</p>
+              </div>
+            </article>
+            <article class="about-panel" id="research">
+              <button type="button" class="about-panel__header">Research <span>+</span></button>
+              <div class="about-panel__body">
+                <p>[PLACEHOLDER &mdash; research. Existing copy: affiliated with brain.lab @ RIT under Dr. Cory Merkel, "Improving Speech Technologies for People with Atypical Speech."]</p>
+              </div>
+            </article>
+            <article class="about-panel" id="education">
+              <button type="button" class="about-panel__header">Education <span>+</span></button>
+              <div class="about-panel__body">
+                <p>[PLACEHOLDER &mdash; education. Existing copy: Master's in Electrical Engineering, Rochester Institute of Technology (Image Processing &amp; Computer Vision).]</p>
+              </div>
+            </article>
+            <article class="about-panel" id="interests">
+              <button type="button" class="about-panel__header">Interests <span>+</span></button>
+              <div class="about-panel__body">
+                <p>[PLACEHOLDER &mdash; interests. Existing copy: Computer Vision, Speech Processing, low-power AGI; turning new skills into real-time prototypes; plays the tabla.]</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
