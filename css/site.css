@@ -60,6 +60,7 @@ h1, h2, h3, h4 {
 .section + .section { border-top: 1px solid var(--border); }
 .section__title { font-size: clamp(1.6rem, 3.2vw, 2.1rem); font-weight: 500; margin-bottom: 2.5rem; }
 .eyebrow { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 /* ---- Nav ---- */
 .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid transparent; transition: border-color .3s ease; }
@@ -91,6 +92,8 @@ h1, h2, h3, h4 {
 .about-panel__body { max-width: var(--maxw-read); }
 .about-panel__body p + p { margin-top: 1rem; }
 .about-panel h3 { font-size: 1.4rem; font-weight: 500; margin-bottom: 1rem; }
+.about-panel__header span { display: inline-block; transition: transform .2s ease; }
+.about-panel.is-open .about-panel__header span { transform: rotate(45deg); }
 
 /* ---- Projects feed ---- */
 .feed { border-top: 1px solid var(--border); }

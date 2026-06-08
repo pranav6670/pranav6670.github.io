@@ -42,40 +42,45 @@
         <h2 class="section__title">About</h2>
         <div class="about">
           <ul class="about-nav">
-            <li><button type="button" data-target="background" class="is-active">Background</button></li>
-            <li><button type="button" data-target="experience">Experience</button></li>
-            <li><button type="button" data-target="research">Research</button></li>
-            <li><button type="button" data-target="education">Education</button></li>
-            <li><button type="button" data-target="interests">Interests</button></li>
+            <li><button type="button" data-target="background" aria-controls="background" class="is-active">Background</button></li>
+            <li><button type="button" data-target="experience" aria-controls="experience">Experience</button></li>
+            <li><button type="button" data-target="research" aria-controls="research">Research</button></li>
+            <li><button type="button" data-target="education" aria-controls="education">Education</button></li>
+            <li><button type="button" data-target="interests" aria-controls="interests">Interests</button></li>
           </ul>
           <div class="about-panels">
             <article class="about-panel is-active is-open" id="background">
-              <button type="button" class="about-panel__header">Background <span>+</span></button>
-              <div class="about-panel__body">
+              <h3 class="sr-only">Background</h3>
+              <button type="button" class="about-panel__header" aria-controls="background-body" aria-expanded="true">Background <span aria-hidden="true">+</span></button>
+              <div class="about-panel__body" id="background-body">
                 <p>[PLACEHOLDER &mdash; short background. e.g. "My focus is embedded machine learning &mdash; enabling perception and reasoning on low-power devices."]</p>
               </div>
             </article>
             <article class="about-panel" id="experience">
-              <button type="button" class="about-panel__header">Experience <span>+</span></button>
-              <div class="about-panel__body">
+              <h3 class="sr-only">Experience</h3>
+              <button type="button" class="about-panel__header" aria-controls="experience-body" aria-expanded="false">Experience <span aria-hidden="true">+</span></button>
+              <div class="about-panel__body" id="experience-body">
                 <p>[PLACEHOLDER &mdash; current role/company, then prior roles. Your existing copy mentions Software Engineer at SiFive (SoC bring-up, custom VLIW+SIMD DSP IP and an AI accelerator).]</p>
               </div>
             </article>
             <article class="about-panel" id="research">
-              <button type="button" class="about-panel__header">Research <span>+</span></button>
-              <div class="about-panel__body">
+              <h3 class="sr-only">Research</h3>
+              <button type="button" class="about-panel__header" aria-controls="research-body" aria-expanded="false">Research <span aria-hidden="true">+</span></button>
+              <div class="about-panel__body" id="research-body">
                 <p>[PLACEHOLDER &mdash; research. Existing copy: affiliated with brain.lab @ RIT under Dr. Cory Merkel, "Improving Speech Technologies for People with Atypical Speech."]</p>
               </div>
             </article>
             <article class="about-panel" id="education">
-              <button type="button" class="about-panel__header">Education <span>+</span></button>
-              <div class="about-panel__body">
+              <h3 class="sr-only">Education</h3>
+              <button type="button" class="about-panel__header" aria-controls="education-body" aria-expanded="false">Education <span aria-hidden="true">+</span></button>
+              <div class="about-panel__body" id="education-body">
                 <p>[PLACEHOLDER &mdash; education. Existing copy: Master's in Electrical Engineering, Rochester Institute of Technology (Image Processing &amp; Computer Vision).]</p>
               </div>
             </article>
             <article class="about-panel" id="interests">
-              <button type="button" class="about-panel__header">Interests <span>+</span></button>
-              <div class="about-panel__body">
+              <h3 class="sr-only">Interests</h3>
+              <button type="button" class="about-panel__header" aria-controls="interests-body" aria-expanded="false">Interests <span aria-hidden="true">+</span></button>
+              <div class="about-panel__body" id="interests-body">
                 <p>[PLACEHOLDER &mdash; interests. Existing copy: Computer Vision, Speech Processing, low-power AGI; turning new skills into real-time prototypes; plays the tabla.]</p>
               </div>
             </article>

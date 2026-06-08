@@ -42,7 +42,8 @@
   // About: mobile accordion
   document.querySelectorAll(".about-panel__header").forEach(function (header) {
     header.addEventListener("click", function () {
-      header.parentElement.classList.toggle("is-open");
+      var open = header.parentElement.classList.toggle("is-open");
+      header.setAttribute("aria-expanded", open ? "true" : "false");
     });
   });
 
