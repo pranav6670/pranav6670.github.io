@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pranav Natekar</title>
-  <meta name="description" content="Pranav Natekar — [PLACEHOLDER short description].">
+  <meta name="description" content="Pranav Natekar — software engineer working across machine learning, computer vision and speech. Explore the site through an interactive terminal.">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,18 +14,6 @@
 </head>
 
 <body id="top">
-
-  <header class="nav">
-    <div class="nav__inner">
-      <a class="nav__brand" href="#top">Pranav Natekar</a>
-      <button class="nav__toggle" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false"><span></span><span></span></button>
-      <nav class="nav__menu" id="primary-nav">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="https://pranavnatekar.medium.com/" target="_blank" rel="noopener noreferrer">Writing &#8599;</a>
-      </nav>
-    </div>
-  </header>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
@@ -48,117 +36,26 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section id="about" class="section" data-reveal aria-labelledby="about-title">
-      <div class="container">
-        <h2 class="section__title" id="about-title">About</h2>
-        <div class="about">
-          <ul class="about-nav">
-            <li><button type="button" data-target="background" aria-controls="background" class="is-active">Background</button></li>
-            <li><button type="button" data-target="experience" aria-controls="experience">Experience</button></li>
-            <li><button type="button" data-target="research" aria-controls="research">Research</button></li>
-            <li><button type="button" data-target="education" aria-controls="education">Education</button></li>
-            <li><button type="button" data-target="interests" aria-controls="interests">Interests</button></li>
-          </ul>
-          <div class="about-panels">
-            <article class="about-panel is-active is-open" id="background">
-              <h3 class="sr-only">Background</h3>
-              <button type="button" class="about-panel__header" aria-controls="background-body" aria-expanded="true">Background <span aria-hidden="true">+</span></button>
-              <div class="about-panel__body" id="background-body">
-                <p>[PLACEHOLDER &mdash; short background. e.g. "My focus is embedded machine learning &mdash; enabling perception and reasoning on low-power devices."]</p>
-              </div>
-            </article>
-            <article class="about-panel" id="experience">
-              <h3 class="sr-only">Experience</h3>
-              <button type="button" class="about-panel__header" aria-controls="experience-body" aria-expanded="false">Experience <span aria-hidden="true">+</span></button>
-              <div class="about-panel__body" id="experience-body">
-                <p>[PLACEHOLDER &mdash; current role/company, then prior roles. Your existing copy mentions Software Engineer at SiFive (SoC bring-up, custom VLIW+SIMD DSP IP and an AI accelerator).]</p>
-              </div>
-            </article>
-            <article class="about-panel" id="research">
-              <h3 class="sr-only">Research</h3>
-              <button type="button" class="about-panel__header" aria-controls="research-body" aria-expanded="false">Research <span aria-hidden="true">+</span></button>
-              <div class="about-panel__body" id="research-body">
-                <p>[PLACEHOLDER &mdash; research. Existing copy: affiliated with brain.lab @ RIT under Dr. Cory Merkel, "Improving Speech Technologies for People with Atypical Speech."]</p>
-              </div>
-            </article>
-            <article class="about-panel" id="education">
-              <h3 class="sr-only">Education</h3>
-              <button type="button" class="about-panel__header" aria-controls="education-body" aria-expanded="false">Education <span aria-hidden="true">+</span></button>
-              <div class="about-panel__body" id="education-body">
-                <p>[PLACEHOLDER &mdash; education. Existing copy: Master's in Electrical Engineering, Rochester Institute of Technology (Image Processing &amp; Computer Vision).]</p>
-              </div>
-            </article>
-            <article class="about-panel" id="interests">
-              <h3 class="sr-only">Interests</h3>
-              <button type="button" class="about-panel__header" aria-controls="interests-body" aria-expanded="false">Interests <span aria-hidden="true">+</span></button>
-              <div class="about-panel__body" id="interests-body">
-                <p>[PLACEHOLDER &mdash; interests. Existing copy: Computer Vision, Speech Processing, low-power AGI; turning new skills into real-time prototypes; plays the tabla.]</p>
-              </div>
-            </article>
+        <noscript>
+          <div class="noscript">
+            <p>Pranav Natekar &mdash; software engineer working across machine learning, computer vision and speech.
+              This site is an interactive terminal and needs JavaScript; the essentials:</p>
+            <ul>
+              <li><a href="projects/tabla-tala.html">Automatic Detection &amp; Classification of Tabla Talas</a></li>
+              <li><a href="projects/autonomous-vehicle.html">Autonomous Vehicle Drive</a></li>
+              <li><a href="projects/image-augmenter.html">Image Augmenter</a></li>
+              <li><a href="projects/youtube-subscriber-counter.html">YouTube Subscriber Counter</a></li>
+              <li><a href="projects/bag-ewatch.html">Bag eWatch</a></li>
+              <li><a href="https://github.com/pranav6670" rel="noopener noreferrer">GitHub</a> &middot;
+                <a href="https://www.linkedin.com/in/pranavnatekar/" rel="noopener noreferrer">LinkedIn</a> &middot;
+                <a href="https://pranavnatekar.medium.com/" rel="noopener noreferrer">Medium</a></li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section" data-reveal aria-labelledby="projects-title">
-      <div class="container">
-        <h2 class="section__title" id="projects-title">Projects</h2>
-        <ul class="feed">
-          <li class="feed__item">
-            <a class="feed__link" href="projects/tabla-tala.html">
-              <span class="feed__meta">Machine Learning &middot; Audio</span>
-              <h3 class="feed__title">Automatic Detection &amp; Classification of Tabla Talas</h3>
-              <p class="feed__desc">Detecting and classifying tabla talas from Indian classical music. Winner, TensorFlow Community Spotlight.</p>
-            </a>
-          </li>
-          <li class="feed__item">
-            <a class="feed__link" href="projects/autonomous-vehicle.html">
-              <span class="feed__meta">Robotics &middot; Deep Learning</span>
-              <h3 class="feed__title">Autonomous Vehicle Drive</h3>
-              <p class="feed__desc">A vehicle built from scratch and driven autonomously with a multilayer perceptron over live video.</p>
-            </a>
-          </li>
-          <li class="feed__item">
-            <a class="feed__link" href="projects/image-augmenter.html">
-              <span class="feed__meta">Tools &middot; Computer Vision</span>
-              <h3 class="feed__title">Image Augmenter</h3>
-              <p class="feed__desc">A PyQt5 GUI that turns a single image into 1000+ augmented images.</p>
-            </a>
-          </li>
-          <li class="feed__item">
-            <a class="feed__link" href="projects/youtube-subscriber-counter.html">
-              <span class="feed__meta">Hardware &middot; IoT</span>
-              <h3 class="feed__title">YouTube Subscriber Counter</h3>
-              <p class="feed__desc">An ESP8266 + NeoMatrix display showing live subscriber counts via the YouTube Data API.</p>
-            </a>
-          </li>
-          <li class="feed__item">
-            <a class="feed__link" href="projects/bag-ewatch.html">
-              <span class="feed__meta">Hardware &middot; Embedded</span>
-              <h3 class="feed__title">Bag eWatch</h3>
-              <p class="feed__desc">An e-ink badge for a bag showing time plus altitude, pressure and humidity readings.</p>
-            </a>
-          </li>
-        </ul>
+        </noscript>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <ul class="footer__social">
-        <li><a href="https://github.com/pranav6670" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/pranavnatekar/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://twitter.com/pranavnat24" target="_blank" rel="noopener noreferrer">Twitter</a></li>
-      </ul>
-      <p class="footer__copy">&copy; 2026 Pranav Natekar</p>
-    </div>
-  </footer>
-
-  <script src="js/site.js"></script>
   <script src="js/terminal-core.js" defer></script>
   <script src="js/terminal.js" defer></script>
 </body>

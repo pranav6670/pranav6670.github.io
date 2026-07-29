@@ -68,8 +68,6 @@
   };
   var FILE_NAMES = ["about.txt", "experience.txt", "education.txt", "research.txt", "interests.txt", ".social"];
 
-  var SECTIONS = { about: "#about", projects: "#projects" };
-
   /* Static intro session (aleksa-style) rendered inside the window on load. */
   var STATUS = [
     // TODO(pranav): confirm current role/employer wording.
@@ -80,19 +78,21 @@
     [t("→ Research  : "), link("brain.lab @ RIT", "https://www.rit.edu/kgcoe/brainlab/"), t(" — speech tech for atypical speech")]
   ];
 
-  var PAGES = [
-    [t("📂 "), link("about/", "#about")],
-    [t("📂 "), link("projects/", "#projects")],
-    [t("📂 "), link("writing/", "https://pranavnatekar.medium.com/"), mut("  (Medium)")]
-  ];
+  function pageLines() {
+    var lines = PROJECTS.map(function (p) {
+      return [t("📄 "), link(p.title, "projects/" + p.slug + ".html")];
+    });
+    lines.push([t("📂 "), link("writing/", MEDIUM), mut("  (Medium)")]);
+    return lines;
+  }
 
   function intro() {
     return [
       { cmd: "$ echo $GREETING", lines: [[t("\"नमस्ते — welcome to my corner of the web.\"")]] },
       { cmd: "# cat /proc/status", lines: STATUS },
-      { cmd: "# ls ~/pages/", lines: PAGES },
+      { cmd: "# ls ~/projects/", lines: pageLines() },
       { cmd: "# cat ~/.social", lines: socialLines() },
-      { cmd: null, lines: [[mut("Type "), gold("help"), mut(" for commands — try whoami, projects, or cd about.")]] }
+      { cmd: null, lines: [[mut("Type "), gold("help"), mut(" for commands — try whoami, projects, or open tabla-tala.")]] }
     ];
   }
 
@@ -119,8 +119,8 @@
     ["about", "who I am (also: experience, education, research, interests)"],
     ["projects", "list my projects"],
     ["open <slug>", "read a project write-up"],
-    ["ls", "list sections & files"],
-    ["cd <section>", "go to a section (about, projects, writing)"],
+    ["ls", "list directories & files"],
+    ["cd <dir>", "go places (projects, projects/<slug>, writing)"],
     ["cat <file>", "print a file (about.txt … .social)"],
     ["social", "where to find me"],
     ["echo <text>", "say it back"],
@@ -150,19 +150,19 @@
     contact: function () { return out(socialLines()); },
     ls: function () {
       return out([
-        [link("about/", "#about"), t("  "), link("projects/", "#projects"), t("  "), link("writing/", MEDIUM)],
+        [gold("projects/"), t("  "), link("writing/", MEDIUM)],
         [mut(FILE_NAMES.join("  "))]
       ]);
     },
     cd: function (arg) {
       if (!arg || arg === "~" || arg === "/") return out([], { type: "scroll", target: "#top" });
-      if (SECTIONS[arg]) return out([], { type: "scroll", target: SECTIONS[arg] });
-      if (arg === "writing") return out([], { type: "navigate", href: MEDIUM, newTab: true });
+      if (arg === "projects" || arg === "projects/") return out(projectLines());
+      if (arg === "writing" || arg === "writing/") return out([], { type: "navigate", href: MEDIUM, newTab: true });
       var m = /^projects\/([\w-]+)\/?$/.exec(arg);
       if (m && findProject(m[1])) return out([], { type: "navigate", href: "projects/" + m[1] + ".html", newTab: false });
       return out([
         [err("cd: no such directory: " + arg)],
-        [mut("directories: about/  projects/  writing/  (or projects/<slug>)")]
+        [mut("directories: projects/  writing/  projects/<slug> — files: try cat about.txt")]
       ]);
     },
     open: function (arg) {
@@ -210,7 +210,7 @@
     "interests", "projects", "open", "ls", "cd", "cat", "social", "contact", "echo",
     "pwd", "date", "banner", "history", "clear"];
   var ARG_COMPLETIONS = {
-    cd: ["about", "projects", "writing"].concat(slugs().map(function (s) { return "projects/" + s; })),
+    cd: ["projects", "writing"].concat(slugs().map(function (s) { return "projects/" + s; })),
     open: slugs(),
     cat: FILE_NAMES
   };
