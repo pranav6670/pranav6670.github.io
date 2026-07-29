@@ -48,19 +48,20 @@
 
   var FILES = {
     "about.txt": [
-      [t("Engineer working across machine learning, computer vision and speech.")],
-      [t("I like turning newly learnt skills into real-time prototypes — the long")],
+      [t("Engineer working across machine learning, computer vision, and speech.")],
+      [t("I like turning newly learned skills into real-time prototypes — the long")],
       [t("game is intelligent cognition and reasoning in low-power machines.")],
       [t("Off the keyboard: I play the tabla.")]
     ],
     "experience.txt": [
       [t("→ Currently : Software Engineer 2, Computer Vision")],
       [t("              @ Rivian & Volkswagen Group Technologies")],
+      [t("              on-device multimodal models using LiteRT and QNN/QAIRT/SNPE")],
       [t("→ Previously:")],
-      [t("      ├── Software Engineering Intern @ AMD — inference optimization on the Ryzen NPU")],
+      [t("      ├── Software Engineering Intern @ AMD — inference optimization for the Ryzen NPU")],
       [t("      ├── EDG Intern @ MathWorks — on-device computer vision & deep learning")],
-      [t("      └── Software Engineer @ SiFive — SoC bring-up for a custom")],
-      [t("          VLIW+SIMD DSP IP and an AI accelerator")]
+      [t("      └── Software Engineer @ SiFive — custom computer vision and language")],
+      [t("          models for a VLIW+SIMD DSP IP and an AI accelerator")]
     ],
     "education.txt": [
       [t("MS, Electrical Engineering — Rochester Institute of Technology")],
@@ -80,10 +81,12 @@
   /* Static intro session (aleksa-style) rendered inside the window on load. */
   var STATUS = [
     [t("→ Currently : Software Engineer 2, Computer Vision @ Rivian & Volkswagen Group Technologies")],
+    [t("              on-device multimodal models using LiteRT and QNN/QAIRT/SNPE")],
     [t("→ Previously:")],
-    [t("      ├── Software Engineering Intern @ AMD — inference optimization on the Ryzen NPU")],
+    [t("      ├── Software Engineering Intern @ AMD — inference optimization for the Ryzen NPU")],
     [t("      ├── EDG Intern @ MathWorks — on-device computer vision & deep learning")],
-    [t("      └── Software Engineer @ SiFive — custom VLIW+SIMD DSP IP and an AI accelerator")],
+    [t("      └── Software Engineer @ SiFive — custom computer vision and language models")],
+    [t("          for a VLIW+SIMD DSP IP and an AI accelerator")],
     [t("→ Education : MS EE, Rochester Institute of Technology — CV & image processing")],
     [t("→ Research  : "), link("brain.lab @ RIT", "https://www.rit.edu/kgcoe/brainlab/"), t(" — speech tech for atypical speech")]
   ];

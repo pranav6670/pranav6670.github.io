@@ -99,8 +99,9 @@ test("topic commands mirror files", () => {
     assert.ok(Core.run(c).lines.length > 0, `${c} should print`);
   const exp = allText(Core.run("experience"));
   assert.ok(exp.includes("Software Engineer 2, Computer Vision"), "confirmed current title");
-  assert.ok(exp.includes("SiFive"));
-  assert.ok(exp.includes("Software Engineering Intern @ AMD") && exp.includes("Ryzen NPU"), "AMD internship");
+  assert.ok(exp.includes("LiteRT") && exp.includes("QNN/QAIRT/SNPE"), "Rivian on-device stack");
+  assert.ok(exp.includes("custom computer vision and language") && !exp.includes("custom VLIW"), "SiFive line without double custom");
+  assert.ok(exp.includes("inference optimization for the Ryzen NPU"), "AMD internship, 'for the'");
   assert.ok(exp.includes("EDG Intern @ MathWorks"), "MathWorks internship");
   assert.ok(allText(Core.run("education")).includes("Rochester Institute of Technology"));
 });
