@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css?v=20260729b">
+  <link rel="stylesheet" href="../css/site.css?v=20260729c">
 </head>
 
 <body id="top">
@@ -132,8 +132,8 @@
       engineering bench (the live HUD, timeline, keyframe search, and every benchmark in this post)
       ships in the same binary behind a Developer Mode toggle.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d1-system-architecture.png" alt="LocalLens system architecture diagram" width="1600" height="761" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d1-system-architecture.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d1-system-architecture.png" alt="LocalLens system architecture diagram" width="2510" height="1195" loading="lazy"></a>
         <figcaption>Figure 2. One iPhone: sensors &rarr; GPU/ANE/CPU &rarr; spatial memory &rarr; surfaces.
         The dashed return path is the ask-and-guide loop.</figcaption>
       </figure>
@@ -208,7 +208,7 @@
       the end of this section compresses all of its evidence into one place.</p>
 
       <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/c1-performance-ladder.png" alt="Performance ladder bar chart, 13.5 to 4.2 ms" width="1600" height="968" loading="lazy">
+        <a href="../images/portfolio/projects/locallens/c1-performance-ladder.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c1-performance-ladder.png" alt="Performance ladder bar chart, 13.5 to 4.2 ms" width="1690" height="951" loading="lazy"></a>
         <figcaption>Figure 3. The ladder as a chart. Gray rungs changed nothing at runtime; teal rungs
         are the engineering; the coral rung is the scheduler&rsquo;s fast path.</figcaption>
       </figure>
@@ -252,8 +252,8 @@
       (Figure&nbsp;4). Measured: 8.91&thinsp;ms &rarr; 8.44&thinsp;ms p50, tail down 9%, camera lag flat. Real,
       modest, worth keeping.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d2-live-pipeline.png" alt="Live pipeline swimlane diagram" width="1600" height="932" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d2-live-pipeline.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d2-live-pipeline.png" alt="Live pipeline swimlane diagram" width="2669" height="1551" loading="lazy"></a>
         <figcaption>Figure 4. One frame&rsquo;s path through the swimlanes. The dashed band is the
         one-frame lookahead; the amber box is the scheduler deciding what the next frame runs.</figcaption>
       </figure>
@@ -289,8 +289,8 @@
       Throttle detects every 5th at 320). No I/O anywhere in the policy, which is why the whole
       state-by-content matrix is unit-tested on a Mac.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d3-adaptive-scheduler.png" alt="Adaptive scheduler diagram" width="1600" height="988" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d3-adaptive-scheduler.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d3-adaptive-scheduler.png" alt="Adaptive scheduler diagram" width="2665" height="1641" loading="lazy"></a>
         <figcaption>Figure 5. System state picks a tier ceiling; the tier plus per-frame motion
         decides what runs. A tier switch costs 179&thinsp;ms.</figcaption>
       </figure>
@@ -303,7 +303,7 @@
       retired instructions down 22.7%. A static schedule cannot produce that combination.</p>
 
       <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/c3-scheduler-ablation.png" alt="Scheduler ablation chart" width="1600" height="745" loading="lazy">
+        <a href="../images/portfolio/projects/locallens/c3-scheduler-ablation.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c3-scheduler-ablation.png" alt="Scheduler ablation chart" width="1984" height="924" loading="lazy"></a>
         <figcaption>Figure 6. Less work, and cheaper work, at the same 30.5 preview FPS.</figcaption>
       </figure>
 
@@ -317,7 +317,7 @@
       </div>
 
       <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/c4-overlay-matrix.png" alt="Overlay matrix FPS chart" width="1600" height="748" loading="lazy">
+        <a href="../images/portfolio/projects/locallens/c4-overlay-matrix.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c4-overlay-matrix.png" alt="Overlay matrix FPS chart" width="1869" height="874" loading="lazy"></a>
         <figcaption>Figure 7. The same lesson from the overlay side: with mask and depth toggled on,
         preview FPS does not move, because the heavy models run off the hot loop on a keyframe
         cadence.</figcaption>
@@ -389,7 +389,7 @@
       app ships fp16 and keeps pal6 as the size-constrained fallback.</p>
 
       <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/c2-quant-pareto.png" alt="Quantization Pareto chart" width="1600" height="833" loading="lazy">
+        <a href="../images/portfolio/projects/locallens/c2-quant-pareto.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c2-quant-pareto.png" alt="Quantization Pareto chart" width="1824" height="951" loading="lazy"></a>
         <figcaption>Figure 8. Accuracy loss vs size; every point carries its measured latency. pal6
         dominates int8; nothing here is faster than anything else.</figcaption>
       </figure>
@@ -430,8 +430,8 @@
       (events), appearance (embeddings), and recall. This section builds that chain; its schema is
       Figure&nbsp;9, and Figure&nbsp;10 is the chain read back in the app.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d4-memory-schema.png" alt="Memory schema diagram" width="1562" height="1600" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d4-memory-schema.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d4-memory-schema.png" alt="Memory schema diagram" width="2219" height="2272" loading="lazy"></a>
         <figcaption>Figure 9. One SQLite file: a temporal log of what the camera saw, and a semantic
         registry of what exists. The <code>position</code> blob on instances is the 3D anchor of
         Section&nbsp;5.</figcaption>
@@ -478,8 +478,8 @@
       token ids are validated against <code>open_clip</code><sup><a href="#ref-9" id="cite-9">[9]</a></sup>
       outputs in unit tests.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d5-recall-dataflow.png" alt="Recall dataflow diagram" width="1600" height="530" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d5-recall-dataflow.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d5-recall-dataflow.png" alt="Recall dataflow diagram" width="2651" height="878" loading="lazy"></a>
         <figcaption>Figure 11. Text and image queries meet in the same 512-d space; category recall
         bypasses embeddings entirely.</figcaption>
       </figure>
@@ -509,8 +509,8 @@
       observations, and a guidance UX that went through four designs before one was honest about its
       own error sources.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d6-ar-perception-loop.png" alt="AR perception loop diagram" width="1600" height="1020" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d6-ar-perception-loop.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d6-ar-perception-loop.png" alt="AR perception loop diagram" width="2487" height="1585" loading="lazy"></a>
         <figcaption>Figure 12. Every 6th ARFrame: gate, detect on the upright image, fuse depth,
         unproject in buffer space. Roughly 10&thinsp;Hz of perception beside 60&thinsp;fps tracking.</figcaption>
       </figure>
@@ -542,8 +542,8 @@
       with no ARKit types; the fit ran against synthetic cases on a Mac before it ever ran in AR,
       which caught a constant-patch conditioning bug off-device.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d7-depth-fusion.png" alt="Depth fusion diagram" width="1600" height="867" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d7-depth-fusion.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d7-depth-fusion.png" alt="Depth fusion diagram" width="2665" height="1437" loading="lazy"></a>
         <figcaption>Figure 13. Sparse-but-metric plus dense-but-relative, aligned by scale and shift
         where the ambiguity actually lives.</figcaption>
       </figure>
@@ -578,7 +578,7 @@
       </div>
 
       <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/c5-reanchor-gaps.png" alt="Re-anchor gap histogram" width="1600" height="835" loading="lazy">
+        <a href="../images/portfolio/projects/locallens/c5-reanchor-gaps.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c5-reanchor-gaps.png" alt="Re-anchor gap histogram" width="1747" height="913" loading="lazy"></a>
         <figcaption>Figure 14. Raw pre-EMA re-anchor gaps from one live session after all hardening.
         The median tells the truth; the tail is why the clamp exists.</figcaption>
       </figure>
@@ -619,8 +619,8 @@
       the app controls, not a sentence in the prompt. Figure&nbsp;16 is the sequence; Figure&nbsp;18 is the
       enforcement.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d8-agent-sequence.png" alt="Agent sequence diagram" width="1600" height="725" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d8-agent-sequence.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d8-agent-sequence.png" alt="Agent sequence diagram" width="2666" height="1208" loading="lazy"></a>
         <figcaption>Figure 16. A fresh session per question, tools that record what they returned,
         typed gates, and a human who does the navigating.</figcaption>
       </figure>
@@ -688,8 +688,8 @@
       yet&rdquo;), and questions about people get their own truthful line (&ldquo;I don&rsquo;t keep track of where
       people are, only things&rdquo;). The words and the missing button finally agree.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d9-guardrail-flow.png" alt="Guardrail decision flow diagram" width="1405" height="1600" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d9-guardrail-flow.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d9-guardrail-flow.png" alt="Guardrail decision flow diagram" width="2309" height="2629" loading="lazy"></a>
         <figcaption>Figure 18. How a proposal becomes a target. Green paths carry only ids the
         model&rsquo;s own tool calls returned.</figcaption>
       </figure>
@@ -710,8 +710,8 @@
       catches that case). That proximity rule earns its final, much tighter form in
       Section&nbsp;<a href="#s7">7</a>, after look-alike twins abuse the generous version.</p>
 
-      <figure class="article__figure">
-        <img src="../images/portfolio/projects/locallens/d10-guidance-states.png" alt="Guidance state machine diagram" width="1600" height="974" loading="lazy">
+      <figure class="article__figure article__figure--wide">
+        <a href="../images/portfolio/projects/locallens/d10-guidance-states.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d10-guidance-states.png" alt="Guidance state machine diagram" width="2456" height="1506" loading="lazy"></a>
         <figcaption>Figure 19. Map the space, ask the memory, walk over with live verification.
         Perception pauses only while asking.</figcaption>
       </figure>
@@ -1005,7 +1005,7 @@
     </div>
   </footer>
 
-  <script src="../js/site.js?v=20260729b"></script>
+  <script src="../js/site.js?v=20260729c"></script>
 </body>
 
 </html>
