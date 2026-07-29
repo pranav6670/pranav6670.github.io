@@ -208,6 +208,11 @@
       but loaded 30&times; faster. The dead end stays in the record: <code>.cpuAndGPU</code> does not
       run this model at all: YOLO26&rsquo;s attention blocks crash MPSGraph, a clean throw on the iOS
       version I started on and a process kill on the one I finished on.</p>
+      <p>Cold start belongs in the same ledger, from the Week-8 launch trace: first frame at
+      671&thinsp;ms, camera live at 938&thinsp;ms, first detection at ~8.3&thinsp;s, gated not by launch but
+      by a deliberate 4.9&thinsp;s pipeline-start delay plus ~3.4&thinsp;s of one-time ANE compilation. The
+      same trace caught the CLIP tokenizer parsing its 3.2&thinsp;MB vocabulary on the main thread
+      (~26% of main-thread weight); moved off-main, it now costs 0.007%.</p>
 
       <h3>2.3&ensp;The op-placement map: trust, then verify</h3>
       <p><code>MLComputePlan</code> says 83.1% of the model&rsquo;s cost-weighted compute (276 of 297 ops)
@@ -283,7 +288,9 @@
       (161 vs 907 over ~1320 frames) while each remaining detection is <strong>23% cheaper at the
       median and 35% cheaper at the tail</strong>. The power instrument agrees across every engine:
       CPU power-impact down 30%, retired instructions down 22.7%, ANE impact down 19&times;, GPU busy
-      residency down 47%. Honesty about the units: those are Apple&rsquo;s <em>relative</em> power-impact
+      residency down 47% (the GPU never leaves its minimum performance state in this workload).
+      Per-phase gating shows the mechanism: inference dispatches fall from 15.0/s to 2.9/s
+      Full &rarr; Throttle, and mask, depth, and embed fall to zero. Honesty about the units: those are Apple&rsquo;s <em>relative</em> power-impact
       indices, not Joules; the device sat on a charger during the run, and per-session battery drain
       was never instrumented (Section&nbsp;<a href="#s9">9</a> keeps that gap on the record). A static
       schedule cannot produce that combination.</p>
@@ -956,7 +963,9 @@
       deltas exist, the detector&rsquo;s is 11.6&thinsp;MB, but nobody watched the high-water mark with
       everything resident); battery drain per session was never measured either, and
       Section&nbsp;<a href="#s2">2</a>&rsquo;s relative power-impact indices are the closest thing on file;
-      and the quantization variants still ride in the shipped bundle as 11&thinsp;MB of ablation
+      the whole-system profile itself ran on the week-8 build, before the agent and the permanence
+      sweep existed, so no Instruments session has seen the full shipped configuration; and the
+      quantization variants still ride in the shipped bundle as 11&thinsp;MB of ablation
       ballast. The
       missing agent eval harness now has a visible cost: descriptive queries still trip
       deterministic tool loops that a watchdog contains rather than cures. A reviewer should weigh
