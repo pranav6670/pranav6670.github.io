@@ -172,8 +172,10 @@
     },
     cat: function (arg) {
       if (!arg) return out([[mut("usage: cat <file> — try:")], [mut(FILE_NAMES.join("  "))]]);
-      if (arg === ".social" || arg === "~/.social") return out(socialLines());
+      if (arg === ".social" || arg === "~/.social" || arg === "social") return out(socialLines());
+      if (arg === "projects" || arg === "projects/" || arg === "~/projects") return out(projectLines());
       if (FILES[arg]) return out(FILES[arg]);
+      if (FILES[arg + ".txt"]) return out(FILES[arg + ".txt"]);
       return out([[err("cat: " + arg + ": No such file")]]);
     },
     echo: function (arg) { return out(arg ? [[t(arg)]] : [[t("")]]); },
