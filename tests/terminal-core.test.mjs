@@ -97,7 +97,11 @@ test("cat friendly aliases: social and projects work without exact filenames", (
 test("topic commands mirror files", () => {
   for (const c of ["about", "experience", "education", "research", "interests"])
     assert.ok(Core.run(c).lines.length > 0, `${c} should print`);
-  assert.ok(allText(Core.run("experience")).includes("SiFive"));
+  const exp = allText(Core.run("experience"));
+  assert.ok(exp.includes("Software Engineer 2, Computer Vision"), "confirmed current title");
+  assert.ok(exp.includes("SiFive"));
+  assert.ok(exp.includes("Software Engineering Intern @ AMD") && exp.includes("Ryzen NPU"), "AMD internship");
+  assert.ok(exp.includes("EDG Intern @ MathWorks"), "MathWorks internship");
   assert.ok(allText(Core.run("education")).includes("Rochester Institute of Technology"));
 });
 
