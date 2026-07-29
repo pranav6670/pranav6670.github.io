@@ -10,7 +10,7 @@ const allText = (res) => res.lines.map(text).join("\n");
 
 test("help lists commands and hides easter eggs", () => {
   const out = allText(Core.run("help"));
-  for (const cmd of ["whoami", "projects", "open <slug>", "cd <dir>", "cat <file>", "social", "clear"])
+  for (const cmd of ["whoami", "projects", "blog", "open <slug>", "cd <page>", "cat <file>", "social", "clear"])
     assert.ok(out.includes(cmd), `help should mention ${cmd}`);
   assert.ok(!out.includes("sudo") && !out.includes("tabla"), "easter eggs hidden");
 });
@@ -44,12 +44,11 @@ test("clear → clear effect", () => {
   assert.deepEqual(Core.run("clear").effect, { type: "clear" });
 });
 
-test("cd variants (terminal-only page: no section scrolling)", () => {
+test("cd variants (real subpages: projects/ and blog/)", () => {
   assert.deepEqual(Core.run("cd").effect, { type: "scroll", target: "#top" });
   assert.deepEqual(Core.run("cd ~").effect, { type: "scroll", target: "#top" });
-  const pl = Core.run("cd projects");
-  assert.equal(pl.effect, null);
-  assert.ok(pl.lines.length >= 5, "cd projects lists the projects");
+  assert.deepEqual(Core.run("cd projects").effect, { type: "navigate", href: "projects/", newTab: false });
+  assert.deepEqual(Core.run("cd blog").effect, { type: "navigate", href: "blog/", newTab: false });
   const w = Core.run("cd writing").effect;
   assert.equal(w.type, "navigate");
   assert.ok(w.href.includes("medium.com") && w.newTab === true);
@@ -61,6 +60,14 @@ test("cd variants (terminal-only page: no section scrolling)", () => {
   const bad = Core.run("cd nope");
   assert.equal(bad.effect, null);
   assert.ok(allText(bad).includes("no such directory"));
+});
+
+test("blog command lists Medium posts", () => {
+  const res = Core.run("blog");
+  const hrefs = res.lines.flat().filter((s) => s.href).map((s) => s.href);
+  assert.ok(hrefs.filter((h) => h.includes("pranavnatekar.medium.com/")).length >= 3, "at least 3 Medium posts");
+  const out = allText(res);
+  assert.ok(out.includes("OpenCV") && out.includes("Audio Classification"));
 });
 
 test("open navigates to article pages; bare/unknown handled", () => {
@@ -101,9 +108,9 @@ test("projects lists all five with article links", () => {
     assert.ok(hrefs.some((h) => h === `projects/${slug}.html`), `missing ${slug}`);
 });
 
-test("ls shows dirs and files (no page sections anymore)", () => {
+test("ls shows page dirs and files", () => {
   const out = allText(Core.run("ls"));
-  for (const s of ["projects/", "writing/", "about.txt", ".social"]) assert.ok(out.includes(s));
+  for (const s of ["projects/", "blog/", "about.txt", ".social"]) assert.ok(out.includes(s));
   assert.ok(!out.includes("about/"), "about is a file, not a dir");
 });
 
@@ -126,6 +133,7 @@ test("completion: commands", () => {
 
 test("completion: arguments", () => {
   assert.equal(Core.complete("cd w").value, "cd writing");
+  assert.equal(Core.complete("cd b").value, "cd blog");
   assert.equal(Core.complete("cd ab").value, null, "about is not a cd target anymore");
   assert.equal(Core.complete("cd pr").value, "cd projects", "extends to common prefix");
   assert.equal(Core.complete("cat a").value, "cat about.txt");
@@ -139,7 +147,7 @@ test("intro: aleksa-style static session blocks", () => {
   const cmds = blocks.map((b) => b.cmd);
   assert.ok(cmds.includes("$ echo $GREETING"));
   assert.ok(cmds.includes("# cat /proc/status"));
-  assert.ok(cmds.includes("# ls ~/projects/"));
+  assert.ok(cmds.includes("# ls ~/pages/"));
   assert.ok(cmds.includes("# cat ~/.social"));
   const flat = blocks.flatMap((b) => b.lines);
   const txt = flat.map((l) => l.map((s) => s.text).join("")).join("\n");
@@ -147,8 +155,8 @@ test("intro: aleksa-style static session blocks", () => {
   assert.ok(txt.includes("SiFive"));
   assert.ok(txt.includes("Rochester Institute of Technology"));
   const hrefs = flat.flat().filter((s) => s.href).map((s) => s.href);
-  for (const slug of ["tabla-tala", "autonomous-vehicle", "image-augmenter", "youtube-subscriber-counter", "bag-ewatch"])
-    assert.ok(hrefs.includes(`projects/${slug}.html`), `intro missing project ${slug}`);
+  assert.ok(hrefs.includes("projects/"), "intro links the projects page");
+  assert.ok(hrefs.includes("blog/"), "intro links the blog page");
   assert.ok(hrefs.some((h) => h.includes("medium.com")));
   assert.ok(hrefs.some((h) => h.includes("github.com/pranav6670")));
   assert.ok(hrefs.some((h) => h.includes("linkedin.com")));

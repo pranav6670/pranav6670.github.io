@@ -40,6 +40,12 @@
     { slug: "bag-ewatch", title: "Bag eWatch", meta: "Hardware · Embedded" }
   ];
 
+  var BLOG = [
+    { title: "Cross Compile OpenCV for RISC-V", date: "Aug 2021", href: "https://pranavnatekar.medium.com/cross-compile-opencv-for-risc-v-460305012adb" },
+    { title: "A Practical Guide to Image Processing & Computer Vision — Part 1", date: "Oct 2019", href: "https://pranavnatekar.medium.com/a-comprehensive-and-practical-guide-to-image-processing-and-computer-vision-using-python-part-1-4d8283c6d6eb" },
+    { title: "Tackle Almost Any Audio Classification Challenge", date: "Aug 2019", href: "https://pranavnatekar.medium.com/tackle-almost-any-audio-classification-challenge-with-this-34a1d0ac82b9" }
+  ];
+
   var FILES = {
     "about.txt": [
       [t("Engineer working across machine learning, computer vision and speech.")],
@@ -78,21 +84,28 @@
     [t("→ Research  : "), link("brain.lab @ RIT", "https://www.rit.edu/kgcoe/brainlab/"), t(" — speech tech for atypical speech")]
   ];
 
-  function pageLines() {
-    var lines = PROJECTS.map(function (p) {
-      return [t("📄 "), link(p.title, "projects/" + p.slug + ".html")];
+  function blogLines() {
+    var lines = BLOG.map(function (b) {
+      return [t("→ "), link(b.title, b.href), mut("  (" + b.date + ")")];
     });
-    lines.push([t("📂 "), link("writing/", MEDIUM), mut("  (Medium)")]);
+    lines.push([mut("everything lives on "), link("Medium", MEDIUM)]);
     return lines;
+  }
+
+  function pageLines() {
+    return [
+      [t("📂 "), link("projects/", "projects/")],
+      [t("📂 "), link("blog/", "blog/")]
+    ];
   }
 
   function intro() {
     return [
       { cmd: "$ echo $GREETING", lines: [[t("\"नमस्ते — welcome to my corner of the web.\"")]] },
       { cmd: "# cat /proc/status", lines: STATUS },
-      { cmd: "# ls ~/projects/", lines: pageLines() },
+      { cmd: "# ls ~/pages/", lines: pageLines() },
       { cmd: "# cat ~/.social", lines: socialLines() },
-      { cmd: null, lines: [[mut("Type "), gold("help"), mut(" for commands — try whoami, projects, or open tabla-tala.")]] }
+      { cmd: null, lines: [[mut("Type "), gold("help"), mut(" for commands — try whoami, projects, or cd blog.")]] }
     ];
   }
 
@@ -118,9 +131,10 @@
     ["whoami", "one-line intro"],
     ["about", "who I am (also: experience, education, research, interests)"],
     ["projects", "list my projects"],
+    ["blog", "my writing (Medium)"],
     ["open <slug>", "read a project write-up"],
-    ["ls", "list directories & files"],
-    ["cd <dir>", "go places (projects, projects/<slug>, writing)"],
+    ["ls", "list pages & files"],
+    ["cd <page>", "go to a page (projects, blog, projects/<slug>)"],
     ["cat <file>", "print a file (about.txt … .social)"],
     ["social", "where to find me"],
     ["echo <text>", "say it back"],
@@ -146,23 +160,25 @@
     research: function () { return out(FILES["research.txt"]); },
     interests: function () { return out(FILES["interests.txt"]); },
     projects: function () { return out(projectLines()); },
+    blog: function () { return out(blogLines()); },
     social: function () { return out(socialLines()); },
     contact: function () { return out(socialLines()); },
     ls: function () {
       return out([
-        [gold("projects/"), t("  "), link("writing/", MEDIUM)],
+        [link("projects/", "projects/"), t("  "), link("blog/", "blog/")],
         [mut(FILE_NAMES.join("  "))]
       ]);
     },
     cd: function (arg) {
       if (!arg || arg === "~" || arg === "/") return out([], { type: "scroll", target: "#top" });
-      if (arg === "projects" || arg === "projects/") return out(projectLines());
+      if (arg === "projects" || arg === "projects/") return out([], { type: "navigate", href: "projects/", newTab: false });
+      if (arg === "blog" || arg === "blog/") return out([], { type: "navigate", href: "blog/", newTab: false });
       if (arg === "writing" || arg === "writing/") return out([], { type: "navigate", href: MEDIUM, newTab: true });
       var m = /^projects\/([\w-]+)\/?$/.exec(arg);
       if (m && findProject(m[1])) return out([], { type: "navigate", href: "projects/" + m[1] + ".html", newTab: false });
       return out([
         [err("cd: no such directory: " + arg)],
-        [mut("directories: projects/  writing/  projects/<slug> — files: try cat about.txt")]
+        [mut("pages: projects/  blog/  projects/<slug> — files: try cat about.txt")]
       ]);
     },
     open: function (arg) {
@@ -174,6 +190,7 @@
       if (!arg) return out([[mut("usage: cat <file> — try:")], [mut(FILE_NAMES.join("  "))]]);
       if (arg === ".social" || arg === "~/.social" || arg === "social") return out(socialLines());
       if (arg === "projects" || arg === "projects/" || arg === "~/projects") return out(projectLines());
+      if (arg === "blog" || arg === "blog/" || arg === "~/blog") return out(blogLines());
       if (FILES[arg]) return out(FILES[arg]);
       if (FILES[arg + ".txt"]) return out(FILES[arg + ".txt"]);
       return out([[err("cat: " + arg + ": No such file")]]);
@@ -209,10 +226,10 @@
 
   /* Commands offered by tab completion / suggested publicly (easter eggs excluded). */
   var PUBLIC_COMMANDS = ["help", "whoami", "about", "experience", "education", "research",
-    "interests", "projects", "open", "ls", "cd", "cat", "social", "contact", "echo",
+    "interests", "projects", "blog", "open", "ls", "cd", "cat", "social", "contact", "echo",
     "pwd", "date", "banner", "history", "clear"];
   var ARG_COMPLETIONS = {
-    cd: ["projects", "writing"].concat(slugs().map(function (s) { return "projects/" + s; })),
+    cd: ["projects", "blog", "writing"].concat(slugs().map(function (s) { return "projects/" + s; })),
     open: slugs(),
     cat: FILE_NAMES
   };
