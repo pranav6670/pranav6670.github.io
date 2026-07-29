@@ -106,11 +106,17 @@ test("topic commands mirror files", () => {
   assert.ok(allText(Core.run("education")).includes("Rochester Institute of Technology"));
 });
 
-test("projects lists all five with article links", () => {
+test("projects lists all six with article links, LocalLens first", () => {
   const res = Core.run("projects");
   const hrefs = res.lines.flat().filter((s) => s.href).map((s) => s.href);
-  for (const slug of ["tabla-tala", "autonomous-vehicle", "image-augmenter", "youtube-subscriber-counter", "bag-ewatch"])
+  for (const slug of ["locallens", "tabla-tala", "autonomous-vehicle", "image-augmenter", "youtube-subscriber-counter", "bag-ewatch"])
     assert.ok(hrefs.some((h) => h === `projects/${slug}.html`), `missing ${slug}`);
+  assert.equal(hrefs[0], "projects/locallens.html", "LocalLens leads the list");
+});
+
+test("blog no longer lists LocalLens (it is a project)", () => {
+  const hrefs = Core.run("blog").lines.flat().filter((s) => s.href).map((s) => s.href);
+  assert.ok(!hrefs.some((h) => h.includes("locallens")), "locallens out of blog");
 });
 
 test("ls shows page dirs and files", () => {
