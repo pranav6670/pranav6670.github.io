@@ -79,6 +79,14 @@ test("cat prints files; social file has real links", () => {
   assert.ok(hrefs.some((h) => h.includes("linkedin.com")));
 });
 
+test("cat friendly aliases: social and projects work without exact filenames", () => {
+  const socialHrefs = Core.run("cat social").lines.flat().filter((s) => s.href).map((s) => s.href);
+  assert.ok(socialHrefs.some((h) => h.includes("github.com/pranav6670")), "cat social lists socials");
+  const cp = Core.run("cat projects");
+  const projHrefs = cp.lines.flat().filter((s) => s.href).map((s) => s.href);
+  assert.ok(projHrefs.some((h) => h === "projects/tabla-tala.html"), "cat projects lists projects");
+});
+
 test("topic commands mirror files", () => {
   for (const c of ["about", "experience", "education", "research", "interests"])
     assert.ok(Core.run(c).lines.length > 0, `${c} should print`);
