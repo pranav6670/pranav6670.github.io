@@ -41,6 +41,7 @@
   ];
 
   var BLOG = [
+    { title: "LocalLens: a worklog — on-device video intelligence for iPhone", date: "Jul 2026", href: "blog/locallens.html" },
     { title: "Cross Compile OpenCV for RISC-V", date: "Aug 2021", href: "https://pranavnatekar.medium.com/cross-compile-opencv-for-risc-v-460305012adb" },
     { title: "A Practical Guide to Image Processing & Computer Vision — Part 1", date: "Oct 2019", href: "https://pranavnatekar.medium.com/a-comprehensive-and-practical-guide-to-image-processing-and-computer-vision-using-python-part-1-4d8283c6d6eb" },
     { title: "Tackle Almost Any Audio Classification Challenge", date: "Aug 2019", href: "https://pranavnatekar.medium.com/tackle-almost-any-audio-classification-challenge-with-this-34a1d0ac82b9" }
@@ -95,7 +96,7 @@
     var lines = BLOG.map(function (b) {
       return [t("→ "), link(b.title, b.href), mut("  (" + b.date + ")")];
     });
-    lines.push([mut("everything lives on "), link("Medium", MEDIUM)]);
+    lines.push([mut("older posts live on "), link("Medium", MEDIUM)]);
     return lines;
   }
 
@@ -138,7 +139,7 @@
     ["whoami", "one-line intro"],
     ["about", "who I am (also: experience, education, research, interests)"],
     ["projects", "list my projects"],
-    ["blog", "my writing (Medium)"],
+    ["blog", "my writing"],
     ["open <slug>", "read a project write-up"],
     ["ls", "list pages & files"],
     ["cd <page>", "go to a page (projects, blog, projects/<slug>)"],
