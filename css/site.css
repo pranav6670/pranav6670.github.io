@@ -151,6 +151,8 @@ h1, h2, h3, h4 {
 .article__figure figcaption { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin-top: 0.6rem; }
 .article__figure video { width: 100%; border-radius: 8px; display: block; }
 .article__figure--narrow { width: min(420px, 92vw); }
+.article__figure--wide { width: min(1280px, 96vw); }
+.article__figure a { display: block; }
 .article__shots { display: flex; gap: 10px; justify-content: center; align-items: flex-start; }
 .article__shots img { flex: 1 1 0; min-width: 0; border-radius: 8px; }
 .article__math { font-family: var(--font-mono); font-size: 0.95rem; text-align: center; margin: 1.25rem 0; color: var(--fg); }
