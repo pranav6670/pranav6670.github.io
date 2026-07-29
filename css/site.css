@@ -16,7 +16,9 @@
   --accent-gold-ink: #7a6010;
   --accent-blue: #C8DEDF;
 
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  /* Signifier (pi.website's serif) is commercial — listed first so a licensed
+     @font-face drop-in takes over instantly; Fraunces is the live stand-in. */
+  --font-serif: "Signifier", "Fraunces", Georgia, "Times New Roman", serif;
   --font-sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
@@ -66,10 +68,10 @@ h1, h2, h3, h4 {
 .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid transparent; transition: border-color .3s ease; }
 .nav.is-scrolled { border-bottom-color: var(--border); }
 .nav__inner { max-width: var(--maxw-page); margin-inline: auto; padding: 1rem var(--pad-x); display: flex; align-items: center; justify-content: space-between; }
-.nav__brand { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 500; letter-spacing: -0.01em; }
+.nav__brand { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400; letter-spacing: -0.01em; }
 .nav__menu { display: flex; gap: 2rem; align-items: center; }
-.nav__menu a { font-size: 0.98rem; color: var(--muted); transition: color .2s ease; }
-.nav__menu a:hover { color: var(--fg); }
+.nav__menu a { font-family: var(--font-mono); font-size: 0.875rem; color: var(--fg); text-decoration: underline; text-underline-offset: 3px; transition: color .2s ease; }
+.nav__menu a:hover { color: var(--muted); }
 .nav__toggle { display: none; width: 2rem; height: 2rem; flex-direction: column; justify-content: center; gap: 5px; }
 .nav__toggle span { display: block; height: 1.5px; width: 1.4rem; background: var(--fg); }
 
@@ -106,18 +108,20 @@ h1, h2, h3, h4 {
 .feed__link:hover .feed__title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .feed__desc { color: var(--muted); max-width: 60ch; }
 
-/* ---- Article (project detail) ---- */
-.article { max-width: var(--maxw-read); margin-inline: auto; padding: clamp(2.5rem, 7vw, 4.5rem) var(--pad-x) var(--space-section); }
-.article__back { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); display: inline-block; margin-bottom: 2.5rem; }
+/* ---- Article (project detail) — pi.website blog anatomy ---- */
+.article { max-width: 768px; margin-inline: auto; padding: clamp(2rem, 6vw, 3.5rem) var(--pad-x) var(--space-section); }
+.article__back { font-family: var(--font-mono); font-size: 0.875rem; color: var(--muted); display: inline-block; margin-bottom: 2.5rem; }
 .article__back:hover { color: var(--fg); }
-.article__badge { font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-gold-ink); margin-bottom: 1rem; }
-.article__title { font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.08; margin-bottom: 1.25rem; }
-.article__meta { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); margin-bottom: 2.5rem; }
-.article__meta a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
-.article__figure { margin: 2rem 0; }
-.article__figure img { border: 1px solid var(--border); border-radius: 2px; }
-.article p { margin-bottom: 1.25rem; }
-.article h2 { font-size: 1.5rem; font-weight: 500; margin: 2.5rem 0 1rem; }
+.article__title { font-size: clamp(2.4rem, 5vw, 3.75rem); line-height: 1.25; margin-bottom: 1.5rem; }
+.article__facts { display: grid; grid-template-columns: 8.5rem 1fr; row-gap: 0.4rem; margin: 0 0 2.5rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--fg); }
+.article__facts dt { font-weight: 400; }
+.article__facts dd { margin: 0; }
+.article__facts a { text-decoration: underline; text-underline-offset: 3px; }
+.article__facts a:hover { color: var(--muted); }
+.article__figure { width: min(1000px, 92vw); margin: 2.5rem 0 2.5rem 50%; transform: translateX(-50%); }
+.article__figure img { border: 0; border-radius: 8px; }
+.article p { margin-bottom: 1rem; line-height: 1.625; }
+.article h2 { font-size: 1.25rem; font-weight: 600; line-height: 1.25; margin: 2.5rem 0 1rem; }
 .article__list { margin: 0 0 1.5rem 1.1rem; list-style: disc; }
 .article__list li { margin-bottom: 0.4rem; }
 .article__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2.5rem; }
