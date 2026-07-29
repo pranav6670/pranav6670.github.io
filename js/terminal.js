@@ -5,16 +5,13 @@
   var term = document.getElementById("terminal");
   if (!Core || !term) return;
 
-  var body = term.querySelector(".term__body");
+  var intro = term.querySelector(".term__intro");
   var log = term.querySelector(".term__log");
   var input = term.querySelector(".term__input");
   var banner = term.querySelector(".term__banner");
   var history = Core.createHistory(100);
   var MAX_ENTRIES = 100;
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  banner.textContent = Core.BANNER.join("\n");
-  term.hidden = false;
 
   function renderSpan(span) {
     var el;
@@ -63,7 +60,23 @@
     return entry;
   }
 
-  function scrollToBottom() { body.scrollTop = body.scrollHeight; }
+  /* The window grows with its content (no inner scrollbar) — keep the prompt in view.
+     "instant" bypasses the page's global scroll-behavior: smooth. */
+  function scrollToBottom() { input.scrollIntoView({ block: "nearest", behavior: "instant" }); }
+
+  function renderIntro() {
+    banner.textContent = Core.BANNER.join("\n");
+    Core.intro().forEach(function (block) {
+      var entry = document.createElement("div");
+      entry.className = "term__entry";
+      if (block.cmd) renderLine([{ text: block.cmd, cls: "muted" }], entry);
+      block.lines.forEach(function (spans) { renderLine(spans, entry); });
+      intro.appendChild(entry);
+    });
+  }
+
+  renderIntro();
+  term.hidden = false;
 
   function applyEffect(effect) {
     if (!effect) return;

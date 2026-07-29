@@ -10,7 +10,7 @@ const allText = (res) => res.lines.map(text).join("\n");
 
 test("help lists commands and hides easter eggs", () => {
   const out = allText(Core.run("help"));
-  for (const cmd of ["whoami", "projects", "open <slug>", "cd <section>", "cat <file>", "social", "clear"])
+  for (const cmd of ["whoami", "projects", "open <slug>", "cd <dir>", "cat <file>", "social", "clear"])
     assert.ok(out.includes(cmd), `help should mention ${cmd}`);
   assert.ok(!out.includes("sudo") && !out.includes("tabla"), "easter eggs hidden");
 });
@@ -44,16 +44,20 @@ test("clear → clear effect", () => {
   assert.deepEqual(Core.run("clear").effect, { type: "clear" });
 });
 
-test("cd variants", () => {
-  assert.deepEqual(Core.run("cd about").effect, { type: "scroll", target: "#about" });
-  assert.deepEqual(Core.run("cd projects").effect, { type: "scroll", target: "#projects" });
+test("cd variants (terminal-only page: no section scrolling)", () => {
   assert.deepEqual(Core.run("cd").effect, { type: "scroll", target: "#top" });
   assert.deepEqual(Core.run("cd ~").effect, { type: "scroll", target: "#top" });
+  const pl = Core.run("cd projects");
+  assert.equal(pl.effect, null);
+  assert.ok(pl.lines.length >= 5, "cd projects lists the projects");
   const w = Core.run("cd writing").effect;
   assert.equal(w.type, "navigate");
   assert.ok(w.href.includes("medium.com") && w.newTab === true);
   const p = Core.run("cd projects/tabla-tala").effect;
   assert.deepEqual(p, { type: "navigate", href: "projects/tabla-tala.html", newTab: false });
+  const ab = Core.run("cd about");
+  assert.equal(ab.effect, null);
+  assert.ok(allText(ab).includes("no such directory"));
   const bad = Core.run("cd nope");
   assert.equal(bad.effect, null);
   assert.ok(allText(bad).includes("no such directory"));
@@ -89,9 +93,10 @@ test("projects lists all five with article links", () => {
     assert.ok(hrefs.some((h) => h === `projects/${slug}.html`), `missing ${slug}`);
 });
 
-test("ls shows sections and files", () => {
+test("ls shows dirs and files (no page sections anymore)", () => {
   const out = allText(Core.run("ls"));
-  for (const s of ["about/", "projects/", "writing/", "about.txt", ".social"]) assert.ok(out.includes(s));
+  for (const s of ["projects/", "writing/", "about.txt", ".social"]) assert.ok(out.includes(s));
+  assert.ok(!out.includes("about/"), "about is a file, not a dir");
 });
 
 test("pwd, date, banner, history, sudo", () => {
@@ -112,12 +117,34 @@ test("completion: commands", () => {
 });
 
 test("completion: arguments", () => {
-  assert.equal(Core.complete("cd ab").value, "cd about");
+  assert.equal(Core.complete("cd w").value, "cd writing");
+  assert.equal(Core.complete("cd ab").value, null, "about is not a cd target anymore");
   assert.equal(Core.complete("cd pr").value, "cd projects", "extends to common prefix");
   assert.equal(Core.complete("cat a").value, "cat about.txt");
   assert.equal(Core.complete("open tab").value, "open tabla-tala");
   const opts = Core.complete("cat ");
   assert.ok(opts.options && opts.options.includes(".social") && opts.options.includes("about.txt"));
+});
+
+test("intro: aleksa-style static session blocks", () => {
+  const blocks = Core.intro();
+  const cmds = blocks.map((b) => b.cmd);
+  assert.ok(cmds.includes("$ echo $GREETING"));
+  assert.ok(cmds.includes("# cat /proc/status"));
+  assert.ok(cmds.includes("# ls ~/projects/"));
+  assert.ok(cmds.includes("# cat ~/.social"));
+  const flat = blocks.flatMap((b) => b.lines);
+  const txt = flat.map((l) => l.map((s) => s.text).join("")).join("\n");
+  assert.ok(txt.includes("Currently") && txt.includes("Rivian"));
+  assert.ok(txt.includes("SiFive"));
+  assert.ok(txt.includes("Rochester Institute of Technology"));
+  const hrefs = flat.flat().filter((s) => s.href).map((s) => s.href);
+  for (const slug of ["tabla-tala", "autonomous-vehicle", "image-augmenter", "youtube-subscriber-counter", "bag-ewatch"])
+    assert.ok(hrefs.includes(`projects/${slug}.html`), `intro missing project ${slug}`);
+  assert.ok(hrefs.some((h) => h.includes("medium.com")));
+  assert.ok(hrefs.some((h) => h.includes("github.com/pranav6670")));
+  assert.ok(hrefs.some((h) => h.includes("linkedin.com")));
+  assert.ok(txt.includes("help"), "hint mentions help");
 });
 
 test("history model: prev/next with draft, cap", () => {
