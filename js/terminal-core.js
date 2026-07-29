@@ -70,6 +70,32 @@
 
   var SECTIONS = { about: "#about", projects: "#projects" };
 
+  /* Static intro session (aleksa-style) rendered inside the window on load. */
+  var STATUS = [
+    // TODO(pranav): confirm current role/employer wording.
+    [t("→ Currently : Software Engineer @ Rivian & Volkswagen Group Technologies")],
+    [t("→ Previously: Software Engineer @ SiFive — SoC bring-up for a custom")],
+    [t("              VLIW+SIMD DSP IP and an AI accelerator")],
+    [t("→ Education : MS EE, Rochester Institute of Technology — CV & image processing")],
+    [t("→ Research  : "), link("brain.lab @ RIT", "https://www.rit.edu/kgcoe/brainlab/"), t(" — speech tech for atypical speech")]
+  ];
+
+  var PAGES = [
+    [t("📂 "), link("about/", "#about")],
+    [t("📂 "), link("projects/", "#projects")],
+    [t("📂 "), link("writing/", "https://pranavnatekar.medium.com/"), mut("  (Medium)")]
+  ];
+
+  function intro() {
+    return [
+      { cmd: "$ echo $GREETING", lines: [[t("\"नमस्ते — welcome to my corner of the web.\"")]] },
+      { cmd: "# cat /proc/status", lines: STATUS },
+      { cmd: "# ls ~/pages/", lines: PAGES },
+      { cmd: "# cat ~/.social", lines: socialLines() },
+      { cmd: null, lines: [[mut("Type "), gold("help"), mut(" for commands — try whoami, projects, or cd about.")]] }
+    ];
+  }
+
   function socialLines() {
     var spans = [];
     for (var i = 0; i < SOCIALS.length; i++) {
@@ -256,5 +282,5 @@
     };
   }
 
-  return { PROMPT: PROMPT, BANNER: BANNER, run: run, complete: complete, createHistory: createHistory };
+  return { PROMPT: PROMPT, BANNER: BANNER, intro: intro, run: run, complete: complete, createHistory: createHistory };
 });

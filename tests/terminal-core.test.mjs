@@ -120,6 +120,25 @@ test("completion: arguments", () => {
   assert.ok(opts.options && opts.options.includes(".social") && opts.options.includes("about.txt"));
 });
 
+test("intro: aleksa-style static session blocks", () => {
+  const blocks = Core.intro();
+  const cmds = blocks.map((b) => b.cmd);
+  assert.ok(cmds.includes("$ echo $GREETING"));
+  assert.ok(cmds.includes("# cat /proc/status"));
+  assert.ok(cmds.includes("# ls ~/pages/"));
+  assert.ok(cmds.includes("# cat ~/.social"));
+  const flat = blocks.flatMap((b) => b.lines);
+  const txt = flat.map((l) => l.map((s) => s.text).join("")).join("\n");
+  assert.ok(txt.includes("Currently") && txt.includes("Rivian"));
+  assert.ok(txt.includes("SiFive"));
+  assert.ok(txt.includes("Rochester Institute of Technology"));
+  const hrefs = flat.flat().filter((s) => s.href).map((s) => s.href);
+  for (const h of ["#about", "#projects"]) assert.ok(hrefs.includes(h), `missing ${h}`);
+  assert.ok(hrefs.some((h) => h.includes("medium.com")));
+  assert.ok(hrefs.some((h) => h.includes("github.com/pranav6670")));
+  assert.ok(txt.includes("help"), "hint mentions help");
+});
+
 test("history model: prev/next with draft, cap", () => {
   const h = Core.createHistory(3);
   h.push("a"); h.push("b");
