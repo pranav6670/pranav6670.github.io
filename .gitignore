@@ -7,3 +7,6 @@
 # Verification screenshots (root-level only; real site images live under images/)
 /*.png
 /*.jpeg
+
+# Local working docs (design specs / implementation plans) — not published
+docs/superpowers/
