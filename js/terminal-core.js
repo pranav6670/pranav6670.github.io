@@ -54,10 +54,13 @@
       [t("Off the keyboard: I play the tabla.")]
     ],
     "experience.txt": [
-      // TODO(pranav): confirm current role/employer wording.
-      [t("→ Currently : Software Engineer @ Rivian & Volkswagen Group Technologies")],
-      [t("→ Previously: Software Engineer @ SiFive — SoC bring-up for a custom")],
-      [t("              VLIW+SIMD DSP IP and an AI accelerator")]
+      [t("→ Currently : Software Engineer 2, Computer Vision")],
+      [t("              @ Rivian & Volkswagen Group Technologies")],
+      [t("→ Previously:")],
+      [t("      ├── Software Engineering Intern @ AMD — inference optimization on the Ryzen NPU")],
+      [t("      ├── EDG Intern @ MathWorks — on-device computer vision & deep learning")],
+      [t("      └── Software Engineer @ SiFive — SoC bring-up for a custom")],
+      [t("          VLIW+SIMD DSP IP and an AI accelerator")]
     ],
     "education.txt": [
       [t("MS, Electrical Engineering — Rochester Institute of Technology")],
@@ -76,10 +79,11 @@
 
   /* Static intro session (aleksa-style) rendered inside the window on load. */
   var STATUS = [
-    // TODO(pranav): confirm current role/employer wording.
-    [t("→ Currently : Software Engineer @ Rivian & Volkswagen Group Technologies")],
-    [t("→ Previously: Software Engineer @ SiFive — SoC bring-up for a custom")],
-    [t("              VLIW+SIMD DSP IP and an AI accelerator")],
+    [t("→ Currently : Software Engineer 2, Computer Vision @ Rivian & Volkswagen Group Technologies")],
+    [t("→ Previously:")],
+    [t("      ├── Software Engineering Intern @ AMD — inference optimization on the Ryzen NPU")],
+    [t("      ├── EDG Intern @ MathWorks — on-device computer vision & deep learning")],
+    [t("      └── Software Engineer @ SiFive — custom VLIW+SIMD DSP IP and an AI accelerator")],
     [t("→ Education : MS EE, Rochester Institute of Technology — CV & image processing")],
     [t("→ Research  : "), link("brain.lab @ RIT", "https://www.rit.edu/kgcoe/brainlab/"), t(" — speech tech for atypical speech")]
   ];
@@ -152,7 +156,7 @@
       return out(lines);
     },
     whoami: function () {
-      return out([[t("Pranav Natekar — Software Engineer @ Rivian & VW Group Technologies · ex-SiFive · RIT EE alum")]]);
+      return out([[t("Pranav Natekar — Software Engineer 2, Computer Vision @ Rivian & VW Group Technologies · ex-SiFive · RIT EE alum")]]);
     },
     about: function () { return out(FILES["about.txt"]); },
     experience: function () { return out(FILES["experience.txt"]); },
