@@ -79,10 +79,10 @@
       iPhone 17 Pro. During a full capture-and-search session, Instruments&rsquo; network instrument
       recorded zero bytes on the wire.</p>
       <p>The other half of the project is the part the clip can&rsquo;t show: the live perception loop got
-      3.2&times; faster, on purpose, one measured change at a time. Table&nbsp;1 is the whole performance
+      <strong>3.2&times; faster</strong>, on purpose, one measured change at a time. Table&nbsp;1 is the whole performance
       arc; the rest of this post explains how each row happened, including the two places where my
       first explanation was wrong. The build ran thirteen calendar weeks, and the post cites them by
-      number when the timing matters; Table&nbsp;3 in Section&nbsp;<a href="#s1">1</a> says what each
+      number when the timing matters; Table&nbsp;4 in Section&nbsp;<a href="#s8">8</a> says what each
       week was.</p>
 
       <div class="article__tablewrap">
@@ -106,8 +106,9 @@
 
       <p>The spatial half has its own scorecard. When the app re-observes an object it already
       anchored in 3D, the new position and the stored one agree within a median of
-      <strong>2.8&thinsp;cm</strong> (n=33 re-anchors, one live session). Guidance locks onto a re-detected
-      target in about a second, and the agent never sees more than five rows per tool call.</p>
+      <strong>2.8&thinsp;cm</strong> (n=33 re-anchors: one furnished room, a single session of
+      walk-away-and-re-approach, everything inside the detector&rsquo;s few-metre useful range).
+      Guidance locks onto a re-detected target in about a second, and the agent never sees more than five rows per tool call.</p>
       <p>The clip above is that arc in one take: ask &rarr; arrow &rarr; reticle. Three frames of it,
       for skimmers:</p>
 
@@ -159,7 +160,9 @@
       <p>Hardware and OS, since reproducibility is the credibility: every number in this post comes
       from one iPhone 17 Pro (A19 Pro: CPU, GPU, and a 16-core Neural Engine, the ANE from here on),
       iOS 26, camera at 30&thinsp;fps, LiDAR at its native sparse resolution. No simulator numbers
-      anywhere.</p>
+      anywhere. Continuous 30&thinsp;fps capture held the device at nominal-to-fair thermal state
+      through the instrumented runs; what <em>sustained</em> load does to latency, and what the
+      scheduler does about it, is Section&nbsp;<a href="#s2">2</a>&rsquo;s territory.</p>
       <p>The engine reaches beyond the live camera: an offline video import (<code>PHPicker</code>)
       runs the same detect-track-embed pipeline over saved clips, and App Intents expose search to
       Siri and Shortcuts.</p>
@@ -170,41 +173,18 @@
       a networking instrument arm, and it flatlines at zero bytes.</p>
       <p>One more piece of shared context. The post is organized by system, not by date, but it cites
       the calendar constantly, because when a number was measured matters to what it can claim.
-      Table&nbsp;3 is the map those citations point into.</p>
-
-      <div class="article__tablewrap">
-        <table>
-          <caption>Table 3. The thirteen weeks, one line each, with the section that unpacks each.
-          Every &ldquo;Week N&rdquo; in this post refers to this map.</caption>
-          <thead>
-            <tr><th>Wk</th><th>Theme</th><th>What landed</th><th>&sect;</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td>Live detection MVP</td><td>YOLO26n live at 30 fps; the 13.5 ms baseline</td><td><a href="#s2">2</a></td></tr>
-            <tr><td>2</td><td>Pipeline anatomy</td><td>warmup, compute units, op placement, quantization; the real cost was preprocessing</td><td><a href="#s2">2</a>, <a href="#s3">3</a></td></tr>
-            <tr><td>3</td><td>Metal preprocessing</td><td>CPU resize &rarr; GPU letterbox, 13.5 &rarr; 8.9 ms</td><td><a href="#s2">2</a></td></tr>
-            <tr><td>4</td><td>Tracking + events</td><td>SORT/ByteTrack tracker, event log, SQLite; tests 1 &rarr; 39</td><td><a href="#s4">4</a></td></tr>
-            <tr><td>5</td><td>Semantic search</td><td>MobileCLIP2 keyframe index, vDSP recall; the eval that caught its own bias</td><td><a href="#s4">4</a></td></tr>
-            <tr><td>6</td><td>Segmentation + depth</td><td>SAM tap-to-segment, DAv2 depth, both off the hot loop</td><td><a href="#s2">2</a>, <a href="#s3">3</a></td></tr>
-            <tr><td>7</td><td>Adaptive scheduler</td><td>tier policy + multifunction 640/320; the &minus;82% ablation</td><td><a href="#s2">2</a></td></tr>
-            <tr><td>8</td><td>Reach + profile</td><td>Siri/Spotlight, video import, Instruments profile; two claims corrected</td><td><a href="#s1">1</a>, <a href="#s2">2</a></td></tr>
-            <tr><td>9</td><td>Instance memory</td><td>detections become persistent instances; recall by text, image, category</td><td><a href="#s4">4</a></td></tr>
-            <tr><td>10</td><td>3D anchors + product</td><td>LiDAR + DAv2 fusion &rarr; world anchors, semantic map; the Explore/Memory app</td><td><a href="#s5">5</a></td></tr>
-            <tr><td>11</td><td>Guidance polish</td><td>extruded 3D arrow, stabilized map fit</td><td><a href="#s5">5</a></td></tr>
-            <tr><td>12</td><td>The agent</td><td>ask-your-memory on the system LLM; the hang-and-scatter coda</td><td><a href="#s6">6</a></td></tr>
-            <tr><td>13</td><td>Object permanence</td><td>moved, missing, and look-alike objects; absence as evidence</td><td><a href="#s7">7</a></td></tr>
-          </tbody>
-        </table>
-      </div>
+      Table&nbsp;4 in Section&nbsp;<a href="#s8">8</a> is the map those citations point into.</p>
     </section>
 
     <section id="s2">
       <h2>2&ensp;The performance ladder</h2>
       <p>This section is the spine of the project: seven rungs, each one a hypothesis, a change, and
-      a number. Figure&nbsp;3 shows where it ends up. The big wins came from <em>finding out where the
+      a number. Figure&nbsp;3 shows where it ends up. The scope line, so the benchmarks don&rsquo;t blur
+      together: this section prices the <em>pipeline</em> around one fixed detector, end to end per
+      frame; Section&nbsp;<a href="#s3">3</a> prices the <em>models</em> themselves. The big wins came from <em>finding out where the
       time actually was</em>; both of my early explanations that skipped that step turned out wrong.
       Fair warning: this is the densest section in the post. The product story in
-      Sections&nbsp;<a href="#s4">4</a>&ndash;<a href="#s7">7</a> reads fine without it, and Table&nbsp;4 at
+      Sections&nbsp;<a href="#s4">4</a>&ndash;<a href="#s7">7</a> reads fine without it, and Table&nbsp;3 at
       the end of this section compresses all of its evidence into one place.</p>
 
       <figure class="article__figure">
@@ -228,6 +208,11 @@
       but loaded 30&times; faster. The dead end stays in the record: <code>.cpuAndGPU</code> does not
       run this model at all: YOLO26&rsquo;s attention blocks crash MPSGraph, a clean throw on the iOS
       version I started on and a process kill on the one I finished on.</p>
+      <p>Cold start belongs in the same ledger, from the Week-8 launch trace: first frame at
+      671&thinsp;ms, camera live at 938&thinsp;ms, first detection at ~8.3&thinsp;s, gated not by launch but
+      by a deliberate 4.9&thinsp;s pipeline-start delay plus ~3.4&thinsp;s of one-time ANE compilation. The
+      same trace caught the CLIP tokenizer parsing its 3.2&thinsp;MB vocabulary on the main thread
+      (~26% of main-thread weight); moved off-main, it now costs 0.007%.</p>
 
       <h3>2.3&ensp;The op-placement map: trust, then verify</h3>
       <p><code>MLComputePlan</code> says 83.1% of the model&rsquo;s cost-weighted compute (276 of 297 ops)
@@ -249,8 +234,10 @@
 
       <h3>2.5&ensp;Pipelining, and the first correction</h3>
       <p>A one-frame lookahead lets the GPU letterbox frame N+1 while the ANE runs frame N
-      (Figure&nbsp;4). Measured: 8.91&thinsp;ms &rarr; 8.44&thinsp;ms p50, tail down 9%, camera lag flat. Real,
-      modest, worth keeping.</p>
+      (Figure&nbsp;4). The plumbing is allocation-free at steady state: the camera buffer is wrapped
+      zero-copy, and the lookahead runs on a two-slot buffer pool, so no Metal textures or pixel
+      buffers are minted per frame. Measured: 8.91&thinsp;ms &rarr; 8.44&thinsp;ms p50, tail down 9%, camera
+      lag flat. Real, modest, worth keeping.</p>
 
       <figure class="article__figure article__figure--wide">
         <a href="../images/portfolio/projects/locallens/d2-live-pipeline.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d2-live-pipeline.png" alt="Live pipeline swimlane diagram" width="2669" height="1551" loading="lazy"></a>
@@ -299,8 +286,14 @@
       each, live scene, forced thermal override on the last: adaptive matches realtime when cool (it
       costs nothing to have), and under thermal pressure it runs <strong>82% fewer detections</strong>
       (161 vs 907 over ~1320 frames) while each remaining detection is <strong>23% cheaper at the
-      median and 35% cheaper at the tail</strong>. The power instrument agrees: CPU time down 30%,
-      retired instructions down 22.7%. A static schedule cannot produce that combination.</p>
+      median and 35% cheaper at the tail</strong>. The power instrument agrees across every engine:
+      CPU power-impact down 30%, retired instructions down 22.7%, ANE impact down 19&times;, GPU busy
+      residency down 47% (the GPU never leaves its minimum performance state in this workload).
+      Per-phase gating shows the mechanism: inference dispatches fall from 15.0/s to 2.9/s
+      Full &rarr; Throttle, and mask, depth, and embed fall to zero. Honesty about the units: those are Apple&rsquo;s <em>relative</em> power-impact
+      indices, not Joules; the device sat on a charger during the run, and per-session battery drain
+      was never instrumented (Section&nbsp;<a href="#s9">9</a> keeps that gap on the record). A static
+      schedule cannot produce that combination.</p>
 
       <figure class="article__figure">
         <a href="../images/portfolio/projects/locallens/c3-scheduler-ablation.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c3-scheduler-ablation.png" alt="Scheduler ablation chart" width="1984" height="924" loading="lazy"></a>
@@ -341,13 +334,13 @@
       detections but fewer detections of any kind, and it climbs back to 640 the moment the device
       cools. The other quality lever, detect-every-N coasting, carries the proxy caveat of
       Section&nbsp;<a href="#s4">4</a>.</p>
-      <p>Seven ablations back this post&rsquo;s engineering claims. Table&nbsp;4 is the index, and it is
+      <p>Seven ablations back this post&rsquo;s engineering claims. Table&nbsp;3 is the index, and it is
       reproducible: every bench that produced these numbers ships inside the app behind the Developer
       Mode toggle (Figure&nbsp;20).</p>
 
       <div class="article__tablewrap">
         <table>
-          <caption>Table 4. The ablation index (plus two see-also profiles below the rule). Findings
+          <caption>Table 3. The ablation index (plus two see-also profiles below the rule). Findings
           are unpacked in Sections 2&ndash;4; the benches that produced them are one toggle away in the
           shipped binary.</caption>
           <thead>
@@ -370,8 +363,10 @@
 
     <section id="s3">
       <h2>3&ensp;Model work</h2>
-      <p>Four models ship in the app and each one earned its slot through a measurement. This section
-      is the model-selection evidence, including the eval that fooled me first.</p>
+      <p>Where Section&nbsp;<a href="#s2">2</a> measured the pipeline wrapped around one detector, this
+      section measures the models themselves: which variant, which encoder, which compute unit. Four
+      models ship in the app and each one earned its slot through a measurement, including the eval
+      that fooled me first.</p>
 
       <h3>3.1&ensp;Quantization: a size lever, not a speed lever</h3>
       <p>The Pareto in Figure&nbsp;8 compares YOLO26n variants on COCO128<sup><a href="#ref-2" id="cite-2">[2]</a></sup>
@@ -441,8 +436,13 @@
       <p>The tracker is SORT<sup><a href="#ref-6" id="cite-6">[6]</a></sup> with
       ByteTrack&rsquo;s<sup><a href="#ref-7" id="cite-7">[7]</a></sup> second association: high-confidence
       detections match tracks first, then leftover tracks get a second chance against low-confidence
-      detections, which sustain a track through motion blur but can never create or confirm one. All
-      of it is pure Swift, built test-first (the suite went from 1 test to 39 the week the tracker
+      detections, which sustain a track through motion blur but can never create or confirm one. Track identity
+      is deliberately ephemeral: brief blur is bridged by that second association, fast pans are
+      dropped upstream before they can smear boxes (Section&nbsp;<a href="#s5">5</a>&rsquo;s gate), and an
+      object that leaves the frame and returns simply gets a new track id. There is no visual
+      re-identification at this layer; stitching re-appearances into one persistent thing is the
+      instance layer&rsquo;s job, by appearance merge and, later, by the geometry rules of
+      Section&nbsp;<a href="#s7">7</a>. All of it is pure Swift, built test-first (the suite went from 1 test to 39 the week the tracker
       landed, paying down a debt flagged in two earlier retros). The caveat, kept from the worklog:
       my identity-stability proxies (new-id rate, mean track lifetime) were too low-event in a slow
       scene to price detect-every-N&rsquo;s cost, so &ldquo;no measurable identity loss&rdquo; means exactly that. The
@@ -583,6 +583,13 @@
         The median tells the truth; the tail is why the clamp exists.</figcaption>
       </figure>
 
+      <p>The bounds on that evidence, stated rather than implied: the n=33 run is one furnished room
+      in a single session, following a fixed protocol (map the room, walk away, re-approach, guide;
+      the ~1&thinsp;s guided-class refresh accumulates gaps fastest), with every engagement inside the
+      detector&rsquo;s few-metre useful range. It is a same-room, same-session consistency number, not a
+      cross-environment accuracy claim, and the spread runs 0.2&thinsp;cm to 86.6&thinsp;cm with p90 at
+      19.2&thinsp;cm; the p90 is what later sizes Section&nbsp;<a href="#s7">7</a>&rsquo;s identity radius.</p>
+
       <h3>5.4&ensp;Guidance: four designs to an honest one</h3>
       <p>The found-target UX went beacon &rarr; chevron stack &rarr; extruded 3D arrow &rarr;
       projected reticle, and the discarded step matters. I built the flashiest option, a
@@ -607,6 +614,19 @@
       re-captured about once a second while guiding, so the reticle ratchets onto the object as you
       approach. Stored positions carry irreducible biases (first-view surface point, session drift);
       the design stops trusting them exactly when something better exists.</p>
+
+      <p>Two honesty notes about the substrate itself. Every coordinate lives in ARKit&rsquo;s session
+      frame, and visual-inertial odometry drifts with distance and with texture-poor scenes, so an
+      anchor inherits whatever drift had accumulated when it was filed; within a room the
+      guided-class refresh keeps re-observing and correcting, and perception is gated on ARKit&rsquo;s
+      tracking state, so relocalization wobbles pause anchoring instead of filing garbage. There is
+      no loop-closure correction of stored anchors beyond what ARKit does in-session, and a previous
+      session&rsquo;s anchors are dead reckoning until their objects are re-seen
+      (Section&nbsp;<a href="#s10">10</a>&rsquo;s first item). And low light degrades the stack
+      detector-first: LiDAR keeps ranging while the detector&rsquo;s recall fades, which shows up as fewer
+      fresh observations rather than wrong anchors. Everything here was measured in ordinary indoor
+      lighting in one room; multi-room traversal and dim scenes are untested, and
+      Section&nbsp;<a href="#s9">9</a> logs both.</p>
     </section>
 
     <section id="s6">
@@ -636,7 +656,9 @@
       fires before the model has said anything quotable.</p>
       <p><em>Hallucinated targets</em> (&ldquo;take me there&rdquo; pointing at an id the model invented): every
       row a tool actually returns is recorded in a sink, and the model&rsquo;s proposed target is honored
-      only if it appears in that sink. The app checks provenance instead of extending trust.</p>
+      only if it appears in that sink. The app checks provenance instead of extending trust. The five-row cap on every
+      tool result is part of the same design: it keeps the transcript small on a 4k-context model,
+      and it keeps the provenance set small enough that validation stays trivial.</p>
       <p><em>Wrong-class targets</em> (asked for the mouse, guided to the keyboard; embedding
       similarity blurs object words inside sentences): a deterministic validator with four ordered
       rules. Only located rows count; if the question names a class present among them, that class
@@ -687,6 +709,16 @@
       deterministic, so the app overwrites the answer with honest copy (&ldquo;I haven&rsquo;t seen a remote
       yet&rdquo;), and questions about people get their own truthful line (&ldquo;I don&rsquo;t keep track of where
       people are, only things&rdquo;). The words and the missing button finally agree.</p>
+
+      <p>What this section cannot give is failure <em>rates</em>. Each of the six modes was observed
+      at least once in normal use and each fix was verified against its repro, but without the eval
+      harness of Section&nbsp;<a href="#s10">10</a> there are no denominators, and the retrospective
+      counts that as a real cost. Two failure classes a reader might expect are structurally absent
+      rather than measured away: tool <em>selection</em> cannot go far wrong because the model has
+      exactly two tools, both read-only over the same store, and the model never parses SQL because
+      tools return typed rows, not query output. When a tool call itself fails, the fallback chain
+      is fixed: budget refusal &rarr; deadline &rarr; recall fallback, where the app answers from the
+      typed search results directly and says it is doing so.</p>
 
       <figure class="article__figure article__figure--wide">
         <a href="../images/portfolio/projects/locallens/d9-guardrail-flow.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d9-guardrail-flow.png" alt="Guardrail decision flow diagram" width="2309" height="2629" loading="lazy"></a>
@@ -779,7 +811,11 @@
       LiDAR confirms a clear sightline, and no same-label detection covers it), <em>covered</em> (a
       same-label box sits on the spot), or <em>no evidence</em> (out of view, out of range,
       occluded). Three absent samples at least a second apart flip the instance to
-      <code>missing</code>; any sighting flips it back.</p>
+      <code>missing</code>; any sighting flips it back. This is also where &ldquo;moved&rdquo; and &ldquo;someone is
+      standing in front of it&rdquo; come apart: a person or a moved chair between camera and anchor
+      makes LiDAR report the occluder&rsquo;s depth, the clear-sightline test fails, and the sample lands
+      in <em>no evidence</em>, moving no counters. Only an unobstructed view of an empty spot
+      testifies against an object, and it has to do so three times, seconds apart.</p>
 
       <div class="callout callout--fieldnote">
         <span class="callout__label">Field note</span>
@@ -830,8 +866,36 @@
 
     <section id="s8">
       <h2>8&ensp;How it was built</h2>
-      <p>Five working habits, each with the concrete moment that justified it. No methodology beyond
-      what the project actually used.</p>
+      <p>The calendar first, since the whole post cites it: Table&nbsp;4 maps the thirteen weeks, one
+      line each, with the section that unpacks each one.</p>
+
+      <div class="article__tablewrap">
+        <table>
+          <caption>Table 4. The thirteen weeks, one line each, with the section that unpacks each.
+          Every &ldquo;Week N&rdquo; in this post refers to this map.</caption>
+          <thead>
+            <tr><th>Wk</th><th>Theme</th><th>What landed</th><th>&sect;</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Live detection MVP</td><td>YOLO26n live at 30 fps; the 13.5 ms baseline</td><td><a href="#s2">2</a></td></tr>
+            <tr><td>2</td><td>Pipeline anatomy</td><td>warmup, compute units, op placement, quantization; the real cost was preprocessing</td><td><a href="#s2">2</a>, <a href="#s3">3</a></td></tr>
+            <tr><td>3</td><td>Metal preprocessing</td><td>CPU resize &rarr; GPU letterbox, 13.5 &rarr; 8.9 ms</td><td><a href="#s2">2</a></td></tr>
+            <tr><td>4</td><td>Tracking + events</td><td>SORT/ByteTrack tracker, event log, SQLite; tests 1 &rarr; 39</td><td><a href="#s4">4</a></td></tr>
+            <tr><td>5</td><td>Semantic search</td><td>MobileCLIP2 keyframe index, vDSP recall; the eval that caught its own bias</td><td><a href="#s4">4</a></td></tr>
+            <tr><td>6</td><td>Segmentation + depth</td><td>SAM tap-to-segment, DAv2 depth, both off the hot loop</td><td><a href="#s2">2</a>, <a href="#s3">3</a></td></tr>
+            <tr><td>7</td><td>Adaptive scheduler</td><td>tier policy + multifunction 640/320; the &minus;82% ablation</td><td><a href="#s2">2</a></td></tr>
+            <tr><td>8</td><td>Reach + profile</td><td>Siri/Spotlight, video import, Instruments profile; two claims corrected</td><td><a href="#s1">1</a>, <a href="#s2">2</a></td></tr>
+            <tr><td>9</td><td>Instance memory</td><td>detections become persistent instances; recall by text, image, category</td><td><a href="#s4">4</a></td></tr>
+            <tr><td>10</td><td>3D anchors + product</td><td>LiDAR + DAv2 fusion &rarr; world anchors, semantic map; the Explore/Memory app</td><td><a href="#s5">5</a></td></tr>
+            <tr><td>11</td><td>Guidance polish</td><td>extruded 3D arrow, stabilized map fit</td><td><a href="#s5">5</a></td></tr>
+            <tr><td>12</td><td>The agent</td><td>ask-your-memory on the system LLM; the hang-and-scatter coda</td><td><a href="#s6">6</a></td></tr>
+            <tr><td>13</td><td>Object permanence</td><td>moved, missing, and look-alike objects; absence as evidence</td><td><a href="#s7">7</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Then five working habits, each with the concrete moment that justified it. No methodology
+      beyond what the project actually used.</p>
       <p><strong>Instrument before optimizing.</strong> The <code>os_signpost</code> spans and CSV
       bench harness went in during week 1, before any optimization. Every rung of
       Section&nbsp;<a href="#s2">2</a> exists because the measurement did. The two public corrections in
@@ -882,6 +946,10 @@
         lock-on radius survived three weeks unexamined, because nothing forced the question until a
         twin sat at 0.43&thinsp;m from a stale target.</li>
       </ul>
+      <p>Starting the same project again today, two of Section&nbsp;<a href="#s10">10</a>&rsquo;s items would
+      be day-one architecture rather than endnotes: the agent eval harness and session-stamped
+      anchors. Both are cheap early and expensive late, and both were flagged as debt while there
+      was still calendar to pay it.</p>
       <p>And the standing critique of the evidence itself, stated plainly so nobody has to discover
       it in a footnote: every benchmark in this post is single-device and mostly single-run
       (run-to-run variance is visible in places, like int8&rsquo;s 7.1&thinsp;ms beating fp16&rsquo;s 7.4&thinsp;ms);
@@ -889,8 +957,16 @@
       re-anchor consistency evidence is three small sessions (n = 12, 6, 19) plus one instrumented
       session (n = 33), reported per-run and never pooled; the object-permanence thresholds
       (0.35&thinsp;m, 0.92, size &times; 10) trace to measured incidents on one device in one room and
-      none were swept; the twin-cosine evidence is roughly twenty pairs from four objects; and the
-      quantization variants still ride in the shipped bundle as 11&thinsp;MB of ablation ballast. The
+      none were swept; the twin-cosine evidence is roughly twenty pairs from four objects; the
+      spatial evidence as a whole is one furnished room under ordinary indoor lighting, with no
+      low-light or multi-room arm; peak whole-session RAM was never instrumented (per-model load
+      deltas exist, the detector&rsquo;s is 11.6&thinsp;MB, but nobody watched the high-water mark with
+      everything resident); battery drain per session was never measured either, and
+      Section&nbsp;<a href="#s2">2</a>&rsquo;s relative power-impact indices are the closest thing on file;
+      the whole-system profile itself ran on the week-8 build, before the agent and the permanence
+      sweep existed, so no Instruments session has seen the full shipped configuration; and the
+      quantization variants still ride in the shipped bundle as 11&thinsp;MB of ablation
+      ballast. The
       missing agent eval harness now has a visible cost: descriptive queries still trip
       deterministic tool loops that a watchdog contains rather than cures. A reviewer should weigh
       the claims accordingly. I would rather under-claim here than have one number in this post that
@@ -905,8 +981,9 @@
       into a dead coordinate frame until the object is re-seen. The fix is either honest UI
       (session-stamp instances; offer &ldquo;take me there&rdquo; only for this session&rsquo;s anchors and render
       older ones as &ldquo;last seen here&rdquo;) or real relocalization via <code>ARWorldMap</code>
-      persistence. I would ship the honest UI first; it is a day of work and removes the sharpest
-      edge.</p>
+      persistence. I would ship the honest UI first; it is a day of work and removes the sharpest edge. Multi-room
+      is the same problem scaled, and the constraint is not memory (anchors are rows; a whole flat
+      is kilobytes): it is relocalization robustness across per-room world maps.</p>
       <p><strong>An agent eval harness.</strong> All six hardening rounds in
       Section&nbsp;<a href="#s6">6</a> were found by using the app. Every one of them was scriptable in
       advance: a fixture store, a bank of questions (on-topic, off-topic, absent-object,
