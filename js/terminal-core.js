@@ -33,6 +33,7 @@
   var MEDIUM = "https://pranavnatekar.medium.com/";
 
   var PROJECTS = [
+    { slug: "locallens", title: "LocalLens — on-device video intelligence for iPhone", meta: "On-device ML · iOS · Swift" },
     { slug: "tabla-tala", title: "Automatic Detection & Classification of Tabla Talas", meta: "ML · Audio · TensorFlow Community Spotlight winner" },
     { slug: "autonomous-vehicle", title: "Autonomous Vehicle Drive", meta: "Robotics · Deep Learning" },
     { slug: "image-augmenter", title: "Image Augmenter", meta: "Tools · Computer Vision" },
@@ -41,7 +42,6 @@
   ];
 
   var BLOG = [
-    { title: "LocalLens: a worklog — on-device video intelligence for iPhone", date: "Jul 2026", href: "blog/locallens.html" },
     { title: "Cross Compile OpenCV for RISC-V", date: "Aug 2021", href: "https://pranavnatekar.medium.com/cross-compile-opencv-for-risc-v-460305012adb" },
     { title: "A Practical Guide to Image Processing & Computer Vision — Part 1", date: "Oct 2019", href: "https://pranavnatekar.medium.com/a-comprehensive-and-practical-guide-to-image-processing-and-computer-vision-using-python-part-1-4d8283c6d6eb" },
     { title: "Tackle Almost Any Audio Classification Challenge", date: "Aug 2019", href: "https://pranavnatekar.medium.com/tackle-almost-any-audio-classification-challenge-with-this-34a1d0ac82b9" }
