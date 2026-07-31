@@ -134,7 +134,7 @@
       ships in the same binary behind a Developer Mode toggle.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d1-system-architecture.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d1-system-architecture.png" alt="LocalLens system architecture diagram" width="2510" height="1195" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d1-system-architecture.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d1-system-architecture.png" alt="LocalLens system architecture diagram" width="2667" height="1266" loading="lazy"></a>
         <figcaption>Figure 2. One iPhone: sensors &rarr; GPU/ANE/CPU &rarr; spatial memory &rarr; surfaces.
         The dashed return path is the ask-and-guide loop.</figcaption>
       </figure>
@@ -277,7 +277,7 @@
       state-by-content matrix is unit-tested on a Mac.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d3-adaptive-scheduler.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d3-adaptive-scheduler.png" alt="Adaptive scheduler diagram" width="2665" height="1641" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d3-adaptive-scheduler.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d3-adaptive-scheduler.png" alt="Adaptive scheduler diagram" width="2665" height="1650" loading="lazy"></a>
         <figcaption>Figure 5. System state picks a tier ceiling; the tier plus per-frame motion
         decides what runs. A tier switch costs 179&thinsp;ms.</figcaption>
       </figure>
@@ -442,8 +442,8 @@
       (events), appearance (embeddings), and recall. This section builds that chain; its schema is
       Figure&nbsp;9, and Figure&nbsp;10 is the chain read back in the app.</p>
 
-      <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d4-memory-schema.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d4-memory-schema.png" alt="Memory schema diagram" width="2219" height="2272" loading="lazy"></a>
+      <figure class="article__figure article__figure--wide" style="width: min(1150px, 92vw);">
+        <a href="../images/portfolio/projects/locallens/d4-memory-schema.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d4-memory-schema.png" alt="Memory schema diagram" width="2482" height="2347" loading="lazy"></a>
         <figcaption>Figure 9. One SQLite file: a temporal log of what the camera saw, and a semantic
         registry of what exists. The <code>position</code> blob on instances is the 3D anchor of
         Section&nbsp;5.</figcaption>
@@ -496,7 +496,7 @@
       outputs in unit tests.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d5-recall-dataflow.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d5-recall-dataflow.png" alt="Recall dataflow diagram" width="2651" height="878" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d5-recall-dataflow.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d5-recall-dataflow.png" alt="Recall dataflow diagram" width="2729" height="907" loading="lazy"></a>
         <figcaption>Figure 11. Text and image queries meet in the same 512-d space; category recall
         bypasses embeddings entirely.</figcaption>
       </figure>
@@ -527,7 +527,7 @@
       own error sources.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d6-ar-perception-loop.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d6-ar-perception-loop.png" alt="AR perception loop diagram" width="2487" height="1585" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d6-ar-perception-loop.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d6-ar-perception-loop.png" alt="AR perception loop diagram" width="2642" height="1685" loading="lazy"></a>
         <figcaption>Figure 12. Every 6th ARFrame: gate, detect on the upright image, fuse depth,
         unproject in buffer space. Roughly 10&thinsp;Hz of perception beside 60&thinsp;fps tracking.</figcaption>
       </figure>
@@ -560,7 +560,7 @@
       which caught a constant-patch conditioning bug off-device.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d7-depth-fusion.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d7-depth-fusion.png" alt="Depth fusion diagram" width="2665" height="1437" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d7-depth-fusion.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d7-depth-fusion.png" alt="Depth fusion diagram" width="2664" height="1435" loading="lazy"></a>
         <figcaption>Figure 13. Sparse-but-metric plus dense-but-relative, aligned by scale and shift
         where the ambiguity actually lives.</figcaption>
       </figure>
@@ -657,7 +657,7 @@
       enforcement.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d8-agent-sequence.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d8-agent-sequence.png" alt="Agent sequence diagram" width="2666" height="1208" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d8-agent-sequence.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d8-agent-sequence.png" alt="Agent sequence diagram" width="2666" height="1214" loading="lazy"></a>
         <figcaption>Figure 16. A fresh session per question, tools that record what they returned,
         typed gates, and a human who does the navigating.</figcaption>
       </figure>
@@ -738,7 +738,7 @@
       typed search results directly and says it is doing so.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d9-guardrail-flow.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d9-guardrail-flow.png" alt="Guardrail decision flow diagram" width="2309" height="2629" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d9-guardrail-flow.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d9-guardrail-flow.png" alt="Guardrail decision flow diagram" width="2246" height="2414" loading="lazy"></a>
         <figcaption>Figure 18. How a proposal becomes a target. Green paths carry only ids the
         model&rsquo;s own tool calls returned.</figcaption>
       </figure>
@@ -760,7 +760,7 @@
       Section&nbsp;<a href="#s7">7</a>, after look-alike twins abuse the generous version.</p>
 
       <figure class="article__figure article__figure--wide">
-        <a href="../images/portfolio/projects/locallens/d10-guidance-states.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d10-guidance-states.png" alt="Guidance state machine diagram" width="2456" height="1506" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/d10-guidance-states.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/d10-guidance-states.png" alt="Guidance state machine diagram" width="2665" height="1617" loading="lazy"></a>
         <figcaption>Figure 19. Map the space, ask the memory, walk over with live verification.
         Perception pauses only while asking.</figcaption>
       </figure>
