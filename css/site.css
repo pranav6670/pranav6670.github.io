@@ -149,7 +149,7 @@ h1, h2, h3, h4 {
 .article__tablewrap tr.rule td { border-bottom: 1px solid var(--border-strong); }
 .article__tablewrap caption { caption-side: bottom; text-align: left; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); padding-top: 0.6rem; }
 .article__figure figcaption { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin-top: 0.6rem; }
-.article__figure video { width: 100%; border-radius: 8px; display: block; }
+.article__figure video { width: 100%; height: auto; border-radius: 8px; display: block; }
 .article__figure--narrow { width: min(420px, 92vw); }
 .article__figure--wide { width: min(1280px, 96vw); }
 .article__figure a { display: block; }

@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css?v=20260729c">
+  <link rel="stylesheet" href="../css/site.css?v=20260729d">
 </head>
 
 <body id="top">
@@ -62,7 +62,7 @@
     </ul>
 
     <figure class="article__figure article__figure--narrow">
-      <video autoplay muted loop playsinline preload="metadata" width="656" height="1428"
+      <video data-inview autoplay muted loop playsinline preload="metadata" width="656" height="1428"
              poster="../images/portfolio/projects/locallens/locallens-demo-poster.jpg"
              src="../images/portfolio/projects/locallens/locallens-demo.mp4"></video>
       <figcaption>One continuous take: map the room, ask for a thing, follow the arrow, watch the
@@ -533,12 +533,12 @@
       <div class="article__math">1/z &asymp; s&middot;d + t, &nbsp;&nbsp; s = cov(d, 1/z) / var(d), &nbsp;&nbsp; t = <span style="text-decoration: overline;">1/z</span> &minus; s&middot;<span style="text-decoration: overline;">d</span>,</div>
       <p>guarded against ill-conditioning (var(d) &gt; 10<sup>&minus;6</sup>(1+<span style="text-decoration: overline;">d</span><sup>&thinsp;2</sup>)), then drop residuals
       beyond 2&sigma; (LiDAR edge noise) and refit once. Dense metric depth is
-      &zcirc; = 1/(s&middot;d + t) with the denominator floored, the box&rsquo;s depth is the median over kept
+      &#7825; = 1/(s&middot;d + t) with the denominator floored, the box&rsquo;s depth is the median over kept
       samples, and if fewer than eight pairs survive, the code falls back to the raw LiDAR median.
       The anchor position comes from unprojecting the masked centroid,</p>
-      <div class="article__math">X<sub>c</sub> = &zcirc;&thinsp;K<sup>&minus;1</sup>&thinsp;[u, v, 1]<sup>T</sup>, &nbsp;&nbsp; X<sub>w</sub> = T<sub>wc</sub>&thinsp;X&#771;<sub>c</sub>,</div>
+      <div class="article__math">X<sub>c</sub> = &#7825;&thinsp;K<sup>&minus;1</sup>&thinsp;[u, v, 1]<sup>T</sup>, &nbsp;&nbsp; X<sub>w</sub> = T<sub>wc</sub>&thinsp;X&#771;<sub>c</sub>,</div>
       <p>and the object&rsquo;s physical extent, used later to size the reticle, is
-      w<sub>m</sub> = w<sub>px</sub>&thinsp;&zcirc; / f<sub>x</sub>. <code>DepthFusion</code> is pure Swift
+      w<sub>m</sub> = w<sub>px</sub>&thinsp;&#7825; / f<sub>x</sub>. <code>DepthFusion</code> is pure Swift
       with no ARKit types; the fit ran against synthetic cases on a Mac before it ever ran in AR,
       which caught a constant-patch conditioning bug off-device.</p>
 
@@ -682,7 +682,7 @@
       </figure>
 
       <figure class="article__figure article__figure--narrow">
-        <video controls muted playsinline preload="metadata" width="656" height="1428"
+        <video data-inview controls muted loop playsinline preload="metadata" width="656" height="1428"
                poster="../images/portfolio/projects/locallens/locallens-agent-poster.jpg"
                src="../images/portfolio/projects/locallens/locallens-agent.mp4"></video>
         <figcaption>The ask flow, live and uncut: question in, grounded streamed answer, &ldquo;Take me
@@ -1082,7 +1082,7 @@
     </div>
   </footer>
 
-  <script src="../js/site.js?v=20260729c"></script>
+  <script src="../js/site.js?v=20260729d"></script>
 </body>
 
 </html>

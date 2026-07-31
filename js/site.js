@@ -47,6 +47,23 @@
     });
   });
 
+  // Article videos: play while on screen, pause off screen (muted inline demos)
+  var vids = document.querySelectorAll("video[data-inview]");
+  if ("IntersectionObserver" in window && vids.length) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var v = entry.target;
+        if (entry.isIntersecting) {
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        } else {
+          v.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(function (v) { vio.observe(v); });
+  }
+
   // Reveal on scroll
   var revealEls = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && revealEls.length) {
