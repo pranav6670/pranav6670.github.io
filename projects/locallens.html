@@ -320,7 +320,10 @@
         <span class="callout__label">Field note</span>
         <p>Under sustained load the same YOLO predict drifts from 3.3&thinsp;ms to 6.0&thinsp;ms, and under a
         forced thermal state the ANE&rsquo;s Full-tier configuration collapses 19&times;. The scheduler
-        exists because the hardware&rsquo;s good mood is not a constant.</p>
+        exists because the hardware&rsquo;s good mood is not a constant. A later re-run made the point
+        organically: on a heat-soaked device (thermal &ldquo;serious,&rdquo; no override anywhere), adaptive
+        sat itself at Throttle/320 and delivered 3.8&thinsp;ms end to end while forced realtime pushed
+        6.9&thinsp;ms at Full/640.</p>
       </div>
 
       <h3>2.8&ensp;What the fast path costs, and the ablation index</h3>
@@ -334,6 +337,20 @@
       detections but fewer detections of any kind, and it climbs back to 640 the moment the device
       cools. The other quality lever, detect-every-N coasting, carries the proxy caveat of
       Section&nbsp;<a href="#s4">4</a>.</p>
+      <p>A second profiling session, run on the finished build (agent and absence sweep alive, which
+      the Week-8 profile predates), closes the ledger&rsquo;s two oldest gaps. Memory: the whole app&rsquo;s
+      physical footprint holds a median of ~670&thinsp;MB with a session high-water mark of
+      <strong>804&thinsp;MB</strong>, across a wired sweep and an unplugged run; that is the price of
+      keeping the 190&thinsp;MB embedding model, SAM, depth, the detector, and ARKit&rsquo;s buffers resident
+      at once. Battery: unplugged at 54% brightness, the drain rate averaged
+      <strong>36.4%/hr</strong>, call it 6% of battery per ten minutes of active mapping-and-asking.
+      The per-process power split on that run reads CPU 9.2, display 1.9, GPU 1.4 (relative indices
+      again), and networking <strong>0.00</strong>: the privacy receipt, re-confirmed on the shipped
+      configuration with the agent running. A Metal system trace on the AR path re-confirmed the GPU
+      story too: minimum performance state 98.7% of the run. The honest residue: those sessions are
+      short (~2.5 minutes each) and unsegmented, so per-phase memory (mapping vs asking) remains
+      unmeasured, and the ANE power arm was not re-captured.</p>
+
       <p>Seven ablations back this post&rsquo;s engineering claims. Table&nbsp;3 is the index, and it is
       reproducible: every bench that produced these numbers ships inside the app behind the Developer
       Mode toggle (Figure&nbsp;20).</p>
@@ -959,12 +976,10 @@
       (0.35&thinsp;m, 0.92, size &times; 10) trace to measured incidents on one device in one room and
       none were swept; the twin-cosine evidence is roughly twenty pairs from four objects; the
       spatial evidence as a whole is one furnished room under ordinary indoor lighting, with no
-      low-light or multi-room arm; peak whole-session RAM was never instrumented (per-model load
-      deltas exist, the detector&rsquo;s is 11.6&thinsp;MB, but nobody watched the high-water mark with
-      everything resident); battery drain per session was never measured either, and
-      Section&nbsp;<a href="#s2">2</a>&rsquo;s relative power-impact indices are the closest thing on file;
-      the whole-system profile itself ran on the week-8 build, before the agent and the permanence
-      sweep existed, so no Instruments session has seen the full shipped configuration; and the
+      low-light or multi-room arm; the memory and battery numbers of
+      Section&nbsp;<a href="#s2">2</a> come from a second profiling session on the finished build, but
+      its runs were short and unsegmented, so per-phase footprint (what the ask alone costs) is
+      still unknown and the ANE power arm was never re-captured after week 8; and the
       quantization variants still ride in the shipped bundle as 11&thinsp;MB of ablation
       ballast. The
       missing agent eval harness now has a visible cost: descriptive queries still trip
