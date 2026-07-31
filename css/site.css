@@ -167,6 +167,10 @@ h1, h2, h3, h4 {
 @media (max-width: 600px) {
   .article__toc { columns: 1; }
 }
+@media (max-width: 480px) {
+  .article__shots { flex-wrap: wrap; }
+  .article__shots img { flex-basis: 100%; }
+}
 
 /* ---- Buttons ---- */
 .btn { display: inline-block; font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.03em; text-transform: uppercase; padding: 0.7rem 1.25rem; border: 1px solid var(--border-strong); border-radius: 2px; transition: background .2s ease, color .2s ease; }
