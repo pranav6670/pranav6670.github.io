@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LocalLens: a worklog &mdash; Pranav Natekar</title>
-  <meta name="description" content="Thirteen weeks building private, on-device video intelligence for iPhone: a 3.2× faster live perception loop, 2.8 cm spatial memory, an on-device agent, and zero bytes on the wire.">
+  <meta name="description" content="Thirteen weeks building private, on-device video intelligence for iPhone: a 3.2× faster live perception loop, 2.8&thinsp;cm spatial memory, an on-device agent, and zero bytes on the wire.">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="LocalLens: a worklog">
-  <meta property="og:description" content="Thirteen weeks of on-device video intelligence on one iPhone: a 3.2× faster live loop, 2.8 cm spatial memory, an on-device agent, zero bytes on the wire.">
+  <meta property="og:title" content="LocalLens: a 4.2 ms on-device spatial object memory for iPhone">
+  <meta property="og:description" content="Thirteen weeks of on-device video intelligence on one iPhone: a 3.2× faster live loop, 2.8&thinsp;cm spatial memory, an on-device agent, zero bytes on the wire.">
   <meta property="og:image" content="https://pranav6670.github.io/images/portfolio/projects/locallens/og-cover.jpg">
   <meta property="og:url" content="https://pranav6670.github.io/projects/locallens.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css?v=20260729d">
+  <link rel="stylesheet" href="../css/site.css?v=20260731a">
 </head>
 
 <body id="top">
@@ -94,11 +94,11 @@
             <tr><th>Stage</th><th>Change</th><th>e2e p50 (live)</th><th>Note</th></tr>
           </thead>
           <tbody>
-            <tr><td>Baseline</td><td>Vision path, every frame</td><td>13.5 ms</td><td>week 1 (inference alone: 13.4 ms)</td></tr>
-            <tr><td>+ warmup, compute units</td><td><code>.all</code>, 1-shot warmup</td><td>13.5 ms</td><td>runtime flat; load 30&times; faster</td></tr>
-            <tr><td>+ Metal preprocess</td><td>GPU letterbox</td><td>8.9 ms</td><td>1.52&times;; the resize was the cost</td></tr>
-            <tr><td>+ pipelining</td><td>1-frame lookahead</td><td>8.44 ms</td><td>tail &minus;9%; overlap claim later corrected</td></tr>
-            <tr class="rule"><td>+ multifunction 320</td><td>scheduler fast path</td><td><strong>4.2 ms</strong></td><td>3.2&times; vs baseline</td></tr>
+            <tr><td>Baseline</td><td>Vision path, every frame</td><td>13.5&thinsp;ms</td><td>week 1 (inference alone: 13.4&thinsp;ms)</td></tr>
+            <tr><td>+ warmup, compute units</td><td><code>.all</code>, 1-shot warmup</td><td>13.5&thinsp;ms</td><td>runtime flat; load 30&times; faster</td></tr>
+            <tr><td>+ Metal preprocess</td><td>GPU letterbox</td><td>8.9&thinsp;ms</td><td>1.52&times;; the resize was the cost</td></tr>
+            <tr><td>+ pipelining</td><td>1-frame lookahead</td><td>8.44&thinsp;ms</td><td>tail &minus;9%; overlap claim later corrected</td></tr>
+            <tr class="rule"><td>+ multifunction 320</td><td>scheduler fast path</td><td><strong>4.2&thinsp;ms</strong></td><td>3.2&times; vs baseline</td></tr>
             <tr><td>Scheduler ablation</td><td>adaptive + thermal</td><td colspan="2">&minus;82% detections <em>and</em> p95 &minus;35%</td></tr>
           </tbody>
         </table>
@@ -106,7 +106,7 @@
 
       <p>The spatial half has its own scorecard. When the app re-observes an object it already
       anchored in 3D, the new position and the stored one agree within a median of
-      <strong>2.8&thinsp;cm</strong> (n=33 re-anchors: one furnished room, a single session of
+      <strong>2.8&thinsp;cm</strong> (<em>n</em> = 33 re-anchors: one furnished room, a single session of
       walk-away-and-re-approach, everything inside the detector&rsquo;s few-metre useful range).
       Guidance locks onto a re-detected target in about a second, and the agent never sees more than five rows per tool call.</p>
       <p>The clip above is that arc in one take: ask &rarr; arrow &rarr; reticle. Three frames of it,
@@ -142,17 +142,17 @@
       <div class="article__tablewrap">
         <table>
           <caption>Table 2. The model inventory, sizes measured from the shipped .mlpackages. Four
-          quantization-study variants of YOLO26n (another 11 MB) also ride along for the ablation in
+          quantization-study variants of YOLO26n (another 11&thinsp;MB) also ride along for the ablation in
           Section 3.</caption>
           <thead>
             <tr><th>Model</th><th>On-disk size</th><th>Role</th></tr>
           </thead>
           <tbody>
-            <tr><td>YOLO26n (multifunction 640/320)</td><td>5.0 MB</td><td>detector, every live frame</td></tr>
-            <tr><td>MobileCLIP2-S2 (image + text)</td><td>190 MB (69 + 121)</td><td>shared embedding space for recall</td></tr>
-            <tr><td>Depth Anything V2 small (518/364)</td><td>48 MB</td><td>dense relative depth for 3D anchoring</td></tr>
-            <tr><td>SAM 2.1 Tiny (enc + dec + prompt)</td><td>&approx;76 MB</td><td>tap-to-segment</td></tr>
-            <tr><td>System language model</td><td>+0 MB</td><td>the agent; ships with iOS 26</td></tr>
+            <tr><td>YOLO26n (multifunction 640/320)</td><td>5.0&thinsp;MB</td><td>detector, every live frame</td></tr>
+            <tr><td>MobileCLIP2-S2 (image + text)</td><td>190&thinsp;MB (69 + 121)</td><td>shared embedding space for recall</td></tr>
+            <tr><td>Depth Anything V2 small (518/364)</td><td>48&thinsp;MB</td><td>dense relative depth for 3D anchoring</td></tr>
+            <tr><td>SAM 2.1 Tiny (enc + dec + prompt)</td><td>&approx;76&thinsp;MB</td><td>tap-to-segment</td></tr>
+            <tr><td>System language model</td><td>+0&thinsp;MB</td><td>the agent; ships with iOS 26</td></tr>
           </tbody>
         </table>
       </div>
@@ -188,7 +188,7 @@
       the end of this section compresses all of its evidence into one place.</p>
 
       <figure class="article__figure">
-        <a href="../images/portfolio/projects/locallens/c1-performance-ladder.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c1-performance-ladder.png" alt="Performance ladder bar chart, 13.5 to 4.2 ms" width="1690" height="951" loading="lazy"></a>
+        <a href="../images/portfolio/projects/locallens/c1-performance-ladder.png" target="_blank" rel="noopener noreferrer" title="Open full size"><img src="../images/portfolio/projects/locallens/c1-performance-ladder.png" alt="Performance ladder bar chart, 13.5 to 4.2&thinsp;ms" width="1690" height="951" loading="lazy"></a>
         <figcaption>Figure 3. The ladder as a chart. Gray rungs changed nothing at runtime; teal rungs
         are the engineering; the coral rung is the scheduler&rsquo;s fast path.</figcaption>
       </figure>
@@ -364,7 +364,7 @@
             <tr><th>Ablation</th><th>One-line finding</th></tr>
           </thead>
           <tbody>
-            <tr><td>CPU vs Metal preprocess</td><td>the resize was the cost, not the model; e2e 13.5 &rarr; 8.9 ms</td></tr>
+            <tr><td>CPU vs Metal preprocess</td><td>the resize was the cost, not the model; e2e 13.5 &rarr; 8.9&thinsp;ms</td></tr>
             <tr><td>detect-every-N + tracker</td><td>cadence is the per-frame-cost lever; the tracker coasts between detects</td></tr>
             <tr><td>quantization Pareto</td><td>latency flat across variants; quantization buys size, not speed</td></tr>
             <tr><td>preprocess modes, 3-way</td><td>Vision vs Metal-serial vs Metal-pipelined; pipelining overlaps the letterbox with the predict</td></tr>
@@ -372,7 +372,7 @@
             <tr><td>scheduler matrix</td><td>observed tier = expected on all 32 state combos; FPS flat</td></tr>
             <tr class="rule"><td>scheduler-policy ablation</td><td>&minus;82% detections <em>and</em> cheaper units under forced thermal</td></tr>
             <tr><td>whole-system profile</td><td>live-vs-lab gap was Vision&rsquo;s CPU resize; overlap disproven; network 0 bytes</td></tr>
-            <tr><td>fast-path parity</td><td>320 detector &minus;9.5 pp mAP50-95; 364 depth r = 0.984, 3.5% MAE</td></tr>
+            <tr><td>fast-path parity</td><td>320 detector &minus;9.5&thinsp;pp mAP50-95; 364 depth r = 0.984, 3.5% MAE</td></tr>
           </tbody>
         </table>
       </div>
@@ -580,7 +580,7 @@
         <p>The metric earned its keep immediately. An early run reported median gap 11.3&thinsp;cm but mean
         34.6&thinsp;cm; that spread is the signature of an outlier tail, and the tail traced to occasional
         bad fusion fits dragging anchors. The 15&thinsp;cm step clamp above is the fix the metric bought.
-        The verified run after hardening: median 8.9&thinsp;cm, mean 12.3 (n=19).</p>
+        The verified run after hardening: median 8.9&thinsp;cm, mean 12.3 (<em>n</em> = 19).</p>
       </div>
 
       <div class="callout">
@@ -600,7 +600,7 @@
         The median tells the truth; the tail is why the clamp exists.</figcaption>
       </figure>
 
-      <p>The bounds on that evidence, stated rather than implied: the n=33 run is one furnished room
+      <p>The bounds on that evidence, stated rather than implied: the <em>n</em> = 33 run is one furnished room
       in a single session, following a fixed protocol (map the room, walk away, re-approach, guide;
       the ~1&thinsp;s guided-class refresh accumulates gaps fastest), with every engagement inside the
       detector&rsquo;s few-metre useful range. It is a same-room, same-session consistency number, not a
@@ -894,9 +894,9 @@
             <tr><th>Wk</th><th>Theme</th><th>What landed</th><th>&sect;</th></tr>
           </thead>
           <tbody>
-            <tr><td>1</td><td>Live detection MVP</td><td>YOLO26n live at 30 fps; the 13.5 ms baseline</td><td><a href="#s2">2</a></td></tr>
+            <tr><td>1</td><td>Live detection MVP</td><td>YOLO26n live at 30&thinsp;fps; the 13.5&thinsp;ms baseline</td><td><a href="#s2">2</a></td></tr>
             <tr><td>2</td><td>Pipeline anatomy</td><td>warmup, compute units, op placement, quantization; the real cost was preprocessing</td><td><a href="#s2">2</a>, <a href="#s3">3</a></td></tr>
-            <tr><td>3</td><td>Metal preprocessing</td><td>CPU resize &rarr; GPU letterbox, 13.5 &rarr; 8.9 ms</td><td><a href="#s2">2</a></td></tr>
+            <tr><td>3</td><td>Metal preprocessing</td><td>CPU resize &rarr; GPU letterbox, 13.5 &rarr; 8.9&thinsp;ms</td><td><a href="#s2">2</a></td></tr>
             <tr><td>4</td><td>Tracking + events</td><td>SORT/ByteTrack tracker, event log, SQLite; tests 1 &rarr; 39</td><td><a href="#s4">4</a></td></tr>
             <tr><td>5</td><td>Semantic search</td><td>MobileCLIP2 keyframe index, vDSP recall; the eval that caught its own bias</td><td><a href="#s4">4</a></td></tr>
             <tr><td>6</td><td>Segmentation + depth</td><td>SAM tap-to-segment, DAv2 depth, both off the hot loop</td><td><a href="#s2">2</a>, <a href="#s3">3</a></td></tr>
@@ -971,8 +971,8 @@
       it in a footnote: every benchmark in this post is single-device and mostly single-run
       (run-to-run variance is visible in places, like int8&rsquo;s 7.1&thinsp;ms beating fp16&rsquo;s 7.4&thinsp;ms);
       tracking quality rests on correctness tests and low-event proxies, not MOTA/IDF1; the
-      re-anchor consistency evidence is three small sessions (n = 12, 6, 19) plus one instrumented
-      session (n = 33), reported per-run and never pooled; the object-permanence thresholds
+      re-anchor consistency evidence is three small sessions (<em>n</em> = 12, 6, 19) plus one instrumented
+      session (<em>n</em> = 33), reported per-run and never pooled; the object-permanence thresholds
       (0.35&thinsp;m, 0.92, size &times; 10) trace to measured incidents on one device in one room and
       none were swept; the twin-cosine evidence is roughly twenty pairs from four objects; the
       spatial evidence as a whole is one furnished room under ordinary indoor lighting, with no
@@ -1097,7 +1097,7 @@
     </div>
   </footer>
 
-  <script src="../js/site.js?v=20260729d"></script>
+  <script src="../js/site.js?v=20260731a"></script>
 </body>
 
 </html>
