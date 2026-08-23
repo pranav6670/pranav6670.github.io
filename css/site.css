@@ -151,6 +151,10 @@ h1, h2, h3, h4 {
 .article__figure figcaption { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); line-height: 1.5; margin-top: 0.6rem; }
 .article__figure video { width: 100%; height: auto; border-radius: 8px; display: block; }
 .article__figure--narrow { width: min(420px, 92vw); }
+/* Portrait phone recordings: fit the whole take on one screen — size by
+   viewport height (svh = with browser chrome visible), never by width. */
+.article__figure--narrow video { width: auto; max-width: 100%; margin-inline: auto; max-height: min(74vh, 660px); max-height: min(74svh, 660px); }
+.article__figure--narrow figcaption { text-align: center; }
 .article__figure--wide { width: min(1280px, 96vw); }
 .article__figure a { display: block; }
 .article__shots { display: flex; gap: 10px; justify-content: center; align-items: flex-start; }
