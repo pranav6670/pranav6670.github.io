@@ -66,7 +66,7 @@
     ],
     "education.txt": [
       [t("MS, Electrical Engineering — Rochester Institute of Technology")],
-      [t("Focus: Image Processing & Computer Vision")]
+      [t("Focus: Computer Vision")]
     ],
     "research.txt": [
       [link("brain.lab @ RIT", "https://www.rit.edu/kgcoe/brainlab/"), t(", advised by "), link("Dr. Cory Merkel", "https://scholar.google.com/citations?user=YnhtWqYAAAAJ&hl=en"), t(" —")],
@@ -88,8 +88,7 @@
     [t("      ├── EDG Intern @ MathWorks — on-device computer vision & deep learning")],
     [t("      └── Software Engineer @ SiFive — custom computer vision and language models")],
     [t("          for a VLIW+SIMD DSP IP and an AI accelerator")],
-    [t("→ Education : MS EE, Rochester Institute of Technology — CV & image processing")],
-    [t("→ Research  : "), link("brain.lab @ RIT", "https://www.rit.edu/kgcoe/brainlab/"), t(" — speech tech for atypical speech")]
+    [t("→ Education : MS EE, Rochester Institute of Technology — CV")]
   ];
 
   function blogLines() {
